@@ -1,0 +1,692 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/menu_layout"
+    android:layout_width="1024px"
+    android:layout_height="800px" >
+
+    <FrameLayout
+        android:layout_width="1024px"
+        android:layout_height="78px" >
+
+        <Button
+            android:id="@+id/call01Button"
+            android:layout_width="158px"
+            android:layout_height="58px"
+            android:layout_marginLeft="10px"
+            android:layout_marginTop="10px"
+            android:background="@drawable/air_btn_bg_selector"
+            android:text="手术室1"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+
+        <Button
+            android:id="@+id/call02Button"
+            android:layout_width="158px"
+            android:layout_height="58px"
+            android:layout_marginLeft="178px"
+            android:layout_marginTop="10px"
+            android:background="@drawable/air_btn_bg_selector"
+            android:text="手术室2"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+        
+        <Button
+            android:id="@+id/call03Button"
+            android:layout_width="158px"
+            android:layout_height="58px"
+            android:layout_marginLeft="346px"
+            android:layout_marginTop="10px"
+            android:background="@drawable/air_btn_bg_selector"
+            android:text="手术室3"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+        
+        <Button
+            android:id="@+id/call04Button"
+            android:layout_width="158px"
+            android:layout_height="58px"
+            android:layout_marginLeft="514px"
+            android:layout_marginTop="10px"
+            android:background="@drawable/air_btn_bg_selector"
+            android:text="手术室4"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+        
+        <Button
+            android:id="@+id/call05Button"
+            android:layout_width="158px"
+            android:layout_height="58px"
+            android:layout_marginLeft="682px"
+            android:layout_marginTop="10px"
+            android:background="@drawable/air_btn_bg_selector"
+            android:text="手术室5"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+        
+        <Button
+            android:id="@+id/call06Button"
+            android:layout_width="158px"
+            android:layout_height="58px"
+            android:layout_marginLeft="852px"
+            android:layout_marginTop="10px"
+            android:background="@drawable/air_btn_bg_selector"
+            android:text="手术室6"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+        
+    </FrameLayout>
+    
+    <FrameLayout
+        android:layout_width="1024px"
+        android:layout_height="78px"
+        android:layout_marginTop="78px" >
+
+        <Button
+            android:id="@+id/call07Button"
+            android:layout_width="158px"
+            android:layout_height="58px"
+            android:layout_marginLeft="10px"
+            android:layout_marginTop="10px"
+            android:background="@drawable/air_btn_bg_selector"
+            android:text="手术室7"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+
+        <Button
+            android:id="@+id/call08Button"
+            android:layout_width="158px"
+            android:layout_height="58px"
+            android:layout_marginLeft="178px"
+            android:layout_marginTop="10px"
+            android:background="@drawable/air_btn_bg_selector"
+            android:text="手术室8"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+        
+        <Button
+            android:id="@+id/call09Button"
+            android:layout_width="158px"
+            android:layout_height="58px"
+            android:layout_marginLeft="346px"
+            android:layout_marginTop="10px"
+            android:background="@drawable/air_btn_bg_selector"
+            android:text="手术室9"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+        
+        <Button
+            android:id="@+id/call10Button"
+            android:layout_width="158px"
+            android:layout_height="58px"
+            android:layout_marginLeft="514px"
+            android:layout_marginTop="10px"
+            android:background="@drawable/air_btn_bg_selector"
+            android:text="手术室10"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+        
+        <Button
+            android:id="@+id/call11Button"
+            android:layout_width="158px"
+            android:layout_height="58px"
+            android:layout_marginLeft="682px"
+            android:layout_marginTop="10px"
+            android:background="@drawable/air_btn_bg_selector"
+            android:text="手术室11"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+        
+        <Button
+            android:id="@+id/call12Button"
+            android:layout_width="158px"
+            android:layout_height="58px"
+            android:layout_marginLeft="852px"
+            android:layout_marginTop="10px"
+            android:background="@drawable/air_btn_bg_selector"
+            android:text="手术室12"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+        
+    </FrameLayout>
+    
+    <FrameLayout
+        android:layout_width="1024px"
+        android:layout_height="78px"
+        android:layout_marginTop="156px" >
+
+        <Button
+            android:id="@+id/call13Button"
+            android:layout_width="158px"
+            android:layout_height="58px"
+            android:layout_marginLeft="10px"
+            android:layout_marginTop="10px"
+            android:background="@drawable/air_btn_bg_selector"
+            android:text="手术室13"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+
+        <Button
+            android:id="@+id/call14Button"
+            android:layout_width="158px"
+            android:layout_height="58px"
+            android:layout_marginLeft="178px"
+            android:layout_marginTop="10px"
+            android:background="@drawable/air_btn_bg_selector"
+            android:text="手术室14"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+        
+        <Button
+            android:id="@+id/call15Button"
+            android:layout_width="158px"
+            android:layout_height="58px"
+            android:layout_marginLeft="346px"
+            android:layout_marginTop="10px"
+            android:background="@drawable/air_btn_bg_selector"
+            android:text="手术室15"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+        
+        <Button
+            android:id="@+id/call16Button"
+            android:layout_width="158px"
+            android:layout_height="58px"
+            android:layout_marginLeft="514px"
+            android:layout_marginTop="10px"
+            android:background="@drawable/air_btn_bg_selector"
+            android:text="手术室16"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+        
+        <Button
+            android:id="@+id/call17Button"
+            android:layout_width="158px"
+            android:layout_height="58px"
+            android:layout_marginLeft="682px"
+            android:layout_marginTop="10px"
+            android:background="@drawable/air_btn_bg_selector"
+            android:text="手术室17"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+        
+        <Button
+            android:id="@+id/call18Button"
+            android:layout_width="158px"
+            android:layout_height="58px"
+            android:layout_marginLeft="852px"
+            android:layout_marginTop="10px"
+            android:background="@drawable/air_btn_bg_selector"
+            android:text="手术室18"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+        
+    </FrameLayout>
+    
+    <FrameLayout
+        android:layout_width="1024px"
+        android:layout_height="78px"
+        android:layout_marginTop="234px" >
+
+        <Button
+            android:id="@+id/call19Button"
+            android:layout_width="158px"
+            android:layout_height="58px"
+            android:layout_marginLeft="10px"
+            android:layout_marginTop="10px"
+            android:background="@drawable/air_btn_bg_selector"
+            android:text="手术室19"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+
+        <Button
+            android:id="@+id/call20Button"
+            android:layout_width="158px"
+            android:layout_height="58px"
+            android:layout_marginLeft="178px"
+            android:layout_marginTop="10px"
+            android:background="@drawable/air_btn_bg_selector"
+            android:text="手术室20"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+        
+        <Button
+            android:id="@+id/call21Button"
+            android:layout_width="158px"
+            android:layout_height="58px"
+            android:layout_marginLeft="346px"
+            android:layout_marginTop="10px"
+            android:background="@drawable/air_btn_bg_selector"
+            android:text="手术室21"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+        
+        <Button
+            android:id="@+id/call22Button"
+            android:layout_width="158px"
+            android:layout_height="58px"
+            android:layout_marginLeft="514px"
+            android:layout_marginTop="10px"
+            android:background="@drawable/air_btn_bg_selector"
+            android:text="手术室22"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+        
+        <Button
+            android:id="@+id/call23Button"
+            android:layout_width="158px"
+            android:layout_height="58px"
+            android:layout_marginLeft="682px"
+            android:layout_marginTop="10px"
+            android:background="@drawable/air_btn_bg_selector"
+            android:text="手术室23"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+        
+        <Button
+            android:id="@+id/call24Button"
+            android:layout_width="158px"
+            android:layout_height="58px"
+            android:layout_marginLeft="852px"
+            android:layout_marginTop="10px"
+            android:background="@drawable/air_btn_bg_selector"
+            android:text="手术室24"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+        
+    </FrameLayout>
+    
+    <FrameLayout
+        android:layout_width="1024px"
+        android:layout_height="78px"
+        android:layout_marginTop="312px" >
+
+        <Button
+            android:id="@+id/call25Button"
+            android:layout_width="158px"
+            android:layout_height="58px"
+            android:layout_marginLeft="10px"
+            android:layout_marginTop="10px"
+            android:background="@drawable/air_btn_bg_selector"
+            android:text="手术室25"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+
+        <Button
+            android:id="@+id/call26Button"
+            android:layout_width="158px"
+            android:layout_height="58px"
+            android:layout_marginLeft="178px"
+            android:layout_marginTop="10px"
+            android:background="@drawable/air_btn_bg_selector"
+            android:text="手术室26"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+        
+        <Button
+            android:id="@+id/call27Button"
+            android:layout_width="158px"
+            android:layout_height="58px"
+            android:layout_marginLeft="346px"
+            android:layout_marginTop="10px"
+            android:background="@drawable/air_btn_bg_selector"
+            android:text="手术室27"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+        
+        <Button
+            android:id="@+id/call28Button"
+            android:layout_width="158px"
+            android:layout_height="58px"
+            android:layout_marginLeft="514px"
+            android:layout_marginTop="10px"
+            android:background="@drawable/air_btn_bg_selector"
+            android:text="手术室28"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+        
+        <Button
+            android:id="@+id/call29Button"
+            android:layout_width="158px"
+            android:layout_height="58px"
+            android:layout_marginLeft="682px"
+            android:layout_marginTop="10px"
+            android:background="@drawable/air_btn_bg_selector"
+            android:text="手术室29"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+        
+        <Button
+            android:id="@+id/call30Button"
+            android:layout_width="158px"
+            android:layout_height="58px"
+            android:layout_marginLeft="852px"
+            android:layout_marginTop="10px"
+            android:background="@drawable/air_btn_bg_selector"
+            android:text="手术室30"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+        
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="1024px"
+        android:layout_height="78px"
+        android:layout_marginTop="390px" >
+
+        <Button
+            android:id="@+id/call31Button"
+            android:layout_width="158px"
+            android:layout_height="58px"
+            android:layout_marginLeft="10px"
+            android:layout_marginTop="10px"
+            android:background="@drawable/air_btn_bg_selector"
+            android:text="手术室31"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+
+        <Button
+            android:id="@+id/call32Button"
+            android:layout_width="158px"
+            android:layout_height="58px"
+            android:layout_marginLeft="178px"
+            android:layout_marginTop="10px"
+            android:background="@drawable/air_btn_bg_selector"
+            android:text="手术室32"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+        
+        <Button
+            android:id="@+id/call33Button"
+            android:layout_width="158px"
+            android:layout_height="58px"
+            android:layout_marginLeft="346px"
+            android:layout_marginTop="10px"
+            android:background="@drawable/air_btn_bg_selector"
+            android:text="手术室33"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+        
+        <Button
+            android:id="@+id/call34Button"
+            android:layout_width="158px"
+            android:layout_height="58px"
+            android:layout_marginLeft="514px"
+            android:layout_marginTop="10px"
+            android:background="@drawable/air_btn_bg_selector"
+            android:text="手术室34"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+        
+        <Button
+            android:id="@+id/call35Button"
+            android:layout_width="158px"
+            android:layout_height="58px"
+            android:layout_marginLeft="682px"
+            android:layout_marginTop="10px"
+            android:background="@drawable/air_btn_bg_selector"
+            android:text="手术室35"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+        
+        <Button
+            android:id="@+id/call36Button"
+            android:layout_width="158px"
+            android:layout_height="58px"
+            android:layout_marginLeft="852px"
+            android:layout_marginTop="10px"
+            android:background="@drawable/air_btn_bg_selector"
+            android:text="护士站"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+        
+    </FrameLayout>
+    
+    <FrameLayout
+        android:layout_width="1024px"
+        android:layout_height="78px"
+        android:layout_marginTop="468px" >
+
+        <Button
+            android:id="@+id/call37Button"
+            android:layout_width="158px"
+            android:layout_height="58px"
+            android:layout_marginLeft="10px"
+            android:layout_marginTop="10px"
+            android:background="@drawable/air_btn_bg_selector"
+            android:text="中控室"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+
+        <Button
+            android:id="@+id/call38Button"
+            android:layout_width="158px"
+            android:layout_height="58px"
+            android:layout_marginLeft="178px"
+            android:layout_marginTop="10px"
+            android:background="@drawable/air_btn_bg_selector"
+            android:text="5楼日间门口"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+        
+        <Button
+            android:id="@+id/call39Button"
+            android:layout_width="158px"
+            android:layout_height="58px"
+            android:layout_marginLeft="346px"
+            android:layout_marginTop="10px"
+            android:background="@drawable/air_btn_bg_selector"
+            android:text="6楼门卫"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+        
+        <Button
+            android:id="@+id/call40Button"
+            android:layout_width="158px"
+            android:layout_height="58px"
+            android:layout_marginLeft="514px"
+            android:layout_marginTop="10px"
+            android:background="@drawable/air_btn_bg_selector"
+            android:text="等候室"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+        
+        <Button
+            android:id="@+id/call41Button"
+            android:layout_width="158px"
+            android:layout_height="58px"
+            android:layout_marginLeft="682px"
+            android:layout_marginTop="10px"
+            android:background="@drawable/air_btn_bg_selector"
+            android:text="库房"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+        
+        <Button
+            android:id="@+id/call42Button"
+            android:layout_width="158px"
+            android:layout_height="58px"
+            android:layout_marginLeft="852px"
+            android:layout_marginTop="10px"
+            android:background="@drawable/air_btn_bg_selector"
+            android:text="器械房"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+        
+    </FrameLayout>
+    
+    <FrameLayout
+        android:layout_width="1024px"
+        android:layout_height="78px"
+        android:layout_marginTop="546px" >
+
+        <Button
+            android:id="@+id/call43Button"
+            android:layout_width="158px"
+            android:layout_height="58px"
+            android:layout_marginLeft="10px"
+            android:layout_marginTop="10px"
+            android:background="@drawable/air_btn_bg_selector"
+            android:text="PICU"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+
+        <Button
+            android:id="@+id/call44Button"
+            android:layout_width="158px"
+            android:layout_height="58px"
+            android:layout_marginLeft="178px"
+            android:layout_marginTop="10px"
+            android:background="@drawable/air_btn_bg_selector"
+            android:text="麻醉药房"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+        
+        <Button
+            android:id="@+id/call45Button"
+            android:layout_width="158px"
+            android:layout_height="58px"
+            android:layout_marginLeft="346px"
+            android:layout_marginTop="10px"
+            android:background="@drawable/air_btn_bg_selector"
+            android:text="麻醉库房"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+        
+        <Button
+            android:id="@+id/call46Button"
+            android:layout_width="158px"
+            android:layout_height="58px"
+            android:layout_marginLeft="514px"
+            android:layout_marginTop="10px"
+            android:background="@drawable/air_btn_bg_selector"
+            android:text="女值班室"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+        
+        <Button
+            android:id="@+id/call47Button"
+            android:layout_width="158px"
+            android:layout_height="58px"
+            android:layout_marginLeft="682px"
+            android:layout_marginTop="10px"
+            android:background="@drawable/air_btn_bg_selector"
+            android:text="备用1"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+        
+        <Button
+            android:id="@+id/call48Button"
+            android:layout_width="158px"
+            android:layout_height="58px"
+            android:layout_marginLeft="852px"
+            android:layout_marginTop="10px"
+            android:background="@drawable/air_btn_bg_selector"
+            android:text="备用2"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+        
+    </FrameLayout>
+    
+    <FrameLayout
+        android:layout_width="1024px"
+        android:layout_height="78px"
+        android:layout_marginTop="624px" >
+
+        <Button
+            android:id="@+id/call49Button"
+            android:layout_width="158px"
+            android:layout_height="58px"
+            android:layout_marginLeft="10px"
+            android:layout_marginTop="10px"
+            android:background="@drawable/air_btn_bg_selector"
+            android:text="备用3"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+
+        <Button
+            android:id="@+id/call50Button"
+            android:layout_width="158px"
+            android:layout_height="58px"
+            android:layout_marginLeft="178px"
+            android:layout_marginTop="10px"
+            android:background="@drawable/air_btn_bg_selector"
+            android:text="备用4"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+        
+        <Button
+            android:id="@+id/call51Button"
+            android:layout_width="158px"
+            android:layout_height="58px"
+            android:layout_marginLeft="346px"
+            android:layout_marginTop="10px"
+            android:background="@drawable/air_btn_bg_selector"
+            android:text="备用5"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+        
+        <Button
+            android:id="@+id/call52Button"
+            android:layout_width="158px"
+            android:layout_height="58px"
+            android:layout_marginLeft="514px"
+            android:layout_marginTop="10px"
+            android:background="@drawable/air_btn_bg_selector"
+            android:text="备用6"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+        
+        <Button
+            android:id="@+id/call53Button"
+            android:layout_width="158px"
+            android:layout_height="58px"
+            android:layout_marginLeft="682px"
+            android:layout_marginTop="10px"
+            android:background="@drawable/air_btn_bg_selector"
+            android:text="备用7"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+        
+        <Button
+            android:id="@+id/call54Button"
+            android:layout_width="158px"
+            android:layout_height="58px"
+            android:layout_marginLeft="852px"
+            android:layout_marginTop="10px"
+            android:background="@drawable/air_btn_bg_selector"
+            android:text="备用8"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+        
+    </FrameLayout>
+    
+    <FrameLayout
+        android:layout_width="1024px"
+        android:layout_height="108px"
+        android:layout_marginTop="702px" >
+
+        <Button
+            android:id="@+id/makeCallButton"
+            android:layout_width="158px"
+            android:layout_height="58px"
+            android:layout_marginLeft="308px"
+            android:layout_marginTop="10px"
+            android:text="呼叫"
+            android:background="@drawable/air_btn_bg_selector"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+
+        <Button
+            android:id="@+id/editCallButton"
+            android:layout_width="158px"
+            android:layout_height="58px"
+            android:layout_marginLeft="568px"
+            android:layout_marginTop="10px"
+            android:text="编辑"
+            android:background="@drawable/air_btn_bg_selector"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+        
+    </FrameLayout>
+    
+</FrameLayout>

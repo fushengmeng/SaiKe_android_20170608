@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="408px"
+    android:layout_height="558px"
+    android:gravity="center"
+    android:orientation="horizontal" >
+
+    <FrameLayout
+        android:layout_width="408px"
+        android:layout_height="558px"
+        android:layout_marginLeft="0px"
+        android:orientation="vertical" >
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="80px"
+            android:layout_marginLeft="20px"
+            android:layout_marginRight="20px"
+            android:layout_marginTop="28px" >
+
+            <EditText
+                android:id="@+id/numberTextView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/et_air_bg"
+                android:inputType="text"
+                android:minHeight="45px"
+                android:minWidth="160px"
+                android:padding="15px"
+                android:textColor="@color/white"
+                android:textSize="30px"
+                android:textStyle="bold" >
+	
+	            <requestFocus />
+	        </EditText>
+        
+        </FrameLayout>
+    </FrameLayout>
+
+</LinearLayout>

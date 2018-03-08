@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.keruiyun.saike.util.ZoomView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/zoomview"
+    android:layout_width="1920px"
+    android:layout_height="1080px"
+    android:layout_gravity="center"
+    android:gravity="center" >
+
+    <LinearLayout
+        android:id="@+id/layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/menu_bg_frame"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="28px"
+            android:layout_marginRight="28px"
+            android:layout_marginTop="18px"
+            android:text="计时钟控制"
+            android:textColor="@color/white"
+            android:textSize="38px" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="28px"
+            android:layout_marginTop="18px"
+             android:layout_marginBottom="8px"
+            android:text="手术正计时  OPERATION TIMING"
+            android:textColor="@color/white"
+            android:textSize="26px" />
+
+        <FrameLayout
+            android:layout_width="610px"
+            android:layout_height="158px"
+            android:layout_marginLeft="18px"
+            android:layout_marginRight="18px"
+            android:background="@drawable/bak_bg_1"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/main_op_tv_timer"
+                android:layout_width="140px"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="55px"
+                android:gravity="center"
+                android:text="03"
+                android:textColor="@color/white"
+                android:textSize="120px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/main_op_tv_timer1"
+                android:layout_width="23px"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="205px"
+                android:layout_marginTop="0px"
+                android:gravity="center"
+                android:text=":"
+                android:textColor="@color/white"
+                android:textSize="130px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/main_op_tv_timer3"
+                android:layout_width="140px"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="228px"
+                android:gravity="center"
+                android:text="04"
+                android:textColor="@color/white"
+                android:textSize="120px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/main_op_tv_timer4"
+                android:layout_width="23px"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="378px"
+                android:layout_marginTop="0px"
+                android:gravity="center"
+                android:text=":"
+                android:textColor="@color/white"
+                android:textSize="130px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/main_op_tv_timer5"
+                android:layout_width="140px"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="401px"
+                android:gravity="center"
+                android:text="05"
+                android:textColor="@color/white"
+                android:textSize="120px"
+                android:textStyle="bold" />
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="28px"
+            android:layout_marginTop="18px"
+            android:layout_marginBottom="8px"
+            android:text="麻醉计时 ANESTHESIA TIMING"
+            android:textColor="@color/white"
+            android:textSize="26px" />
+        
+        <FrameLayout
+            android:id="@+id/fl_anes_timer"
+            android:layout_width="610px"
+            android:layout_height="158px"
+            android:layout_marginLeft="18px"
+            android:layout_marginRight="18px"
+            android:background="@drawable/bak_bg_2"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/main_anes_tv_timer"
+                android:layout_width="140px"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="55px"
+                android:gravity="center"
+                android:text="03"
+                android:textColor="@color/black"
+                android:textSize="120px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/main_anes_tv_timer1"
+                android:layout_width="23px"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="205px"
+                android:layout_marginTop="0px"
+                android:gravity="center"
+                android:text=":"
+                android:textColor="@color/black"
+                android:textSize="130px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/main_anes_tv_timer3"
+                android:layout_width="140px"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="228px"
+                android:gravity="center"
+                android:text="04"
+                android:textColor="@color/black"
+                android:textSize="120px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/main_anes_tv_timer4"
+                android:layout_width="23px"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="378px"
+                android:layout_marginTop="0px"
+                android:gravity="center"
+                android:text=":"
+                android:textColor="@color/black"
+                android:textSize="130px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/main_anes_tv_timer5"
+                android:layout_width="140px"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="401px"
+                android:gravity="center"
+                android:text="05"
+                android:textColor="@color/black"
+                android:textSize="120px"
+                android:textStyle="bold" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18px"
+            android:layout_marginRight="18px" >
+
+            <Button
+                android:id="@+id/okButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="28px"
+                android:layout_weight="1"
+                android:text="设置倒计时"
+                android:textSize="28px" />
+
+            <Button
+                android:id="@+id/cancelButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="28px"
+                android:layout_weight="1"
+                android:text="返回"
+                android:textSize="28px" />
+            
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.keruiyun.saike.util.ZoomView>

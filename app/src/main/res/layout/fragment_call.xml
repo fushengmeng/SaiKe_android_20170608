@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ui="http://schemas.android.com/apk/res-auto"
+    android:layout_width="340px"
+    android:layout_height="wrap_content"
+
+    android:padding="@dimen/margin">
+    <LinearLayout
+        android:id="@+id/layout_input"
+        android:layout_width="match_parent"
+        android:layout_height="64px"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin"
+        android:background="@drawable/bg_default">
+        <TextView
+            android:id="@+id/txt_input"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text=""
+            android:singleLine="true"
+            android:ellipsize="marquee"
+            android:textSize="40px"
+            android:gravity="center_vertical|right"
+            android:layout_height="match_parent"
+           />
+        <ImageView
+            android:id="@+id/img_input_del"
+            android:layout_width="72dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/sk_lxdh_03"
+            android:padding="@dimen/margin_l"
+            />
+    </LinearLayout>
+    
+    <GridLayout
+        android:id="@+id/layout_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/layout_input"
+        android:layout_marginBottom="@dimen/margin"
+        android:columnCount="3">
+        <com.bilibili.magicasakura.widgets.TintLinearLayout
+            android:id="@+id/one"
+            style="@style/call_num">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:textColor="@color/txt_color_selector"/>
+            <com.bilibili.magicasakura.widgets.TintImageView
+                android:id="@+id/img_one"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/sk_lxdh_11"/>
+        </com.bilibili.magicasakura.widgets.TintLinearLayout>
+
+        <com.bilibili.magicasakura.widgets.TintLinearLayout
+            android:id="@+id/two"
+            style="@style/call_num">
+            <TextView
+                style="@style/Call_Num_Child"
+                android:text="2"/>
+            <TextView
+                style="@style/Call_Num_Child_2"
+                android:text="ABC"/>
+        </com.bilibili.magicasakura.widgets.TintLinearLayout>
+
+        <com.bilibili.magicasakura.widgets.TintLinearLayout
+            android:id="@+id/three"
+            style="@style/call_num">
+            <TextView
+                style="@style/Call_Num_Child"
+                android:text="3"/>
+            <TextView
+                style="@style/Call_Num_Child_2"
+                android:text="DEF"/>
+        </com.bilibili.magicasakura.widgets.TintLinearLayout>
+
+        <com.bilibili.magicasakura.widgets.TintLinearLayout
+            android:id="@+id/four"
+            style="@style/call_num">
+            <TextView
+                style="@style/Call_Num_Child"
+                android:text="4"/>
+            <TextView
+                style="@style/Call_Num_Child_2"
+                android:text="GHI"/>
+        </com.bilibili.magicasakura.widgets.TintLinearLayout>
+
+        <com.bilibili.magicasakura.widgets.TintLinearLayout
+            android:id="@+id/five"
+            style="@style/call_num">
+            <TextView
+                style="@style/Call_Num_Child"
+                android:text="5"/>
+            <TextView
+                style="@style/Call_Num_Child_2"
+                android:text="JKL"/>
+        </com.bilibili.magicasakura.widgets.TintLinearLayout>
+
+        <com.bilibili.magicasakura.widgets.TintLinearLayout
+            android:id="@+id/six"
+            style="@style/call_num">
+            <TextView
+                style="@style/Call_Num_Child"
+                android:text="6"/>
+            <TextView
+                style="@style/Call_Num_Child_2"
+                android:text="MNO"/>
+        </com.bilibili.magicasakura.widgets.TintLinearLayout>
+
+        <com.bilibili.magicasakura.widgets.TintLinearLayout
+            android:id="@+id/seven"
+            style="@style/call_num">
+            <TextView
+                style="@style/Call_Num_Child"
+                android:text="7"/>
+            <TextView
+                style="@style/Call_Num_Child_2"
+                android:text="PQRS"/>
+        </com.bilibili.magicasakura.widgets.TintLinearLayout>
+
+        <com.bilibili.magicasakura.widgets.TintLinearLayout
+            android:id="@+id/eight"
+            style="@style/call_num">
+            <TextView
+                style="@style/Call_Num_Child"
+                android:text="8"/>
+            <TextView
+                style="@style/Call_Num_Child_2"
+                android:text="TUV"/>
+        </com.bilibili.magicasakura.widgets.TintLinearLayout>
+
+        <com.bilibili.magicasakura.widgets.TintLinearLayout
+            android:id="@+id/nine"
+            style="@style/call_num">
+            <TextView
+                style="@style/Call_Num_Child"
+                android:text="9"/>
+            <TextView
+                style="@style/Call_Num_Child_2"
+                android:text="WXYZ"/>
+        </com.bilibili.magicasakura.widgets.TintLinearLayout>
+
+        <com.bilibili.magicasakura.widgets.TintLinearLayout
+            android:id="@+id/zero"
+            style="@style/call_num">
+            <TextView
+                style="@style/Call_Num_Child"
+                android:text="0"/>
+            <TextView
+                style="@style/Call_Num_Child_2"
+                android:text="."/>
+        </com.bilibili.magicasakura.widgets.TintLinearLayout>
+
+        <Button
+            android:id="@+id/xing"
+            style="@style/call_num"
+            android:text="*"/>
+        <Button
+            android:id="@+id/jing"
+            style="@style/call_num"
+            android:text="#"/>
+
+
+
+    </GridLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignLeft="@id/layout_number"
+        android:layout_alignRight="@id/layout_number"
+        android:layout_below="@id/layout_number"
+        android:layout_marginTop="-12px"
+        android:layout_marginBottom="24px">
+        <com.bilibili.magicasakura.widgets.TintTextView
+            android:id="@+id/specially_call"
+            style="@style/call_num"
+            android:text="@string/specially_call"
+            android:textSize="12px"
+            android:background="@drawable/background_border_ovel"
+            ui:imageTint="@color/theme_color_primary"
+            />
+        <android.support.v4.widget.Space
+            android:layout_width="0px"
+            android:layout_height="1px"
+            android:layout_weight="1"/>
+
+        <ImageButton
+            android:id="@+id/call"
+            style="@style/call_num"
+            android:background="@drawable/background_border_ovel"
+            android:src="@drawable/sk_lxdh_21"/>
+        <android.support.v4.widget.Space
+            android:layout_width="0px"
+            android:layout_height="1px"
+            android:layout_weight="1"/>
+
+        <com.bilibili.magicasakura.widgets.TintTextView
+            android:id="@+id/video_call"
+            style="@style/call_num"
+            android:text="@string/video_call"
+            android:textSize="12px"
+            android:background="@drawable/background_border_ovel"
+            ui:imageTint="@color/theme_color_primary"
+            />
+    </LinearLayout>
+
+
+
+</RelativeLayout>

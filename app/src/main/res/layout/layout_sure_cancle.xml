@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="400px"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical">
+    <TextView
+        android:id="@+id/txt_sure"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:text="@string/sure"
+        android:gravity="center"
+        android:textColor="@color/theme_color_primary"
+        android:padding="@dimen/margin"/>
+    <View
+        android:layout_width="@dimen/line"
+        android:layout_height="48px"
+        android:background="@color/line"/>
+
+    <TextView
+        android:id="@+id/txt_cancle"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:text="@string/cancel"
+        android:gravity="center"
+        android:padding="@dimen/margin"/>
+
+</LinearLayout>

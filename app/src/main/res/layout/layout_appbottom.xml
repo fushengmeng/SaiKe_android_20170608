@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:layout_alignParentBottom="true"
+    android:background="@color/black">
+    <ImageView
+        android:id="@+id/img_fire_alarm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/sk_index_65"
+        android:layout_marginLeft="@dimen/margin"/>
+    <TextView
+        android:id="@+id/txt_fire_alarm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/fire_alarm"
+        android:textSize="18px"
+        android:padding="@dimen/margin"/>
+
+    <ImageView
+        android:id="@+id/img_it_power"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/sk_index_65"
+        android:layout_marginLeft="@dimen/margin"/>
+    <TextView
+        android:id="@+id/txt_it_power"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/it_power"
+        android:textSize="18px"
+        android:padding="@dimen/margin"/>
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1px"
+        android:layout_weight="1"/>
+
+    <com.bilibili.magicasakura.widgets.TintImageView
+        android:id="@+id/img_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/margin"
+        android:src="@drawable/sk_index_52" />
+
+    <com.bilibili.magicasakura.widgets.TintImageView
+        android:id="@+id/img_bluetooth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/sk_index_54"
+        android:padding="@dimen/margin"/>
+
+    <com.bilibili.magicasakura.widgets.TintImageView
+        android:id="@+id/img_wifi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/sk_index_56"
+        android:padding="@dimen/margin"/>
+
+    <com.bilibili.magicasakura.widgets.TintImageView
+        android:id="@+id/img_voice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/sk_index_58"
+        android:padding="@dimen/margin"/>
+
+    <com.bilibili.magicasakura.widgets.TintImageView
+        android:id="@+id/img_setting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/sk_index_60"
+        android:padding="@dimen/margin"/>
+
+</LinearLayout>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ui="http://schemas.android.com/apk/res-auto"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/custom_attr_app_theme_bg"
+    >
+
+    <com.bilibili.magicasakura.widgets.TintImageView
+        android:id="@+id/tintimg"
+        android:layout_width="1660px"
+        android:layout_height="806px"
+        android:layout_centerInParent="true"
+        android:background="@drawable/sk_bg_dialog"
+        ui:backgroundTint="@color/theme_color_primary"/>
+
+    <include layout="@layout/layout_air"/>
+
+    <Button
+        android:id="@+id/btn_system_setting"
+        android:layout_width="100px"
+        android:layout_height="100px"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:background="@android:color/transparent" />
+
+
+</RelativeLayout>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ui="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="240px"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:background="@drawable/sk_index_tc_03">
+
+    <com.keruiyun.saike.wheelpicker.WheelPicker
+        android:id="@+id/wheelpicker"
+        android:layout_width="120dp"
+        android:layout_height="170px"
+        android:layout_marginLeft="24px"
+        android:layout_marginRight="16px"
+        android:layout_marginTop="32px"
+        ui:wheel_bg_color_gradient_start="@color/wheel_bg_start"
+        ui:wheel_bg_color_gradient_end="@color/wheel_bg_end"
+        ui:wheel_current_item_text_color="@color/white"
+        ui:wheel_current_item_position="3"
+        ui:wheel_item_text_color="?attr/custom_attr_color_primary"
+        ui:wheel_curtain="true"
+        ui:wheel_atmospheric="true"
+        ui:wheel_curtain_color="?attr/custom_attr_color_primary"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical|right"
+        android:layout_marginTop="10px">
+        <com.bilibili.magicasakura.widgets.TintImageView
+            android:id="@+id/ic_wheel_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_down"
+            ui:imageTint="@color/white"
+            android:paddingLeft="8px"
+            android:paddingRight="8px"
+           />
+        <com.bilibili.magicasakura.widgets.TintImageView
+            android:id="@+id/ic_wheel_sub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_up"
+            ui:imageTint="@color/white"
+            android:paddingLeft="8px"
+            android:paddingRight="8px"
+           />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,11 @@
+<resources>
+    <declare-styleable name="TriangleUi">
+        <attr name="triangSize" format="dimension" />
+        <attr name="triangColor" format="color" />
+        <attr name="triang_up" format="boolean" />
+        <attr name="triang_down" format="boolean" />
+        <attr name="triang_left" format="boolean" />
+        <attr name="triang_right" format="boolean" />
+        <attr name="triangSrc" format="color|reference" />
+    </declare-styleable>
+</resources>

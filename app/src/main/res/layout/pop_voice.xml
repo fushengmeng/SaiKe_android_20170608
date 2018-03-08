@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ui="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+    <FrameLayout
+        android:id="@+id/layout"
+        android:layout_width="50px"
+        android:layout_height="200px"
+        android:background="@drawable/bg_index_air">
+        <com.keruiyun.saike.controls.VerticalSeekBar
+            android:id="@+id/seekbar_voice"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            style="@style/seekbar_style_vertical"
+
+            android:progress="0"/>
+    </FrameLayout>
+
+
+    <com.keruiyun.saike.uiview.TriangleUi
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        ui:triangColor="?attr/custom_attr_color_primaryDark"
+        ui:triangSize="10px"
+        ui:triang_down="true"/>
+
+</LinearLayout>

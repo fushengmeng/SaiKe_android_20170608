@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="txt_size_setting">14px</dimen>
+    <dimen name="txt_params">16px</dimen>
+
+    <dimen name="txt_h">17px</dimen>
+    <dimen name="txtsize_s">12sp</dimen>
+    <dimen name="txtsize_l">18sp</dimen>
+    <dimen name="txtsize_xxl">22sp</dimen>
+
+    <dimen name="updatebar_height">50.0dip</dimen>
+    <dimen name="updatebar_content_height">60.0dip</dimen>
+    <dimen name="updatebar_padding">10.0dip</dimen>
+    <dimen name="WheelItemTextSize">24sp</dimen>
+    <dimen name="WheelItemSpace">22dp</dimen>
+    <dimen name="WheelIndicatorSize">38dp</dimen>
+    <dimen name="title_operationtimer">40px</dimen>
+    <dimen name="en_title_operationtimer">24px</dimen>
+
+
+    <dimen name="margin">16dp</dimen>
+    <dimen name="margin_l">8dp</dimen>
+
+    <dimen name="width_flowdirection">30px</dimen>
+    <dimen name="height_flowdirection">14px</dimen>
+    <dimen name="flowdirection_margin">5dp</dimen>
+    <dimen name="flowdirection_top">162px</dimen>
+    <dimen name="width_air_iv_alarm">25px</dimen>
+    <dimen name="margin_air_iv_alarm">83px</dimen>
+    <dimen name="width_flowdirection_1_horizontal">15px</dimen>
+    <dimen name="height_flowdirection_1_horizontal">10px</dimen>
+    <dimen name="height_flowdirection_1_vertical">15px</dimen>
+    <dimen name="width_flowdirection_1_vertical">10px</dimen>
+    <dimen name="height_air_params">15px</dimen>
+    <dimen name="width_air_params">45px</dimen>
+    <dimen name="line">1px</dimen>
+    <dimen name="width_number">48px</dimen>
+    <dimen name="margin_number">24px</dimen>
+    <dimen name="size_txt_title">18sp</dimen>
+    <dimen name="height_lighting">25px</dimen>
+    <dimen name="left_smartstart_lighting">30px</dimen>
+    <dimen name="minwidth_smartstart_switch_tag">72px</dimen>
+    <dimen name="top_setting_row">40px</dimen>
+    <dimen name="width_theme_select">72px</dimen>
+    <dimen name="width_seekbar_vertical">2px</dimen>
+    <dimen name="height_seekbar_vertical">200px</dimen>
+    <dimen name="width_music_left">80px</dimen>
+    <dimen name="setting_right_padding">72px</dimen>
+    <dimen name="wheel_width">120px</dimen>
+    <dimen name="wheel_height">196px</dimen>
+
+
+</resources>

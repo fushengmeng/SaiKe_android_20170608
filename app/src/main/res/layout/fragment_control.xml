@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingTop="28px"
+    android:paddingBottom="24px"
+    >
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <include
+            android:id="@+id/layout_control_1"
+            layout="@layout/item_control" />
+
+        <include
+            android:id="@+id/layout_lighting_2"
+            layout="@layout/item_control" />
+
+        <include
+            android:id="@+id/layout_exhaust_fan"
+            layout="@layout/item_control" />
+
+        <include
+            android:id="@+id/layout_film_viewer"
+            layout="@layout/item_control" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <include
+            android:id="@+id/layout_shadowless_lamp"
+            layout="@layout/item_control"/>
+        <include
+            android:id="@+id/layout_escritorio"
+            layout="@layout/item_control"/>
+        <include
+            android:id="@+id/layout_spare_1"
+            layout="@layout/item_control"/>
+        <include
+            android:id="@+id/layout_spare_2"
+            layout="@layout/item_control"/>
+    </LinearLayout>
+
+</LinearLayout>

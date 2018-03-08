@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--默认黑色主题-->
+    <style name="Theme_Black" parent="concealTitle">
+        <item name="android:textSize">22px</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textColorHint">@android:color/secondary_text_dark</item>
+
+        <item name="custom_attr_app_theme_bg">@android:color/black</item>
+        <item name="custom_attr_app_color_line">@android:color/white</item>
+        <item name="custom_attr_app_color_illuminant">#01f0fe</item>
+        <item name="custom_attr_color_primary">#12474a</item>
+        <item name="custom_attr_color_primaryDark">#1e1e1e</item>
+        <item name="custom_attr_color_txt_primary">#01f0fe</item>
+        <item name="custom_attr_color_txt_primaryDark">#ffffff</item>
+        <item name="custom_attr_color_line">@color/line</item>
+
+    </style>
+
+
+
+    <style name="AppTheme.AppCompat.Dialog.Alert" parent="@android:style/Theme.Holo.Dialog">
+        <item name="android:windowMinWidthMinor">90%</item>
+        <item name="android:windowMinWidthMajor">90%</item>
+    </style>
+
+    <style name="seekbar_style_vertical" parent="@android:style/Widget.Holo.Light.SeekBar">
+        <!--seekbar_style_vertical  play_seekbar-->
+        <item name="android:progressDrawable">@drawable/seekbar_style_vertical</item>
+        <item name="android:thumb">@drawable/sk_index_39</item>
+        <item name="android:thumbOffset">10px</item>
+        <item name="android:maxHeight">1px</item>
+        <item name="android:minHeight">1px</item>
+    </style>
+
+    <style name="mprogressbar">
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:progressDrawable">@drawable/progress_scanaudio</item><!-- progress_horizontal -->
+        <item name="android:indeterminateDrawable">@android:drawable/progress_indeterminate_horizontal</item>
+        <item name="android:minHeight">2dip</item>
+        <item name="android:maxHeight">2dip</item>
+    </style>
+
+
+
+
+</resources>

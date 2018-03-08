@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="1200px"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/gas_status"
+        android:layout_marginLeft="30px"
+        android:layout_marginTop="30px"
+        android:layout_marginRight="30px"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical|right"
+        android:layout_marginRight="30px"
+        android:layout_marginLeft="30px">
+        <TextView
+            android:id="@+id/txt_err"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/err"
+            android:textSize="17px"
+            android:drawableLeft="@drawable/sk_qtzt_03"
+            android:drawablePadding="@dimen/margin_l"
+            android:layout_marginRight="@dimen/margin"/>
+        <TextView
+            android:id="@+id/txt_Nor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/normal"
+            android:textSize="17px"
+            android:drawablePadding="@dimen/margin_l"
+            android:drawableLeft="@drawable/sk_qtzt_05"
+            android:layout_marginRight="@dimen/margin"/>
+        <TextView
+            android:id="@+id/txt_low"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/low"
+            android:textSize="17px"
+            android:drawablePadding="@dimen/margin_l"
+            android:drawableLeft="@drawable/sk_qtzt_07"
+            android:layout_marginRight="@dimen/margin"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/margin"
+        android:layout_marginLeft="24px"
+        android:layout_marginRight="24px"
+        android:layout_marginBottom="48px"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/bg_index_air">
+        <include android:id="@+id/layout_oxygen"
+            layout="@layout/item_gas"/>
+        <ImageView
+            style="@style/Setting_Gas" />
+        <include android:id="@+id/layout_laughing"
+            layout="@layout/item_gas"/>
+        <ImageView
+            style="@style/Setting_Gas" />
+        <include android:id="@+id/layout_nitrogen"
+            layout="@layout/item_gas"/>
+        <ImageView
+            style="@style/Setting_Gas" />
+        <include android:id="@+id/layout_co2"
+            layout="@layout/item_gas"/>
+        <ImageView
+            style="@style/Setting_Gas" />
+        <include android:id="@+id/layout__pa"
+            layout="@layout/item_gas"/>
+        <ImageView
+            style="@style/Setting_Gas" />
+        <include android:id="@+id/layout_air"
+            layout="@layout/item_gas"/>
+        <ImageView
+            style="@style/Setting_Gas" />
+        <include android:id="@+id/layout_argon"
+            layout="@layout/item_gas"/>
+
+
+
+    </LinearLayout>
+
+</LinearLayout>

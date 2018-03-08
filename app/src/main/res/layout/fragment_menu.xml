@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/menu_layout"
+    android:layout_width="1024px"
+    android:layout_height="800px" >
+
+    <ListView
+        android:id="@+id/music_listview"
+        android:layout_width="800px"
+        android:layout_height="800px"
+        android:choiceMode="singleChoice" >
+
+    </ListView>
+
+    <FrameLayout
+        android:layout_width="224px"
+        android:layout_height="800px"
+        android:layout_marginLeft="800px" >
+
+        <Button
+            android:id="@+id/playButton"
+            android:layout_width="180px"
+            android:layout_height="68px"
+            android:layout_marginLeft="22px"
+            android:layout_marginTop="0px"
+            android:text="播放"
+            android:background="@drawable/air_btn_bg_selector4"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+
+        <Button
+            android:id="@+id/stopButton"
+            android:layout_width="180px"
+            android:layout_height="68px"
+            android:layout_marginLeft="22px"
+            android:layout_marginTop="88px"
+            android:text="停止"
+            android:background="@drawable/air_btn_bg_selector4"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+
+        <Button
+            android:id="@+id/previousButton"
+            android:layout_width="180px"
+            android:layout_height="68px"
+            android:layout_marginLeft="22px"
+            android:layout_marginTop="176px"
+            android:text="上一首"
+            android:background="@drawable/air_btn_bg_selector4"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+
+        <Button
+            android:id="@+id/nextButton"
+            android:layout_width="180px"
+            android:layout_height="68px"
+            android:layout_marginLeft="22px"
+            android:layout_marginTop="264px"
+            android:text="下一首"
+            android:background="@drawable/air_btn_bg_selector4"
+            android:textColor="@color/black"
+            android:textSize="28px" />
+
+        <RadioGroup
+            android:id="@+id/playOrderRadioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18px"
+            android:layout_marginTop="352px" >
+
+		    <RadioButton
+		        android:id="@+id/radio0"
+		        android:layout_width="wrap_content"
+		        android:layout_height="68px"
+		        android:layout_marginBottom="20px"
+		        android:checked="true"
+		        android:text="单曲循环"
+                android:textColor="@color/white"
+		        android:textSize="28px" />
+		
+		    <RadioButton
+		        android:id="@+id/radio1"
+		        android:layout_width="wrap_content"
+		        android:layout_height="68px"
+		        android:layout_marginBottom="20px"
+		        android:text="随机播放"
+                android:textColor="@color/white"
+		        android:textSize="28px" />
+		
+		    <RadioButton
+		        android:id="@+id/radio2"
+		        android:layout_width="wrap_content"
+		        android:layout_height="68px"
+		        android:text="顺序播放"
+                android:textColor="@color/white"
+		        android:textSize="28px" />
+	    
+	    </RadioGroup>
+
+    </FrameLayout>
+
+</FrameLayout>

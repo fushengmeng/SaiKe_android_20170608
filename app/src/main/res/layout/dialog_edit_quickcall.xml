@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="408px"
+    android:layout_height="558px"
+    android:gravity="center"
+    android:orientation="horizontal" >
+
+    <FrameLayout
+        android:layout_width="408px"
+        android:layout_height="558px"
+        android:layout_marginLeft="0px"
+        android:orientation="vertical" >
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="80px"
+            android:layout_marginLeft="20px"
+            android:layout_marginRight="20px"
+            android:layout_marginTop="28px"
+            android:background="@drawable/bg_dial_phone_bg" >
+
+            <TextView
+                android:id="@+id/numberTextView"
+                android:layout_width="match_parent"
+                android:layout_height="80px"
+                android:layout_marginLeft="60px"
+                android:gravity="center_vertical|left"
+                android:paddingLeft="10px"
+                android:textColor="@color/black"
+                android:textSize="55px" >
+            </TextView>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="425px"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="20px"
+            android:layout_marginRight="20px" >
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="left"
+                android:layout_marginTop="10px" >
+
+                <ImageButton
+                    android:id="@+id/number01button"
+                    android:layout_width="100px"
+                    android:layout_height="73px"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/number1_selector" />
+
+                <ImageButton
+                    android:id="@+id/number04button"
+                    android:layout_width="100px"
+                    android:layout_height="73px"
+                    android:layout_marginTop="104px"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/number4_selector" />
+
+                <ImageButton
+                    android:id="@+id/number07button"
+                    android:layout_width="100px"
+                    android:layout_height="73px"
+                    android:layout_marginTop="205px"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/number7_selector" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="left"
+                android:layout_marginLeft="130px"
+                android:layout_marginTop="10px" >
+
+                <ImageButton
+                    android:id="@+id/number02button"
+                    android:layout_width="100px"
+                    android:layout_height="73px"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/number2_selector" />
+
+                <ImageButton
+                    android:id="@+id/number05button"
+                    android:layout_width="100px"
+                    android:layout_height="73px"
+                    android:layout_marginTop="104px"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/number5_selector" />
+
+                <ImageButton
+                    android:id="@+id/number08button"
+                    android:layout_width="100px"
+                    android:layout_height="73px"
+                    android:layout_marginTop="205px"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/number8_selector" />
+
+                <ImageButton
+                    android:id="@+id/number00button"
+                    android:layout_width="100px"
+                    android:layout_height="73px"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="30px"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/number0_selector" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="left"
+                android:layout_marginLeft="260px"
+                android:layout_marginTop="10px" >
+
+                <ImageButton
+                    android:id="@+id/number03button"
+                    android:layout_width="100px"
+                    android:layout_height="73px"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/number3_selector" />
+
+                <ImageButton
+                    android:id="@+id/number06button"
+                    android:layout_width="100px"
+                    android:layout_height="73px"
+                    android:layout_marginTop="104px"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/number6_selector" />
+
+                <ImageButton
+                    android:id="@+id/number09button"
+                    android:layout_width="100px"
+                    android:layout_height="73px"
+                    android:layout_marginTop="205px"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/number9_selector" />
+
+                <Button
+                    android:id="@+id/deleteNumberButton"
+                    android:layout_width="100px"
+                    android:layout_height="73px"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="30px"
+                    android:background="@drawable/air_btn_bg_selector4"
+                    android:scaleType="fitXY"
+                    android:text = "DEL"
+                    android:textSize="28px" />
+            </FrameLayout>
+        </FrameLayout>
+    </FrameLayout>
+
+</LinearLayout>

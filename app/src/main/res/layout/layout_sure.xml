@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/txt_sure"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/sure"
+    android:gravity="center"
+    android:textSize="22px"
+    android:padding="@dimen/margin"
+    android:layout_marginBottom="@dimen/margin_l"
+    android:layout_alignParentBottom="true">
+
+</TextView>

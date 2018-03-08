@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="400px"
+    android:layout_height="150px"
+    android:orientation="vertical"
+    android:layout_margin="3px"
+    android:background="@drawable/bg_sure" >
+    <TextView
+        android:id="@+id/txt_msg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/msg_sure_update_valid"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="32px"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="24px">
+        <android.support.v4.widget.Space
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="1px" />
+        <TextView
+            android:id="@+id/txt_sure"
+            android:layout_width="72px"
+            android:layout_height="wrap_content"
+            android:text="@string/sure"
+            android:gravity="center"
+            android:padding="@dimen/margin_l"
+            android:textSize="16px"
+            android:background="@drawable/border_theme_press"/>
+        <android.support.v4.widget.Space
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="1px" />
+
+        <TextView
+            android:id="@+id/txt_cancle"
+            android:layout_width="72px"
+            android:layout_height="wrap_content"
+            android:text="@string/cancel"
+            android:padding="@dimen/margin_l"
+            android:gravity="center"
+            android:textSize="16px"
+            android:background="@drawable/border_shape"/>
+        <android.support.v4.widget.Space
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="1px" />
+    </LinearLayout>
+
+</LinearLayout>

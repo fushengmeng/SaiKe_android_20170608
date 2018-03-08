@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="85px"
+    android:layout_height="85px"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/bg_oval_default">
+    <ImageView
+        android:id="@+id/img_air_launch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/sk_ktxtjm_24"
+        android:layout_marginTop="5px"/>
+    <TextView
+        android:id="@+id/txt_air_launch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/launch"
+        android:layout_marginTop="5px"
+        android:layout_marginBottom="5px"
+        android:textSize="18px"/>
+
+</LinearLayout>

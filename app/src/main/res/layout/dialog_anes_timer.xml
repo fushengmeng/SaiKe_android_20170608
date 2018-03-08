@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="1920px"
+    android:layout_height="1080px"
+    android:layout_gravity="center"
+    android:gravity="center" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/menu_bg_frame"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="18dp"
+            android:layout_marginTop="18dp"
+            android:text="倒计时设定"
+            android:textColor="@color/white"
+            android:textSize="38px" />
+
+        <LinearLayout
+            android:id="@+id/LinearLayout1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="18dp"
+            android:gravity="center" >
+
+            <NumberPicker
+                android:id="@+id/numberPicker1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+            <RadioButton
+                android:id="@+id/button1"
+                android:layout_width="98px"
+                android:layout_height="98px"
+                android:background="@drawable/date_button_color_selector"
+                android:button="@null"
+                android:gravity="center"
+                android:text="00"
+                android:textSize="52px" />
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:textSize="52px" />
+
+            <NumberPicker
+                android:id="@+id/numberPicker3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+            <RadioButton
+                android:id="@+id/button2"
+                android:layout_width="98px"
+                android:layout_height="98px"
+                android:background="@drawable/date_button_color_selector"
+                android:button="@null"
+                android:gravity="center"
+                android:text="00"
+                android:textSize="52px" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:textSize="52px" />
+
+            <NumberPicker
+                
+                android:id="@+id/numberPicker4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+            <RadioButton
+                android:id="@+id/button3"
+                style="@style/activityAnimation"
+                android:layout_width="98px"
+                android:layout_height="98px"
+                android:background="@drawable/date_button_color_selector"
+                android:button="@null"
+                android:gravity="center"
+                android:text="00"
+                android:textSize="52px" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+                
+                <ImageButton
+                    android:id="@+id/main_air_ib_add"
+                    android:layout_width="78px"
+                    android:layout_height="49px"
+                    android:layout_gravity="center_vertical|right"
+                    android:layout_marginLeft="20px"
+                    android:layout_marginBottom="4px"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/air_add_selector" />
+                
+                <ImageButton
+                    android:id="@+id/main_air_ib_red"
+                    android:layout_width="78px"
+                    android:layout_height="49px"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="20px"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/air_reduce_selector" />
+                
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="18dp" >
+
+            <Button
+                android:id="@+id/okButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="18dp"
+                android:layout_weight="1"
+                android:text="确定"
+                android:textSize="28px" />
+
+            <Button
+                android:id="@+id/cancelButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="18dp"
+                android:layout_weight="1"
+                android:text="取消"
+                android:textSize="28px" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

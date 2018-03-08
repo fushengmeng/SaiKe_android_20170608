@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="72px"
+    android:orientation="horizontal">
+    <LinearLayout
+        android:id="@+id/layout_call"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:gravity="center">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/sk_shipinth_03"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_l"
+            android:text="@string/call"/>
+    </LinearLayout>
+    <View
+        android:layout_width="@dimen/line"
+        android:layout_height="match_parent"
+        android:background="?attr/custom_attr_app_theme_bg"/>
+    <LinearLayout
+        android:id="@+id/layout_add"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:gravity="center">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/sk_shipinth_03_03"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_l"
+            android:text="@string/add"/>
+    </LinearLayout>
+    <View
+        android:layout_width="@dimen/line"
+        android:layout_height="match_parent"
+        android:background="?attr/custom_attr_app_theme_bg"/>
+    <LinearLayout
+        android:id="@+id/layout_delete"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:gravity="center">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/sk_shipinth_03_05"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_l"
+            android:text="@string/delete"/>
+    </LinearLayout>
+    <View
+        android:layout_width="@dimen/line"
+        android:layout_height="match_parent"
+        android:background="?attr/custom_attr_app_theme_bg"/>
+    <LinearLayout
+        android:id="@+id/layout_edit"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:gravity="center">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/sk_shipinth_06"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_l"
+            android:text="@string/edit"/>
+
+
+
+
+    </LinearLayout>
+
+</LinearLayout>

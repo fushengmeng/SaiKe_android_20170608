@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ui="http://schemas.android.com/apk/res-auto"
+    android:layout_width="760px"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_gravity="center_horizontal"
+    >
+    <TextView
+        style="@style/Setting_Title"
+        android:text="@string/setting_valid"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/valid_time"
+        android:layout_gravity="left"
+        android:layout_marginLeft="@dimen/left_smartstart_lighting"
+        android:layout_marginTop="110px"
+        android:layout_marginBottom="@dimen/margin"/>
+
+    <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60px"
+            android:layout_marginTop="@dimen/margin"
+            android:columnCount="3"
+            android:orientation="horizontal">
+            <CheckBox
+                android:id="@+id/box_valid_3"
+                android:text="@string/month_three"
+                style="@style/checkbox"/>
+            <CheckBox
+                android:id="@+id/box_valid_6"
+                style="@style/checkbox"
+                android:text="@string/month_six"/>
+            <CheckBox
+                android:id="@+id/box_valid_12"
+                style="@style/checkbox"
+                android:text="@string/month_12"
+                />
+            <CheckBox
+                android:id="@+id/box_valid_18"
+                style="@style/checkbox"
+                android:text="@string/month_18"/>
+            <CheckBox
+                android:id="@+id/box_valid_24"
+                style="@style/checkbox"
+                android:text="@string/month_twenty_four"/>
+            <CheckBox
+                android:id="@+id/box_valid_0"
+                style="@style/checkbox"
+                android:text="@string/month_0"/>
+
+
+    </GridLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        <CheckBox
+            android:id="@+id/box_valid_custom"
+            style="@style/checkbox"
+            android:text="@string/valid_custom"
+            android:layout_marginLeft="90px"
+            android:layout_marginRight="50px"/>
+
+        <TextView
+            android:id="@+id/txt_custom_year"
+            android:layout_width="64px"
+            android:layout_height="wrap_content"
+            android:text="0000"
+            android:gravity="center"
+            android:background="@drawable/line_down"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/year"
+            android:gravity="center"/>
+        <TextView
+            android:id="@+id/txt_custom_month"
+            android:layout_width="64px"
+            android:layout_height="wrap_content"
+            android:text="00"
+            android:gravity="center"
+            android:background="@drawable/line_down"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/month"
+            android:gravity="center"/>
+        <TextView
+            android:id="@+id/txt_custom_day"
+            android:layout_width="64px"
+            android:layout_height="wrap_content"
+            android:text="00"
+            android:gravity="center"
+            android:background="@drawable/line_down"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/day"
+            android:gravity="center"/>
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="180px"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal">
+        <com.keruiyun.saike.wheelpicker.WheelPicker
+            android:id="@+id/wheel_setting_year"
+            android:layout_width="144dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            ui:wheel_data="@array/WheelArray_Hour"
+            ui:wheel_bg_color_gradient_start="@color/wheel_bg_start"
+            ui:wheel_bg_color_gradient_end="@color/wheel_bg_end"
+            ui:wheel_current_item_text_color="@color/white"
+            ui:wheel_current_item_position="0"
+            ui:wheel_item_text_color="?attr/custom_attr_color_primary"
+            ui:wheel_curtain="true"
+            ui:wheel_atmospheric="true"
+            ui:wheel_curtain_color="?attr/custom_attr_color_primary"
+            android:visibility="gone"/>
+
+        <com.keruiyun.saike.wheelpicker.WheelPicker
+            android:id="@+id/wheel_setting_month"
+            android:layout_width="144dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            ui:wheel_data="@array/WheelArray_month"
+            ui:wheel_bg_color_gradient_start="@color/wheel_bg_start"
+            ui:wheel_bg_color_gradient_end="@color/wheel_bg_end"
+            ui:wheel_current_item_text_color="@color/white"
+            ui:wheel_current_item_position="0"
+            ui:wheel_item_text_color="?attr/custom_attr_color_primary"
+            ui:wheel_curtain="true"
+            ui:wheel_atmospheric="true"
+            ui:wheel_curtain_color="?attr/custom_attr_color_primary"
+            android:visibility="gone"/>
+
+        <com.keruiyun.saike.wheelpicker.WheelPicker
+            android:id="@+id/wheel_setting_day"
+            android:layout_width="144dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            ui:wheel_data="@array/WheelArray_Minute"
+            ui:wheel_bg_color_gradient_start="@color/wheel_bg_start"
+            ui:wheel_bg_color_gradient_end="@color/wheel_bg_end"
+            ui:wheel_current_item_text_color="@color/white"
+            ui:wheel_current_item_position="0"
+            ui:wheel_item_text_color="?attr/custom_attr_color_primary"
+            ui:wheel_curtain="true"
+            ui:wheel_atmospheric="true"
+            ui:wheel_curtain_color="?attr/custom_attr_color_primary"
+            android:visibility="gone"/>
+
+
+
+    </LinearLayout>
+
+    <com.bilibili.magicasakura.widgets.TintTextView
+        android:id="@+id/txt_sure"
+        style="@style/btn_sure"
+        android:layout_width="144px"
+        android:text="@string/sure"
+        android:paddingLeft="40px"
+        android:paddingRight="40px"
+        />
+
+
+</LinearLayout>

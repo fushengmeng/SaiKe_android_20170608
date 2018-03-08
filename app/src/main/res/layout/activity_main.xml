@@ -1,0 +1,2052 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView1"
+    android:layout_width="1920px"
+    android:layout_height="1080px" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <FrameLayout
+            android:id="@+id/LinearLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/sk_bg"
+            android:orientation="vertical"
+            android:paddingLeft="25px"
+            android:paddingRight="25px" >
+
+            <TextView
+                android:id="@+id/copyright"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginTop="10px"
+                android:background="#5fff"
+                android:gravity="right"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="26px"
+                android:visibility="gone" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="58px"
+                android:layout_marginTop="10px"
+                android:text="手术室集中控制触摸屏   OPERATION ROOM CONTROL PANEL "
+                android:textColor="@color/white"
+                android:textSize="26px" />
+
+            <Button
+                    android:id="@+id/clockPageButton"
+                    android:layout_width="108px"
+                    android:layout_height="44px"
+                    android:layout_marginLeft="1762px"
+                    android:layout_marginTop="8px"
+                    android:background="@drawable/air_btn_bg_selector4"
+                    android:text="时钟界面"
+                    android:textColor="@color/black"
+                    android:textSize="20px" />
+            
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="215px"
+                android:layout_marginTop="60px"
+                android:orientation="horizontal" >
+
+                <FrameLayout
+                    android:id="@+id/fl_timer"
+                    android:layout_width="610px"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bak_bg_1"
+                    android:orientation="vertical" >
+
+                    <ImageView
+                        android:layout_width="50px"
+                        android:layout_height="50px"
+                        android:layout_marginLeft="90px"
+                        android:layout_marginTop="15px"
+                        android:background="@android:color/transparent"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/op_timer" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="145px"
+                        android:layout_marginTop="23px"
+                        android:text="手术正计时  OPERATION TIMING"
+                        android:textColor="@color/white"
+                        android:textSize="26px" />
+
+                    <TextView
+                        android:id="@+id/main_op_tv_timer"
+                        android:layout_width="140px"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_marginLeft="55px"
+                        android:gravity="center"
+                        android:text="03"
+                        android:textColor="@color/white"
+                        android:textSize="120px"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/main_op_tv_timer1"
+                        android:layout_width="23px"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="205px"
+                        android:layout_marginTop="50px"
+                        android:gravity="center"
+                        android:text=":"
+                        android:textColor="@color/white"
+                        android:textSize="130px"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/main_op_tv_timer3"
+                        android:layout_width="140px"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_marginLeft="228px"
+                        android:gravity="center"
+                        android:text="04"
+                        android:textColor="@color/white"
+                        android:textSize="120px"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/main_op_tv_timer4"
+                        android:layout_width="23px"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="378px"
+                        android:layout_marginTop="50px"
+                        android:gravity="center"
+                        android:text=":"
+                        android:textColor="@color/white"
+                        android:textSize="130px"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/main_op_tv_timer5"
+                        android:layout_width="140px"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_marginLeft="401px"
+                        android:gravity="center"
+                        android:text="05"
+                        android:textColor="@color/white"
+                        android:textSize="120px"
+                        android:textStyle="bold" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/fl_anes_timer"
+                    android:layout_width="610px"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="630px"
+                    android:background="@drawable/bak_bg_2"
+                    android:orientation="vertical" >
+
+                    <ImageView
+                        android:layout_width="50px"
+                        android:layout_height="50px"
+                        android:layout_marginLeft="100px"
+                        android:layout_marginTop="15px"
+                        android:background="@android:color/transparent"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/anes_timer" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="155px"
+                        android:layout_marginTop="23px"
+                        android:text="麻醉计时 ANESTHESIA TIMING"
+                        android:textColor="@color/black"
+                        android:textSize="26px" />
+
+                    <TextView
+                        android:id="@+id/main_anes_tv_timer"
+                        android:layout_width="140px"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_marginLeft="55px"
+                        android:gravity="center"
+                        android:text="03"
+                        android:textColor="@color/black"
+                        android:textSize="120px"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/main_anes_tv_timer1"
+                        android:layout_width="23px"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="205px"
+                        android:layout_marginTop="50px"
+                        android:gravity="center"
+                        android:text=":"
+                        android:textColor="@color/black"
+                        android:textSize="130px"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/main_anes_tv_timer3"
+                        android:layout_width="140px"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_marginLeft="228px"
+                        android:gravity="center"
+                        android:text="04"
+                        android:textColor="@color/black"
+                        android:textSize="120px"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/main_anes_tv_timer4"
+                        android:layout_width="23px"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="378px"
+                        android:layout_marginTop="50px"
+                        android:gravity="center"
+                        android:text=":"
+                        android:textColor="@color/black"
+                        android:textSize="130px"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/main_anes_tv_timer5"
+                        android:layout_width="140px"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_marginLeft="401px"
+                        android:gravity="center"
+                        android:text="05"
+                        android:textColor="@color/black"
+                        android:textSize="120px"
+                        android:textStyle="bold" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/main_time_fl"
+                    android:layout_width="610px"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="1260px"
+                    android:background="@drawable/bak_bg_3"
+                    android:orientation="vertical" >
+
+                    <ImageView
+                        android:layout_width="50px"
+                        android:layout_height="50px"
+                        android:layout_marginLeft="210px"
+                        android:layout_marginTop="15px"
+                        android:background="@android:color/transparent"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/time_timer" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="265px"
+                        android:layout_marginTop="23px"
+                        android:text="时间   TIME"
+                        android:textColor="@color/black"
+                        android:textSize="26px" />
+
+                    <TextView
+                        android:id="@+id/main_time_tv_timer"
+                        android:layout_width="140px"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_marginLeft="55px"
+                        android:gravity="center"
+                        android:text="03"
+                        android:textColor="@color/black"
+                        android:textSize="120px"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/main_time_tv_timer1"
+                        android:layout_width="23px"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="205px"
+                        android:layout_marginTop="50px"
+                        android:gravity="center"
+                        android:text=":"
+                        android:textColor="@color/black"
+                        android:textSize="130px"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/main_time_tv_timer3"
+                        android:layout_width="140px"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_marginLeft="228px"
+                        android:gravity="center"
+                        android:text="04"
+                        android:textColor="@color/black"
+                        android:textSize="120px"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/main_time_tv_timer4"
+                        android:layout_width="23px"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="378px"
+                        android:layout_marginTop="50px"
+                        android:gravity="center"
+                        android:text=":"
+                        android:textColor="@color/black"
+                        android:textSize="130px"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/main_time_tv_timer5"
+                        android:layout_width="140px"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_marginLeft="401px"
+                        android:gravity="center"
+                        android:text="05"
+                        android:textColor="@color/black"
+                        android:textSize="120px"
+                        android:textStyle="bold" />
+                </FrameLayout>
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="60px"
+                android:layout_marginTop="287px"
+                android:orientation="horizontal" >
+
+                <FrameLayout
+                    android:layout_width="610px"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal" >
+
+                    <ImageButton
+                        android:id="@+id/main_op_ib_start"
+                        android:layout_width="101px"
+                        android:layout_height="50px"
+                        android:layout_marginLeft="115px"
+                        android:background="@android:color/transparent"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/start_selector" />
+
+                    <ImageButton
+                        android:id="@+id/main_op_ib_pasuse"
+                        android:layout_width="101px"
+                        android:layout_height="50px"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@android:color/transparent"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/pause_selector" />
+
+                    <ImageButton
+                        android:id="@+id/main_op_ib_reset"
+                        android:layout_width="101px"
+                        android:layout_height="50px"
+                        android:layout_marginLeft="390px"
+                        android:background="@android:color/transparent"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/reset_selector" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="开始"
+                        android:textColor="@color/black"
+                        android:textSize="18px"
+                        android:layout_marginLeft="162px"
+                        android:layout_marginTop="13px" />
+                    
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="暂停"
+                        android:textColor="@color/black"
+                        android:textSize="18px"
+                        android:layout_marginLeft="302px"
+                        android:layout_marginTop="13px" />
+                    
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="复位"
+                        android:textColor="@color/black"
+                        android:textSize="18px"
+                        android:layout_marginLeft="438px"
+                        android:layout_marginTop="13px" />
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="610px"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="630px"
+                    android:gravity="center"
+                    android:orientation="horizontal" >
+
+                    <ImageButton
+                        android:id="@+id/main_anes_ib_start"
+                        android:layout_width="101px"
+                        android:layout_height="50px"
+                        android:layout_marginLeft="115px"
+                        android:background="@android:color/transparent"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/start_selector" />
+
+                    <ImageButton
+                        android:id="@+id/main_anes_ib_pasuse"
+                        android:layout_width="101px"
+                        android:layout_height="50px"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@android:color/transparent"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/pause_selector" />
+
+                    <ImageButton
+                        android:id="@+id/main_anes_ib_reset"
+                        android:layout_width="101px"
+                        android:layout_height="50px"
+                        android:layout_marginLeft="390px"
+                        android:background="@android:color/transparent"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/reset_selector" />
+                    
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="开始"
+                        android:textColor="@color/black"
+                        android:textSize="18px"
+                        android:layout_marginLeft="162px"
+                        android:layout_marginTop="13px" />
+                    
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="暂停"
+                        android:textColor="@color/black"
+                        android:textSize="18px"
+                        android:layout_marginLeft="302px"
+                        android:layout_marginTop="13px" />
+                    
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="复位"
+                        android:textColor="@color/black"
+                        android:textSize="18px"
+                        android:layout_marginLeft="438px"
+                        android:layout_marginTop="13px" />
+                    
+                </FrameLayout>
+
+                <Button
+                    android:id="@+id/quickCallButton"
+                    android:layout_width="118px"
+                    android:layout_height="44px"
+                    android:layout_marginLeft="1292px"
+                    android:layout_marginTop="2px"
+                    android:background="@drawable/air_btn_bg_selector4"
+                    android:text="专呼电话"
+                    android:textColor="@color/black"
+                    android:textSize="20px" />
+                
+                <Button
+                    android:id="@+id/videoCallButton"
+                    android:layout_width="118px"
+                    android:layout_height="44px"
+                    android:layout_marginLeft="1428px"
+                    android:layout_marginTop="2px"
+                    android:background="@drawable/air_btn_bg_selector4"
+                    android:text="视频通话"
+                    android:textColor="@color/black"
+                    android:textSize="20px" />
+                
+                <TextView
+                    android:id="@+id/main_time_tv_current"
+                    android:layout_width="610px"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="1260px"
+                    android:layout_marginRight="15px"
+                    android:gravity="center_vertical|right"
+                    android:text="2015年8月18日"
+                    android:textColor="@color/white"
+                    android:textSize="35px" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="585px"
+                android:layout_marginTop="350px"
+                android:orientation="horizontal" >
+
+                <FrameLayout
+                    android:layout_width="578px"
+                    android:layout_height="match_parent"
+                    android:layout_weight="5"
+                    android:background="@drawable/bg_air_3"
+                    android:orientation="vertical" >
+
+                    <ImageView
+                        android:layout_width="40px"
+                        android:layout_height="40px"
+                        android:layout_marginLeft="30px"
+                        android:layout_marginTop="10px"
+                        android:background="@android:color/transparent"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/air_icon" />
+
+                    <Button
+                        android:id="@+id/main_open_air"
+                        android:layout_width="70px"
+                        android:layout_height="70px"
+                        android:layout_marginLeft="10px"
+                        android:background="@android:color/transparent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="85px"
+                        android:layout_marginTop="17px"
+                        android:text="空调系统    AIR CONDITION SYSTEM "
+                        android:textColor="@color/white"
+                        android:textSize="20px" />
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="110px"
+                        android:layout_marginLeft="25px"
+                        android:layout_marginRight="25px"
+                        android:layout_marginTop="70px"
+                        android:background="@drawable/bg_air" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="110px"
+                            android:layout_marginTop="3px"
+                            android:text="温度  Temperature"
+                            android:textColor="@color/black"
+                            android:textSize="20px" />
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="70px"
+                            android:layout_marginTop="40px" >
+
+                            <ImageButton
+                                android:id="@+id/main_air_ib_red"
+                                android:layout_width="78px"
+                                android:layout_height="49px"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="20px"
+                                android:background="@android:color/transparent"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/air_reduce_selector" />
+
+                            <FrameLayout
+                                android:layout_width="235px"
+                                android:layout_height="55px"
+                                android:layout_gravity="center"
+                                android:background="@drawable/bg_air_1" >
+
+                                <TextView
+                                    android:id="@+id/main_air_tv_temp"
+                                    android:layout_width="135px"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="-15px"
+                                    android:gravity="center_vertical|right"
+                                    android:text="0"
+                                    android:textColor="@color/black"
+                                    android:textSize="60px"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="100px"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginLeft="145px"
+                                    android:gravity="center_vertical|left"
+                                    android:text="°C"
+                                    android:textColor="@color/black"
+                                    android:textSize="40px"
+                                    android:textStyle="normal" />
+                            </FrameLayout>
+
+                            <ImageButton
+                                android:id="@+id/main_air_ib_add"
+                                android:layout_width="78px"
+                                android:layout_height="49px"
+                                android:layout_gravity="center_vertical|right"
+                                android:layout_marginRight="20px"
+                                android:background="@android:color/transparent"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/air_add_selector" />
+                        </FrameLayout>
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="110px"
+                        android:layout_marginLeft="25px"
+                        android:layout_marginRight="25px"
+                        android:layout_marginTop="252px"
+                        android:background="@drawable/bg_air" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="110px"
+                            android:layout_marginTop="3px"
+                            android:text="湿度  Humidity"
+                            android:textColor="@color/black"
+                            android:textSize="20px" />
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="70px"
+                            android:layout_marginTop="40px" >
+
+                            <ImageButton
+                                android:id="@+id/main_hum_ib_red"
+                                android:layout_width="78px"
+                                android:layout_height="49px"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="20px"
+                                android:background="@android:color/transparent"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/air_reduce_selector" />
+
+                            <FrameLayout
+                                android:layout_width="235px"
+                                android:layout_height="55px"
+                                android:layout_gravity="center"
+                                android:background="@drawable/bg_air_1" >
+
+                                <TextView
+                                    android:id="@+id/main_air_tv_hum"
+                                    android:layout_width="135px"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="-15px"
+                                    android:gravity="center_vertical|right"
+                                    android:text="45.6"
+                                    android:textColor="@color/black"
+                                    android:textSize="60px"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="100px"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginLeft="145px"
+                                    android:gravity="center_vertical|left"
+                                    android:text="RH%"
+                                    android:textColor="@color/black"
+                                    android:textSize="40px"
+                                    android:textStyle="normal" />
+                            </FrameLayout>
+
+                            <ImageButton
+                                android:id="@+id/main_hum_ib_add"
+                                android:layout_width="78px"
+                                android:layout_height="49px"
+                                android:layout_gravity="center_vertical|right"
+                                android:layout_marginRight="20px"
+                                android:background="@android:color/transparent"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/air_add_selector" />
+                        </FrameLayout>
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="110px"
+                        android:layout_marginLeft="25px"
+                        android:layout_marginRight="25px"
+                        android:layout_marginTop="310px"
+                        android:background="@drawable/bg_air"
+                        android:visibility="gone" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="80px"
+                            android:layout_marginTop="3px"
+                            android:text="压差  Differential Pressurl"
+                            android:textColor="@color/black"
+                            android:textSize="20px" />
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="70px"
+                            android:layout_marginTop="40px" >
+
+                            <ImageButton
+                                android:id="@+id/main_pa_ib_red"
+                                android:layout_width="78px"
+                                android:layout_height="49px"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="20px"
+                                android:background="@android:color/transparent"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/air_reduce_selector" />
+
+                            <FrameLayout
+                                android:layout_width="235px"
+                                android:layout_height="55px"
+                                android:layout_gravity="center"
+                                android:background="@drawable/bg_air_1" >
+
+                                <TextView
+                                    android:id="@+id/main_air_tv_pa"
+                                    android:layout_width="135px"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="-15px"
+                                    android:gravity="center_vertical|right"
+                                    android:text="0PA"
+                                    android:textColor="@color/black"
+                                    android:textSize="60px"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="100px"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginLeft="145px"
+                                    android:gravity="center_vertical|left"
+                                    android:text="PA"
+                                    android:textColor="@color/black"
+                                    android:textSize="40px"
+                                    android:textStyle="normal" />
+                            </FrameLayout>
+
+                            <ImageButton
+                                android:id="@+id/main_pa_ib_add"
+                                android:layout_width="78px"
+                                android:layout_height="49px"
+                                android:layout_gravity="center_vertical|right"
+                                android:layout_marginRight="20px"
+                                android:background="@android:color/transparent"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/air_add_selector" />
+                        </FrameLayout>
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/main_hum_rg"
+                        android:layout_width="match_parent"
+                        android:layout_height="70px"
+                        android:layout_marginLeft="3px"
+                        android:layout_marginRight="3px"
+                        android:layout_marginTop="430px"
+                        android:gravity="center"
+                        android:orientation="horizontal" >
+
+                        <ImageView
+                            android:id="@+id/radio0"
+                            android:layout_width="40px"
+                            android:layout_height="40px"
+                            android:layout_marginLeft="75px"
+                            android:background="@android:color/transparent"
+                            android:gravity="center"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/st_on" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="60px"
+                            android:layout_marginTop="45px"
+                            android:text="系统正常"
+                            android:textColor="@color/white"
+                            android:textSize="18px" />
+
+                        <ImageView
+                            android:id="@+id/radio1"
+                            android:layout_width="40px"
+                            android:layout_height="40px"
+                            android:layout_marginLeft="170px"
+                            android:background="@android:color/transparent"
+                            android:gravity="center"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/st_off" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="172px"
+                            android:layout_marginTop="45px"
+                            android:text="值班"
+                            android:textColor="@color/white"
+                            android:textSize="18px" />
+
+                        <ImageView
+                            android:id="@+id/radio3"
+                            android:layout_width="40px"
+                            android:layout_height="40px"
+                            android:layout_gravity="center_horizontal"
+                            android:background="@android:color/transparent"
+                            android:gravity="center"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/st_off" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="45px"
+                            android:text="系统故障"
+                            android:textColor="@color/white"
+                            android:textSize="18px" />
+
+                        <ImageView
+                            android:id="@+id/radio4"
+                            android:layout_width="40px"
+                            android:layout_height="40px"
+                            android:layout_gravity="right"
+                            android:layout_marginRight="170px"
+                            android:background="@android:color/transparent"
+                            android:gravity="center"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/st_off" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:layout_marginRight="152px"
+                            android:layout_marginTop="45px"
+                            android:text="高效堵塞"
+                            android:textColor="@color/white"
+                            android:textSize="18px" />
+
+                        <ImageView
+                            android:id="@+id/radio5"
+                            android:layout_width="40px"
+                            android:layout_height="40px"
+                            android:layout_gravity="right"
+                            android:layout_marginRight="75px"
+                            android:background="@android:color/transparent"
+                            android:gravity="center"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/st_off" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:layout_marginRight="60px"
+                            android:layout_marginTop="45px"
+                            android:text="负压运行"
+                            android:textColor="@color/white"
+                            android:textSize="18px" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="27px"
+                        android:layout_marginRight="27px"
+                        android:layout_marginTop="510px" >
+
+                        <Button
+                            android:id="@+id/main_air_ib_switch"
+                            android:layout_width="135px"
+                            android:layout_height="55px"
+                            android:layout_gravity="center_vertical"
+                            android:background="@drawable/air_btn_bg_selector"
+                            android:gravity="center"
+                            android:text="空调起停"
+                            android:textColor="@android:color/black"
+                            android:textSize="25px" />
+
+                        <Button
+                            android:id="@+id/main_air_ib_waiting"
+                            android:layout_width="135px"
+                            android:layout_height="55px"
+                            android:layout_gravity="center"
+                            android:background="@drawable/air_btn_bg_selector1"
+                            android:gravity="center"
+                            android:text="空调值班"
+                            android:textColor="@android:color/black"
+                            android:textSize="25px" />
+
+                        <Button
+                            android:id="@+id/main_op_ib_runing"
+                            android:layout_width="135px"
+                            android:layout_height="55px"
+                            android:layout_gravity="center_vertical|right"
+                            android:background="@drawable/air_btn_bg_selector3"
+                            android:gravity="center"
+                            android:text="正负压"
+                            android:textColor="@android:color/black"
+                            android:textSize="25px" />
+                    </FrameLayout>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="683px"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="593px"
+                    android:background="@drawable/bg_dial"
+                    android:orientation="vertical" >
+
+                    <ImageView
+                        android:layout_width="40px"
+                        android:layout_height="40px"
+                        android:layout_marginLeft="30px"
+                        android:layout_marginTop="10px"
+                        android:background="@android:color/transparent"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/dial_tel_icon" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="85px"
+                        android:layout_marginTop="18px"
+                        android:text="电话"
+                        android:textColor="@color/white"
+                        android:textSize="20px" />
+
+                    <Button
+			            android:id="@+id/remoteMusicButton"
+			            android:layout_width="88px"
+			            android:layout_height="38px"
+			            android:layout_marginLeft="232px"
+			            android:layout_marginTop="14px"
+			            android:text="远程音乐"
+			            android:background="@drawable/air_btn_bg_selector"
+			            android:textColor="@color/black"
+			            android:textSize="18px" />
+			        
+			        <Button
+			            android:id="@+id/bluetoothMusicButton"
+			            android:layout_width="88px"
+			            android:layout_height="38px"
+			            android:layout_marginLeft="330px"
+			            android:layout_marginTop="14px"
+			            android:text="蓝牙音乐"
+			            android:background="@drawable/air_btn_bg_selector"
+			            android:textColor="@color/black"
+			            android:textSize="18px" />
+                    
+                    <ImageButton
+                        android:id="@+id/stop_button"
+                        android:layout_width="44px"
+                        android:layout_height="44px"
+                        android:layout_marginLeft="358px"
+                        android:layout_marginTop="12px"
+                        android:background="@android:color/transparent"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/play_stop"
+                        android:visibility="invisible" />
+
+                    <TextView
+                        android:id="@+id/main_tv_music_back"
+                        android:layout_width="172px"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_marginRight="86px"
+                        android:layout_marginTop="18px"
+                        android:gravity="right"
+                        android:ellipsize="marquee"
+                        android:marqueeRepeatLimit="marquee_forever"
+                        android:scrollHorizontally="true"
+                        android:singleLine="true"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:text="背景音乐  MUSIC"
+                        android:textColor="@color/white"
+                        android:textSize="20px" />
+
+                    <ImageView
+                        android:id="@+id/main_iv_music_icon"
+                        android:layout_width="40px"
+                        android:layout_height="40px"
+                        android:layout_gravity="right"
+                        android:layout_marginRight="30px"
+                        android:layout_marginTop="10px"
+                        android:background="@android:color/transparent"
+                        android:padding="5px"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/dial_music_icon" />
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="80px"
+                        android:layout_marginLeft="20px"
+                        android:layout_marginRight="20px"
+                        android:layout_marginTop="75px"
+                        android:background="@drawable/bg_dial_phone_bg" >
+
+                        <TextView
+                            android:id="@+id/main_phone_et_tel"
+                            android:layout_width="match_parent"
+                            android:layout_height="80px"
+                            android:layout_marginLeft="60px"
+                            android:gravity="center_vertical|left"
+                            android:paddingLeft="10px"
+                            android:textColor="@color/black"
+                            android:textSize="55px" >
+                        </TextView>
+                        
+                        <com.gongwen.marqueen.MarqueeView
+                            android:id="@+id/marqueeView"
+                            android:layout_width="match_parent"
+                            android:layout_height="80px"
+                            android:layout_marginLeft="60px"
+                            android:background="#ff00aaff"
+                             >
+                        </com.gongwen.marqueen.MarqueeView>
+                        
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="425px"
+                        android:layout_gravity="bottom"
+                        android:layout_marginLeft="20px"
+                        android:layout_marginRight="20px" >
+
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="left"
+                            android:layout_marginTop="10px" >
+
+                            <Button
+                                android:id="@+id/main_phone_ib_1"
+                                android:layout_width="100px"
+                                android:layout_height="73px"
+                                android:background="@drawable/number_selector"
+                                android:scaleType="fitXY"
+                                android:text="1"
+                                android:textSize="38px" />
+
+                            <Button
+                                android:id="@+id/main_phone_ib_4"
+                                android:layout_width="100px"
+                                android:layout_height="73px"
+                                android:layout_marginTop="104px"
+                                android:scaleType="fitXY"
+                                android:background="@drawable/number_selector"
+                                android:text="4"
+                                android:textSize="38px" />
+
+                            <Button
+                                android:id="@+id/main_phone_ib_7"
+                                android:layout_width="100px"
+                                android:layout_height="73px"
+                                android:layout_marginTop="205px"
+                                android:scaleType="fitXY"
+                                android:background="@drawable/number_selector"
+                                android:text="7"
+                                android:textSize="38px" />
+
+                            <Button
+                                android:id="@+id/main_phone_ib_xing"
+                                android:layout_width="100px"
+                                android:layout_height="73px"
+                                android:layout_gravity="bottom"
+                                android:layout_marginBottom="30px"
+                                android:scaleType="fitXY"
+                                android:background="@drawable/number_selector"
+                                android:text="*"
+                                android:textSize="38px" />
+                        </FrameLayout>
+
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="left"
+                            android:layout_marginLeft="130px"
+                            android:layout_marginTop="10px" >
+
+                            <Button
+                                android:id="@+id/main_phone_ib_2"
+                                android:layout_width="100px"
+                                android:layout_height="73px"
+                                android:scaleType="fitXY"
+                                android:background="@drawable/number_selector"
+                                android:text="2"
+                                android:textSize="38px" />
+
+                            <Button
+                                android:id="@+id/main_phone_ib_5"
+                                android:layout_width="100px"
+                                android:layout_height="73px"
+                                android:layout_marginTop="104px"
+                                android:scaleType="fitXY"
+                                android:background="@drawable/number_selector"
+                                android:text="5"
+                                android:textSize="38px" />
+
+                            <Button
+                                android:id="@+id/main_phone_ib_8"
+                                android:layout_width="100px"
+                                android:layout_height="73px"
+                                android:layout_marginTop="205px"
+                                android:scaleType="fitXY"
+                                android:background="@drawable/number_selector"
+                                android:text="8"
+                                android:textSize="38px" />
+
+                            <Button
+                                android:id="@+id/main_phone_ib_0"
+                                android:layout_width="100px"
+                                android:layout_height="73px"
+                                android:layout_gravity="bottom"
+                                android:layout_marginBottom="30px"
+                                android:scaleType="fitXY"
+                                android:background="@drawable/number_selector"
+                                android:text="0"
+                                android:textSize="38px" />
+                        </FrameLayout>
+
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="left"
+                            android:layout_marginLeft="260px"
+                            android:layout_marginTop="10px" >
+
+                            <Button
+                                android:id="@+id/main_phone_ib_3"
+                                android:layout_width="100px"
+                                android:layout_height="73px"
+                                android:scaleType="fitXY"
+                                android:background="@drawable/number_selector"
+                                android:text="3"
+                                android:textSize="38px" />
+
+                            <Button
+                                android:id="@+id/main_phone_ib_6"
+                                android:layout_width="100px"
+                                android:layout_height="73px"
+                                android:layout_marginTop="104px"
+                                android:scaleType="fitXY"
+                                android:background="@drawable/number_selector"
+                                android:text="6"
+                                android:textSize="38px" />
+
+                            <Button
+                                android:id="@+id/main_phone_ib_9"
+                                android:layout_width="100px"
+                                android:layout_height="73px"
+                                android:layout_marginTop="205px"
+                                android:scaleType="fitXY"
+                                android:background="@drawable/number_selector"
+                                android:text="9"
+                                android:textSize="38px" />
+
+                            <Button
+                                android:id="@+id/main_phone_ib_jing"
+                                android:layout_width="100px"
+                                android:layout_height="73px"
+                                android:layout_gravity="bottom"
+                                android:layout_marginBottom="30px"
+                                android:scaleType="fitXY"
+                                android:background="@drawable/number_selector"
+                                android:text="#"
+                                android:textSize="38px" />
+                        </FrameLayout>
+
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="left"
+                            android:layout_marginLeft="390px"
+                            android:layout_marginTop="10px" >
+
+                            <ImageButton
+                                android:id="@+id/main_phone_dial"
+                                android:layout_width="118px"
+                                android:layout_height="118px"
+                                android:background="@android:color/transparent"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/dial_dial_selector" />
+
+                            <ImageButton
+                                android:id="@+id/main_phone_handup"
+                                android:layout_width="118px"
+                                android:layout_height="118px"
+                                android:layout_marginTop="135px"
+                                android:background="@android:color/transparent"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/dial_handup_selector" />
+
+                            <ImageButton
+                                android:id="@+id/main_phone_ib_slince"
+                                android:layout_width="106px"
+                                android:layout_height="106px"
+                                android:layout_marginLeft="10px"
+                                android:layout_marginTop="273px"
+                                android:background="@android:color/transparent"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/dial_slience_selector" />
+                        </FrameLayout>
+
+                        <FrameLayout
+                            android:layout_width="110px"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="right|bottom"
+                            android:layout_marginBottom="20px"
+                            android:layout_marginTop="10px"
+                            android:background="@drawable/dial_bg_1" >
+
+                            <ImageView
+                                android:layout_width="40px"
+                                android:layout_height="40px"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="10px"
+                                android:background="@android:color/transparent"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/dial_voice_icon" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="53px"
+                                android:text="音量调节"
+                                android:textColor="@color/white"
+                                android:textSize="20px" />
+
+                            <ImageButton
+                                android:id="@+id/voice_add"
+                                android:layout_width="match_parent"
+                                android:layout_height="40px"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="77px"
+                                android:background="@android:color/transparent"
+                                android:paddingBottom="10px"
+                                android:paddingLeft="45px"
+                                android:paddingRight="45px"
+                                android:paddingTop="10px"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/dial_voice_add" />
+
+                            <com.keruiyun.saike.controls.VerticalSeekBar
+                                android:id="@+id/verticalSeekBar1"
+                                android:layout_width="16px"
+                                android:layout_height="240px"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="120px"
+                                android:maxHeight="10px"
+                                android:minHeight="10px"
+                                android:paddingBottom="0px"
+                                android:paddingRight="0px"
+                                android:progressDrawable="@drawable/blue_seek_style"
+                                android:thumb="@drawable/dial_voice_seek"
+                                android:thumbOffset="0px" />
+                        </FrameLayout>
+
+                        <ImageButton
+                            android:id="@+id/voice_reduce"
+                            android:layout_width="110px"
+                            android:layout_height="50px"
+                            android:layout_gravity="right|bottom"
+                            android:background="@android:color/transparent"
+                            android:paddingBottom="30px"
+                            android:paddingLeft="35px"
+                            android:paddingRight="35px"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/dial_voice_reduce" />
+                    </FrameLayout>
+
+                    <Button
+                        android:id="@+id/localMusicButton"
+                        android:layout_width="88px"
+                        android:layout_height="38px"
+                        android:layout_marginLeft="136px"
+                        android:layout_marginTop="14px"
+                        android:background="@drawable/air_btn_bg_selector"
+                        android:text="本地音乐"
+                        android:textColor="@color/black"
+                        android:textSize="18px" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="578px"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="1286px"
+                    android:background="@drawable/bg_air_4"
+                    android:orientation="vertical" >
+
+                    <ImageView
+                        android:layout_width="40px"
+                        android:layout_height="40px"
+                        android:layout_marginLeft="30px"
+                        android:layout_marginTop="10px"
+                        android:background="@android:color/transparent"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/gas_icon" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="85px"
+                        android:layout_marginTop="17px"
+                        android:text="医用气体气压状态   MEDICAL GAS STATUS"
+                        android:textColor="@color/white"
+                        android:textSize="20px" />
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="120px"
+                        android:layout_marginLeft="8px"
+                        android:layout_marginRight="8px"
+                        android:layout_marginTop="70px" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="12px"
+                            android:layout_marginTop="28px"
+                            android:text="氧气"
+                            android:textColor="@color/white"
+                            android:textSize="28px" />
+
+                        <ImageView
+                            android:id="@+id/main_iv_gas_o2"
+                            android:layout_width="58px"
+                            android:layout_height="40px"
+                            android:layout_marginLeft="12px"
+                            android:layout_marginTop="68px"
+                            android:background="@android:color/transparent"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/gas_yello" />
+
+                        <FrameLayout
+                            android:layout_width="168px"
+                            android:layout_height="55px"
+                            android:layout_marginLeft="88px"
+                            android:layout_gravity="center_vertical"
+                            android:background="@drawable/bg_air_1" >
+
+                            <TextView
+                                android:id="@+id/air_pa_01"
+                                android:layout_width="82px"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="0px"
+                                android:gravity="center_vertical|right"
+                                android:text="0"
+                                android:textColor="@color/black"
+                                android:textSize="32px"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="100px"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="92px"
+                                android:gravity="center_vertical|left"
+                                android:text="MPa"
+                                android:textColor="@color/black"
+                                android:textSize="32px"
+                                android:textStyle="normal" />
+                        </FrameLayout>
+                            
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2px"
+                            android:layout_marginLeft="280px"
+                            android:text="压缩\n空气"
+                            android:textColor="@color/white"
+                            android:textSize="28px" />
+
+                        <ImageView
+                            android:id="@+id/main_iv_gas_o2_conpress"
+                            android:layout_width="58px"
+                            android:layout_height="40px"
+                            android:layout_marginTop="68px"
+                            android:layout_marginLeft="280px"
+                            android:background="@android:color/transparent"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/gas_yello" />
+                        
+                        <FrameLayout
+                            android:layout_width="168px"
+                            android:layout_height="55px"
+                            android:layout_marginLeft="358px"
+                            android:layout_gravity="center_vertical"
+                            android:background="@drawable/bg_air_1" >
+
+                            <TextView
+                                android:id="@+id/air_pa_05"
+                                android:layout_width="82px"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="0px"
+                                android:gravity="center_vertical|right"
+                                android:text="0"
+                                android:textColor="@color/black"
+                                android:textSize="32px"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="100px"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="92px"
+                                android:gravity="center_vertical|left"
+                                android:text="MPa"
+                                android:textColor="@color/black"
+                                android:textSize="32px"
+                                android:textStyle="normal" />
+                        </FrameLayout>
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="120px"
+                        android:layout_marginLeft="8px"
+                        android:layout_marginRight="8px"
+                        android:layout_marginTop="190px" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="12px"
+                            android:layout_marginTop="28px"
+                            android:text="氮气"
+                            android:textColor="@color/white"
+                            android:textSize="28px" />
+
+                        <ImageView
+                            android:id="@+id/main_iv_gas_nitogen"
+                            android:layout_width="58px"
+                            android:layout_height="40px"
+                            android:layout_marginLeft="12px"
+                            android:layout_marginTop="68px"
+                            android:background="@android:color/transparent"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/gas_yello" />
+
+                        <FrameLayout
+                            android:layout_width="168px"
+                            android:layout_height="55px"
+                            android:layout_marginLeft="88px"
+                            android:layout_gravity="center_vertical"
+                            android:background="@drawable/bg_air_1" >
+
+                            <TextView
+                                android:id="@+id/air_pa_02"
+                                android:layout_width="82px"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="0px"
+                                android:gravity="center_vertical|right"
+                                android:text="0"
+                                android:textColor="@color/black"
+                                android:textSize="32px"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="100px"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="92px"
+                                android:gravity="center_vertical|left"
+                                android:text="MPa"
+                                android:textColor="@color/black"
+                                android:textSize="32px"
+                                android:textStyle="normal" />
+                        </FrameLayout>
+                        
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2px"
+                            android:layout_marginLeft="280px"
+                            android:text="二氧\n化碳"
+                            android:textColor="@color/white"
+                            android:textSize="28px" />
+
+                        <ImageView
+                            android:id="@+id/main_iv_gas_carbon"
+                            android:layout_width="58px"
+                            android:layout_height="40px"
+                            android:layout_marginTop="68px"
+                            android:layout_marginLeft="280px"
+                            android:background="@android:color/transparent"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/gas_yello" />
+                        
+                        <FrameLayout
+                            android:layout_width="168px"
+                            android:layout_height="55px"
+                            android:layout_marginLeft="358px"
+                            android:layout_gravity="center_vertical"
+                            android:background="@drawable/bg_air_1" >
+
+                            <TextView
+                                android:layout_width="100px"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="92px"
+                                android:gravity="center_vertical|left"
+                                android:text="MPa"
+                                android:textColor="@color/black"
+                                android:textSize="32px"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/air_pa_06"
+                                android:layout_width="82px"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="0px"
+                                android:gravity="center_vertical|right"
+                                android:text="0"
+                                android:textColor="@color/black"
+                                android:textSize="32px"
+                                android:textStyle="bold" />
+                        </FrameLayout>
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="120px"
+                        android:layout_marginLeft="8px"
+                        android:layout_marginRight="8px"
+                        android:layout_marginTop="310px" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="12px"
+                            android:layout_marginTop="28px"
+                            android:text="笑气"
+                            android:textColor="@color/white"
+                            android:textSize="28px" />
+
+                        <ImageView
+                            android:id="@+id/main_iv_gas_laugh"
+                            android:layout_width="58px"
+                            android:layout_height="40px"
+                            android:layout_marginLeft="12px"
+                            android:layout_marginTop="68px"
+                            android:background="@android:color/transparent"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/gas_yello" />
+
+                        <FrameLayout
+                            android:layout_width="168px"
+                            android:layout_height="55px"
+                            android:layout_marginLeft="88px"
+                            android:layout_gravity="center_vertical"
+                            android:background="@drawable/bg_air_1" >
+
+                            <TextView
+                                android:id="@+id/air_pa_03"
+                                android:layout_width="82px"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="0px"
+                                android:gravity="center_vertical|right"
+                                android:text="0"
+                                android:textColor="@color/black"
+                                android:textSize="32px"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="100px"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="92px"
+                                android:gravity="center_vertical|left"
+                                android:text="MPa"
+                                android:textColor="@color/black"
+                                android:textSize="32px"
+                                android:textStyle="normal" />
+                        </FrameLayout>
+                        
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2px"
+                            android:layout_marginLeft="280px"
+                            android:text="负压\n吸引"
+                            android:textColor="@color/white"
+                            android:textSize="28px" />
+
+                        <ImageView
+                            android:id="@+id/main_iv_gas_neg"
+                            android:layout_width="58px"
+                            android:layout_height="40px"
+                            android:layout_marginTop="68px"
+                            android:layout_marginLeft="280px"
+                            android:background="@android:color/transparent"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/gas_yello" />
+                        
+                        <FrameLayout
+                            android:layout_width="168px"
+                            android:layout_height="55px"
+                            android:layout_marginLeft="358px"
+                            android:layout_gravity="center_vertical"
+                            android:background="@drawable/bg_air_1" >
+
+                            <TextView
+                                android:id="@+id/air_pa_07"
+                                android:layout_width="82px"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="0px"
+                                android:gravity="center_vertical|right"
+                                android:text="0"
+                                android:textColor="@color/black"
+                                android:textSize="32px"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="100px"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="92px"
+                                android:gravity="center_vertical|left"
+                                android:text="KPa"
+                                android:textColor="@color/black"
+                                android:textSize="32px"
+                                android:textStyle="normal" />
+                        </FrameLayout>
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="140px"
+                        android:layout_marginLeft="8px"
+                        android:layout_marginRight="8px"
+                        android:layout_marginTop="430px" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="12px"
+                            android:layout_marginTop="28px"
+                            android:text="氩气"
+                            android:textColor="@color/white"
+                            android:textSize="28px" />
+
+                        <ImageView
+                            android:id="@+id/main_iv_gas_argon"
+                           android:layout_width="58px"
+                            android:layout_height="40px"
+                            android:layout_marginLeft="12px"
+                            android:layout_marginTop="68px"
+                            android:background="@android:color/transparent"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/gas_yello" />
+
+                        <FrameLayout
+                            android:layout_width="168px"
+                            android:layout_height="55px"
+                            android:layout_marginLeft="88px"
+                            android:layout_gravity="center_vertical"
+                            android:background="@drawable/bg_air_1" >
+
+                            <TextView
+                                android:id="@+id/air_pa_04"
+                                android:layout_width="82px"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="0px"
+                                android:gravity="center_vertical|right"
+                                android:text="0"
+                                android:textColor="@color/black"
+                                android:textSize="32px"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="100px"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="92px"
+                                android:gravity="center_vertical|left"
+                                android:text="MPa"
+                                android:textColor="@color/black"
+                                android:textSize="32px"
+                                android:textStyle="normal" />
+                        </FrameLayout>
+                        
+                        <FrameLayout
+                            android:layout_width="170px"
+                            android:layout_height="46px"
+                            android:layout_marginRight="88px"
+                            android:layout_gravity="right" >
+
+                            <ImageView
+                                android:id="@+id/main_iv_ok_gas"
+                                android:layout_width="60px"
+                                android:layout_height="20px"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="5px"
+                                android:background="@android:color/transparent"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/gas_yello" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right|center_vertical"
+                                android:layout_marginRight="10px"
+                                android:text="--气体正常"
+                                android:textColor="@color/white"
+                                android:textSize="18px" />
+                        </FrameLayout>
+
+                        <FrameLayout
+                            android:layout_width="170px"
+                            android:layout_height="46px"
+                            android:layout_marginRight="88px"
+                            android:layout_gravity="right|center_vertical" >
+
+                            <ImageView
+                                android:id="@+id/main_iv_high_gas"
+                                android:layout_width="60px"
+                                android:layout_height="20px"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="5px"
+                                android:background="@android:color/transparent"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/gas_red" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right|center_vertical"
+                                android:layout_marginRight="10px"
+                                android:text="--气体过高"
+                                android:textColor="@color/white"
+                                android:textSize="18px" />
+                        </FrameLayout>
+
+                        <FrameLayout
+                            android:layout_width="170px"
+                            android:layout_height="46px"
+                             android:layout_marginRight="88px"
+                            android:layout_gravity="right|bottom" >
+
+                            <ImageView
+                                android:id="@+id/main_iv_low_gas"
+                                android:layout_width="60px"
+                                android:layout_height="20px"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="5px"
+                                android:background="@android:color/transparent"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/gas_alarm" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right|center_vertical"
+                                android:layout_marginRight="10px"
+                                android:text="--气体过低"
+                                android:textColor="@color/white"
+                                android:textSize="18px" />
+                        </FrameLayout>
+                    </FrameLayout>
+                </FrameLayout>
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="1870px"
+                android:layout_height="110px"
+                android:layout_marginTop="945px"
+                android:background="@drawable/c_bg"
+                android:orientation="horizontal" >
+
+                <FrameLayout
+                    android:id="@+id/main_rb_1"
+                    android:layout_width="182px"
+                    android:layout_height="90px"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="25px"
+                    android:background="@drawable/c_bg_1" >
+
+                    <ImageView
+                        android:id="@+id/main_iv_fire"
+                        android:layout_width="60px"
+                        android:layout_height="60px"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="35px"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/c1_normal"
+                        android:visibility="visible" />
+
+                    <TextView
+                        android:id="@+id/main_et_fire"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="95px"
+                        android:text="消防\n正常"
+                        android:textColor="@color/green"
+                        android:textSize="20px"
+                        android:visibility="visible" />
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/main_rb_2"
+                    android:layout_width="182px"
+                    android:layout_height="90px"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="207px"
+                    android:background="@drawable/c_bg_3" >
+
+                    <ImageView
+                        android:id="@+id/main_iv_power"
+                        android:layout_width="60px"
+                        android:layout_height="60px"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="35px"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/c2_normal"
+                        android:visibility="visible" />
+
+                    <TextView
+                        android:id="@+id/main_et_power"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="95px"
+                        android:text="IT电源\n正常"
+                        android:textColor="@color/green"
+                        android:textSize="20px"
+                        android:visibility="visible" />
+
+                </FrameLayout>
+                
+                <FrameLayout
+                    android:layout_width="364px"
+                    android:layout_height="90px"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="25px"
+                    android:visibility="invisible" >
+
+                   <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="138px"
+                        android:layout_marginTop="6px"
+                        android:text="尘埃粒子监测"
+                        android:textColor="@color/white"
+                        android:textSize="16px" />
+                   
+                   <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="58px"
+                        android:layout_marginTop="24px"
+                        android:text="≥0.5μm"
+                        android:textColor="@color/white"
+                        android:textSize="20px" />
+                   
+                   <TextView
+                       android:id="@+id/dustParticle01TextView"
+                       android:layout_width="148px"
+                       android:layout_height="wrap_content"
+                       android:layout_marginLeft="12px"
+                       android:layout_marginTop="52px"
+                       android:gravity="center"
+                       android:text="0"
+                       android:textColor="@color/white"
+                       android:textSize="20px" />
+                   
+                   <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="248px"
+                        android:layout_marginTop="24px"
+                        android:text="≥5μm"
+                        android:textColor="@color/white"
+                        android:textSize="20px" />
+                   
+                   <TextView
+                        android:id="@+id/dustParticle02TextView"
+                        android:layout_width="148px"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="198px"
+                        android:layout_marginTop="52px"
+                        android:gravity="center"
+                        android:text="0"
+                        android:textColor="@color/white"
+                        android:textSize="20px" />
+
+                </FrameLayout>
+                
+                <FrameLayout
+                    android:id="@+id/main_rb_3"
+                    android:layout_width="182px"
+                    android:layout_height="90px"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="389px" >
+
+                    <ImageView
+                        android:id="@+id/main_iv_3"
+                        android:layout_width="40px"
+                        android:layout_height="40px"
+                        android:layout_gravity="center_horizontal"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/c3" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="42px"
+                        android:gravity="center"
+                        android:text="综合控制\nControl"
+                        android:textColor="@color/white"
+                        android:textSize="18px" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="1274px"
+                    android:layout_height="90px"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="571px"
+                    android:background="@drawable/bg_air_5" >
+
+                    <Button
+                        android:id="@+id/main_rb_4"
+                        android:layout_width="163px"
+                        android:layout_height="85px"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="20px"
+                        android:background="@drawable/control_btn_bg_selector"
+                        android:gravity="center_horizontal|bottom"
+                        android:paddingBottom="8px"
+                        android:text="照明1"
+                        android:textColor="@color/white"
+                        android:textSize="20px" >
+                    </Button>
+
+                    <Button
+                        android:id="@+id/main_rb_5"
+                        android:layout_width="180px"
+                        android:layout_height="85px"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="186px"
+                        android:background="@drawable/control_btn_bg_selector"
+                        android:gravity="center_horizontal|bottom"
+                        android:paddingBottom="8px"
+                        android:text="照明2"
+                        android:textColor="@color/white"
+                        android:textSize="20px" >
+                    </Button>
+
+                    <Button
+                        android:id="@+id/main_rb_6"
+                        android:layout_width="180px"
+                        android:layout_height="85px"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="367px"
+                        android:background="@drawable/control_btn_bg_selector"
+                        android:gravity="center_horizontal|bottom"
+                        android:paddingBottom="8px"
+                        android:text="照明3"
+                        android:textColor="@color/white"
+                        android:textSize="20px" >
+                    </Button>
+
+                    <Button
+                        android:id="@+id/main_rb_7"
+                        android:layout_width="180px"
+                        android:layout_height="85px"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="549px"
+                        android:background="@drawable/control_btn_bg_selector3"
+                        android:gravity="center_horizontal|bottom"
+                        android:paddingBottom="8px"
+                        android:text="观片灯"
+                        android:textColor="@color/white"
+                        android:textSize="20px" >
+                    </Button>
+
+                    <Button
+                        android:id="@+id/main_rb_8"
+                        android:layout_width="178px"
+                        android:layout_height="85px"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="731px"
+                        android:background="@drawable/control_btn_bg_selector3"
+                        android:gravity="center_horizontal|bottom"
+                        android:paddingBottom="8px"
+                        android:text="无影灯"
+                        android:textColor="@color/white"
+                        android:textSize="20px" >
+                    </Button>
+
+                    <Button
+                        android:id="@+id/main_rb_9"
+                        android:layout_width="162px"
+                        android:layout_height="85px"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="1095px"
+                        android:background="@drawable/control_btn_bg_selector3"
+                        android:gravity="center_horizontal|bottom"
+                        android:paddingBottom="8px"
+                        android:text="呼叫"
+                        android:textColor="@color/white"
+                        android:textSize="20px" >
+                    </Button>
+
+                    <Button
+                        android:id="@+id/main_rb_10"
+                        android:layout_width="162px"
+                        android:layout_height="85px"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="911px"
+                        android:background="@drawable/control_btn_bg_selector4"
+                        android:gravity="center_horizontal|bottom"
+                        android:paddingBottom="8px"
+                        android:text="手术中"
+                        android:textColor="@color/white"
+                        android:textSize="20px" >
+                    </Button>
+                </FrameLayout>
+            </FrameLayout>
+
+            <ImageView
+                android:id="@+id/data_status"
+                android:layout_width="40px"
+                android:layout_height="40px"
+                android:layout_gravity="right|top"
+                android:layout_marginTop="10px"
+                android:adjustViewBounds="true"
+                android:src="@drawable/st_error"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="52px"
+                android:layout_height="52px"
+                android:layout_marginLeft="2px"
+                android:layout_marginTop="-6px"
+                android:scaleType="fitCenter"
+                android:src="@drawable/logo"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2px"
+                android:layout_marginTop="28px"
+                android:text="泰新机电"
+                android:textColor="@color/white"
+                android:textSize="13px"
+                android:visibility="invisible" />
+
+        </FrameLayout>
+    </LinearLayout>
+
+</RelativeLayout>

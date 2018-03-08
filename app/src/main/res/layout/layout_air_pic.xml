@@ -1,0 +1,787 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+        android:layout_width="1165px"
+        android:layout_height="686px"
+        android:layout_marginTop="50px">
+        <ImageView
+            android:id="@+id/air_iv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/air"
+            android:visibility="visible"/>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/air_system"
+                android:textSize="40px" />
+
+            <TextView
+                style="@style/air_syatem_params"
+                android:layout_marginLeft="20px"
+                android:layout_marginTop="110px"
+                android:text="@string/air_new_wind_trh" />
+            <TextView
+                android:id="@+id/value_air_new_wind_t"
+                android:layout_width="@dimen/width_air_params"
+                android:layout_height="@dimen/height_air_params"
+                android:layout_marginLeft="20px"
+                android:layout_marginTop="130px"
+                android:gravity="center_vertical|right"
+                android:text="0"
+                android:textColor="#03f0f0"
+                android:textSize="14px"
+                android:textStyle="bold" />
+            <TextView
+                style="@style/air_syatem_params"
+                android:layout_marginLeft="70px"
+                android:layout_marginTop="131px"
+                android:text="@string/unit_t" />
+
+            <TextView
+                android:id="@+id/value_air_new_wind_rh"
+                android:layout_width="@dimen/width_air_params"
+                android:layout_height="@dimen/height_air_params"
+                android:layout_marginLeft="20px"
+                android:layout_marginTop="145px"
+                android:gravity="center_vertical|right"
+                android:text="0"
+                android:textColor="#03f0f0"
+                android:textSize="14px"
+                android:textStyle="bold" />
+            <TextView
+                style="@style/air_syatem_params"
+                android:layout_marginLeft="70px"
+                android:layout_marginTop="146px"
+                android:text="%" />
+
+            <TextView
+                style="@style/air_syatem_params"
+                android:layout_marginLeft="90px"
+                android:layout_marginTop="85px"
+                android:text="@string/air_new_wind_valve" />
+            <TextView
+                android:id="@+id/value_air_new_wind_valve"
+                android:layout_width="@dimen/width_air_params"
+                android:layout_height="@dimen/height_air_params"
+                android:layout_marginLeft="120px"
+                android:layout_marginTop="85px"
+                android:gravity="center_vertical|right"
+                android:text="00.0"
+                android:textColor="#03f0f0"
+                android:textSize="14px"
+                android:textStyle="bold" />
+            <TextView
+                style="@style/air_syatem_params"
+                android:layout_marginLeft="170px"
+                android:layout_marginTop="86px"
+                android:text="%" />
+
+            <TextView
+                style="@style/air_syatem_params"
+                android:layout_marginLeft="95px"
+                android:layout_marginTop="160px"
+                android:text="@string/air_turn_wind_valve" />
+
+
+            <TextView
+                style="@style/air_syatem_params"
+                android:layout_marginLeft="50px"
+                android:layout_marginTop="230px"
+                android:text="@string/air_fire_valve" />
+
+            <TextView
+                style="@style/air_syatem_params"
+                android:layout_marginLeft="50px"
+                android:layout_marginTop="250px"
+                android:text="@string/air_micropore_muffler" />
+            <TextView
+                style="@style/air_syatem_params"
+                android:layout_marginLeft="50px"
+                android:layout_marginTop="620px"
+                android:text="@string/air_turn_wind" />
+
+            <TextView
+                style="@style/air_syatem_params"
+                android:layout_marginLeft="70px"
+                android:layout_marginTop="330px"
+                android:text="@string/air_turnwind_temprh" />
+
+            <TextView
+                android:id="@+id/value_air_turnwind_t"
+                android:layout_width="@dimen/width_air_params"
+                android:layout_height="@dimen/height_air_params"
+                android:layout_marginLeft="70px"
+                android:layout_marginTop="347px"
+                android:gravity="center_vertical|right"
+                android:text="0.0"
+                android:textColor="#01a709"
+                android:textSize="14px"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/air_syatem_params"
+                android:layout_marginLeft="120px"
+                android:layout_marginTop="348px"
+                android:text="@string/unit_t" />
+
+            <TextView
+                android:id="@+id/value_air_turnwind_rh"
+                android:layout_width="@dimen/width_air_params"
+                android:layout_height="@dimen/height_air_params"
+                android:layout_marginLeft="70px"
+                android:layout_marginTop="365px"
+                android:gravity="center_vertical|right"
+                android:text="0.0"
+                android:textColor="#01a709"
+                android:textSize="14px"
+                android:textStyle="bold" />
+            <TextView
+                style="@style/air_syatem_params"
+                android:layout_marginLeft="120px"
+                android:layout_marginTop="366px"
+                android:text="%" />
+
+            <TextView
+                style="@style/air_syatem_params"
+                android:layout_marginLeft="70px"
+                android:layout_marginTop="390px"
+                android:text="@string/air_temprh_setting" />
+
+            <TextView
+                android:id="@+id/value_air_setting_t"
+                android:layout_width="@dimen/width_air_params"
+                android:layout_height="@dimen/height_air_params"
+                android:layout_marginLeft="70px"
+                android:layout_marginTop="406px"
+                android:gravity="center_vertical|right"
+                android:text="0"
+                android:textColor="#03f0f0"
+                android:textSize="14px"
+                android:textStyle="bold" />
+            <TextView
+                style="@style/air_syatem_params"
+                android:layout_marginLeft="120px"
+                android:layout_marginTop="407px"
+                android:text="@string/unit_t" />
+
+            <TextView
+                android:id="@+id/value_air_setting_rh"
+                android:layout_width="@dimen/width_air_params"
+                android:layout_height="@dimen/height_air_params"
+                android:layout_marginLeft="70px"
+                android:layout_marginTop="421px"
+                android:gravity="center_vertical|right"
+                android:text="0"
+                android:textColor="#03f0f0"
+                android:textSize="14px"
+                android:textStyle="bold" />
+            <TextView
+                style="@style/air_syatem_params"
+                android:layout_marginLeft="120px"
+                android:layout_marginTop="420px"
+                android:text="%" />
+
+            <TextView
+                style="@style/air_syatem_params"
+                android:layout_marginLeft="220px"
+                android:layout_marginTop="130px"
+                android:text="@string/air_first_middle" />
+            <TextView
+                style="@style/air_syatem_params"
+                android:layout_marginLeft="300px"
+                android:layout_marginTop="130px"
+                android:text="@string/air_fan" />
+            <TextView
+                style="@style/air_syatem_params"
+                android:layout_marginLeft="425px"
+                android:layout_marginTop="130px"
+                android:text="@string/air_lente" />
+            <TextView
+                style="@style/air_syatem_params"
+                android:layout_marginLeft="560px"
+                android:layout_marginTop="130px"
+                android:text="@string/air_surface_cooler" />
+            <TextView
+                style="@style/air_syatem_params"
+                android:layout_marginLeft="690px"
+                android:layout_marginTop="130px"
+                android:text="@string/air_electrical_heating" />
+            <TextView
+                style="@style/air_syatem_params"
+                android:layout_marginLeft="850px"
+                android:layout_marginTop="130px"
+                android:text="@string/air_humidify" />
+            <TextView
+                style="@style/air_syatem_params"
+                android:layout_marginLeft="910px"
+                android:layout_marginTop="130px"
+                android:text="@string/air_mixture" />
+            <TextView
+                style="@style/air_syatem_params"
+                android:layout_marginLeft="210px"
+                android:layout_marginTop="275px"
+                android:text="@string/air_first_alarm" />
+            <TextView
+                style="@style/air_syatem_params"
+                android:layout_marginLeft="320px"
+                android:layout_marginTop="275px"
+                android:text="@string/air_lackwind_alarm" />
+            <TextView
+                style="@style/air_syatem_params"
+                android:layout_marginLeft="420px"
+                android:layout_marginTop="275px"
+                android:text="@string/air_middle_alarm" />
+
+            <TextView
+                style="@style/air_syatem_params"
+                android:layout_marginLeft="480px"
+                android:layout_marginTop="300px"
+                android:text="@string/air_cold_hot" />
+
+            <TextView
+                android:id="@+id/value_air_cold_hot"
+                android:layout_width="@dimen/width_air_params"
+                android:layout_height="@dimen/height_air_params"
+                android:layout_marginLeft="470px"
+                android:layout_marginTop="320px"
+                android:gravity="center_vertical|right"
+                android:text="00.0"
+                android:textColor="#03f0f0"
+                android:textSize="14px"
+                android:textStyle="bold" />
+            <TextView
+                style="@style/air_syatem_params"
+                android:layout_marginLeft="520px"
+                android:layout_marginTop="321px"
+                android:text="%" />
+            <TextView
+                style="@style/air_syatem_params"
+                android:layout_marginLeft="520px"
+                android:layout_marginTop="350px"
+                android:text="@string/air_water_turn" />
+
+            <TextView
+                style="@style/air_syatem_params"
+                android:layout_marginLeft="620px"
+                android:layout_marginTop="350px"
+                android:text="@string/air_water_send" />
+            <TextView
+                style="@style/air_syatem_params"
+                android:layout_marginLeft="790px"
+                android:layout_marginTop="290px"
+                android:text="@string/air_high_temperature_circuit_breaker" />
+
+            <TextView
+                style="@style/air_syatem_params"
+                android:layout_marginLeft="910px"
+                android:layout_marginTop="310px"
+                android:text="@string/air_humidifier"
+                android:textColor="@color/black"/>
+
+            <TextView
+                style="@style/air_syatem_params"
+                android:layout_marginLeft="1000px"
+                android:layout_marginTop="200px"
+                android:text="@string/air_turn_wind_valve" />
+
+            <TextView
+                android:id="@+id/value_air_turn_wind_valve"
+                android:layout_width="@dimen/width_air_params"
+                android:layout_height="@dimen/height_air_params"
+                android:layout_marginLeft="980px"
+                android:layout_marginTop="220px"
+                android:gravity="center_vertical|right"
+                android:text="00.0"
+                android:textColor="#03f0f0"
+                android:textSize="14px"
+                android:textStyle="bold" />
+            <TextView
+                style="@style/air_syatem_params"
+                android:layout_marginLeft="1030px"
+                android:layout_marginTop="221px"
+                android:text="%" />
+
+            <TextView
+                style="@style/air_syatem_params"
+                android:layout_marginLeft="1070px"
+                android:layout_marginTop="220px"
+                android:text="@string/air_fire_valve" />
+            <TextView
+                style="@style/air_syatem_params"
+                android:layout_marginLeft="1040px"
+                android:layout_marginTop="250px"
+                android:text="@string/air_micropore_muffler" />
+
+            <TextView
+                style="@style/air_syatem_params"
+                android:layout_marginLeft="880px"
+                android:layout_marginTop="370px"
+                android:text="@string/air_humidifier" />
+
+            <TextView
+                android:id="@+id/value_air_humidifier"
+                android:layout_width="@dimen/width_air_params"
+                android:layout_height="@dimen/height_air_params"
+                android:layout_marginLeft="920px"
+                android:layout_marginTop="370px"
+                android:gravity="center_vertical|right"
+                android:text="00.0"
+                android:textColor="#03f0f0"
+                android:textSize="14px"
+                android:textStyle="bold" />
+            <TextView
+                style="@style/air_syatem_params"
+                android:layout_marginLeft="970px"
+                android:layout_marginTop="371px"
+                android:text="%" />
+
+            <TextView
+                style="@style/air_syatem_params"
+                android:layout_marginLeft="1040px"
+                android:layout_marginTop="360px"
+                android:text="@string/air_wind_send_trh" />
+
+            <TextView
+                android:id="@+id/value_air_wind_send_t"
+                android:layout_width="@dimen/width_air_params"
+                android:layout_height="@dimen/height_air_params"
+                android:layout_marginLeft="1040px"
+                android:layout_marginTop="380px"
+                android:gravity="center_vertical|right"
+                android:text="0"
+                android:textColor="#03f0f0"
+                android:textSize="14px"
+                android:textStyle="bold" />
+            <TextView
+                style="@style/air_syatem_params"
+                android:layout_marginLeft="1090px"
+                android:layout_marginTop="381px"
+                android:text="@string/unit_t" />
+
+            <TextView
+                android:id="@+id/value_air_wind_send_rh"
+                android:layout_width="@dimen/width_air_params"
+                android:layout_height="@dimen/height_air_params"
+                android:layout_marginLeft="1040px"
+                android:layout_marginTop="400px"
+                android:gravity="center_vertical|right"
+                android:text="0"
+                android:textColor="#03f0f0"
+                android:textSize="14px"
+                android:textStyle="bold" />
+            <TextView
+                style="@style/air_syatem_params"
+                android:layout_marginLeft="1090px"
+                android:layout_marginTop="401px"
+                android:text="%" />
+            <TextView
+                style="@style/air_syatem_params"
+                android:layout_marginLeft="740px"
+                android:layout_marginTop="440px"
+                android:text="@string/air_efficient_alarm" />
+            <TextView
+                style="@style/air_syatem_params"
+                android:layout_marginLeft="495px"
+                android:layout_marginTop="454px"
+                android:text="@string/air_laminar_smallpox" />
+
+            <TextView
+                android:id="@+id/value_pa"
+                android:layout_width="@dimen/width_air_params"
+                android:layout_height="@dimen/height_air_params"
+                android:layout_marginLeft="330px"
+                android:layout_marginTop="530px"
+                android:gravity="center_vertical|right"
+                android:text="0"
+                android:textColor="#03f0f0"
+                android:textSize="14px"
+                android:textStyle="bold" />
+            <TextView
+                style="@style/air_syatem_params"
+                android:layout_marginLeft="380px"
+                android:layout_marginTop="531px"
+                android:text="@string/unit_pa" />
+
+            <TextView
+                style="@style/air_syatem_params"
+                android:layout_marginLeft="360px"
+                android:layout_marginTop="370px"
+                android:text="@string/air_exhaust_valve" />
+            <TextView
+                style="@style/air_syatem_params"
+                android:layout_marginLeft="300px"
+                android:layout_marginTop="440px"
+                android:text="@string/air_exhaust" />
+        </FrameLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible">
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/iv1"
+                    android:layout_width="@dimen/width_flowdirection_1_horizontal"
+                    android:layout_height="@dimen/height_flowdirection_1_horizontal"
+                    android:layout_marginLeft="1000px"
+                    android:layout_marginTop="179px"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/arrow6" />
+
+                <ImageView
+                    android:id="@+id/iv3"
+                    android:layout_width="@dimen/width_flowdirection_1_horizontal"
+                    android:layout_height="@dimen/height_flowdirection_1_horizontal"
+                    android:layout_marginLeft="1685px"
+                    android:layout_marginTop="270px"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/arrow6" />
+
+                <ImageView
+                    android:id="@+id/iv4"
+                    android:layout_width="@dimen/width_flowdirection_1_vertical"
+                    android:layout_height="@dimen/height_flowdirection_1_vertical"
+                    android:layout_marginLeft="1120px"
+                    android:layout_marginTop="240px"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/arrow7" />
+
+                <ImageView
+                    android:id="@+id/iv5"
+                    android:layout_width="@dimen/width_flowdirection_1_vertical"
+                    android:layout_height="@dimen/height_flowdirection_1_vertical"
+                    android:layout_marginLeft="1120px"
+                    android:layout_marginTop="275px"
+                    android:background="@android:color/transparent"
+
+                    android:src="@drawable/arrow7" />
+
+                <ImageView
+                    android:id="@+id/iv6"
+                    android:layout_width="@dimen/width_flowdirection_1_vertical"
+                    android:layout_height="@dimen/height_flowdirection_1_vertical"
+                    android:layout_marginLeft="1120px"
+                    android:layout_marginTop="320px"
+                    android:background="@android:color/transparent"
+
+                    android:src="@drawable/arrow7" />
+
+                <ImageView
+                    android:id="@+id/iv7"
+                    android:layout_width="@dimen/width_flowdirection_1_vertical"
+                    android:layout_height="@dimen/height_flowdirection_1_vertical"
+                    android:layout_marginLeft="1120px"
+                    android:layout_marginTop="360px"
+                    android:background="@android:color/transparent"
+
+                    android:src="@drawable/arrow7" />
+
+                <ImageView
+                    android:id="@+id/iv11"
+                    android:layout_width="@dimen/width_flowdirection_1_horizontal"
+                    android:layout_height="@dimen/height_flowdirection_1_horizontal"
+                    android:layout_marginLeft="1060px"
+                    android:layout_marginTop="424px"
+                    android:background="@android:color/transparent"
+
+                    android:src="@drawable/arrow8" />
+
+                <ImageView
+                    android:id="@+id/iv13"
+                    android:layout_width="@dimen/width_flowdirection_1_horizontal"
+                    android:layout_height="@dimen/height_flowdirection_1_horizontal"
+                    android:layout_marginLeft="860px"
+                    android:layout_marginTop="424px"
+                    android:background="@android:color/transparent"
+
+                    android:src="@drawable/arrow8" />
+
+                <ImageView
+                    android:id="@+id/iv14"
+                    android:layout_width="@dimen/width_flowdirection_1_horizontal"
+                    android:layout_height="@dimen/height_flowdirection_1_horizontal"
+                    android:layout_marginLeft="670px"
+                    android:layout_marginTop="424px"
+                    android:background="@android:color/transparent"
+
+                    android:src="@drawable/arrow8" />
+
+                <ImageView
+                    android:id="@+id/iv31"
+                    android:layout_width="@dimen/width_flowdirection_1_horizontal"
+                    android:layout_height="@dimen/height_flowdirection_1_horizontal"
+                    android:layout_marginLeft="660px"
+                    android:layout_marginTop="645px"
+                    android:background="@android:color/transparent"
+
+                    android:src="@drawable/arrow8" />
+
+                <ImageView
+                    android:id="@+id/iv33"
+                    android:layout_width="@dimen/width_flowdirection_1_horizontal"
+                    android:layout_height="@dimen/height_flowdirection_1_horizontal"
+                    android:layout_marginLeft="360px"
+                    android:layout_marginTop="645px"
+                    android:background="@android:color/transparent"
+
+                    android:src="@drawable/arrow8" />
+
+                <ImageView
+                    android:id="@+id/iv34"
+                    android:layout_width="@dimen/width_flowdirection_1_horizontal"
+                    android:layout_height="@dimen/height_flowdirection_1_horizontal"
+                    android:layout_marginLeft="125px"
+                    android:layout_marginTop="645px"
+                    android:background="@android:color/transparent"
+
+                    android:src="@drawable/arrow8" />
+
+                <ImageView
+                    android:id="@+id/iv41"
+                    android:layout_width="@dimen/width_flowdirection_1_vertical"
+                    android:layout_height="@dimen/height_flowdirection_1_vertical"
+                    android:layout_marginLeft="30px"
+                    android:layout_marginTop="580px"
+                    android:background="@android:color/transparent"
+
+                    android:src="@drawable/arrow9" />
+
+                <ImageView
+                    android:id="@+id/iv43"
+                    android:layout_width="@dimen/width_flowdirection_1_vertical"
+                    android:layout_height="@dimen/height_flowdirection_1_vertical"
+                    android:layout_marginLeft="30px"
+                    android:layout_marginTop="460px"
+                    android:background="@android:color/transparent"
+
+                    android:src="@drawable/arrow9" />
+
+                <ImageView
+                    android:id="@+id/iv44"
+                    android:layout_width="@dimen/width_flowdirection_1_vertical"
+                    android:layout_height="@dimen/height_flowdirection_1_vertical"
+                    android:layout_marginLeft="30px"
+                    android:layout_marginTop="285px"
+                    android:background="@android:color/transparent"
+
+                    android:src="@drawable/arrow9" />
+
+            </FrameLayout>
+
+            <ImageView
+                android:id="@+id/ImageView14"
+                android:layout_width="40px"
+                android:layout_height="40px"
+                android:layout_marginLeft="310px"
+                android:layout_marginTop="174px"
+                android:scaleType="fitXY"
+                android:src="@drawable/fan" />
+
+            <LinearLayout
+                android:id="@+id/air_ll_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="150px"
+                android:layout_marginTop="@dimen/flowdirection_top"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:layout_width="@dimen/width_flowdirection"
+                    android:layout_height="@dimen/height_flowdirection"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/arrow6" />
+
+                <ImageView
+                    android:layout_width="@dimen/width_flowdirection"
+                    android:layout_height="@dimen/height_flowdirection"
+                    android:layout_marginTop="@dimen/flowdirection_margin"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/arrow6" />
+
+                <ImageView
+                    android:layout_width="@dimen/width_flowdirection"
+                    android:layout_height="@dimen/height_flowdirection"
+                    android:layout_marginTop="@dimen/flowdirection_margin"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/arrow6" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/air_ll_11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="435px"
+                android:layout_marginTop="@dimen/flowdirection_top"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:layout_width="@dimen/width_flowdirection"
+                    android:layout_height="@dimen/height_flowdirection"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/arrow6" />
+
+                <ImageView
+                    android:layout_width="@dimen/width_flowdirection"
+                    android:layout_height="@dimen/height_flowdirection"
+                    android:layout_marginTop="@dimen/flowdirection_margin"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/arrow6" />
+
+                <ImageView
+                    android:layout_width="@dimen/width_flowdirection"
+                    android:layout_height="@dimen/height_flowdirection"
+                    android:layout_marginTop="@dimen/flowdirection_margin"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/arrow6" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/air_ll_13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="610px"
+                android:layout_marginTop="@dimen/flowdirection_top"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:layout_width="@dimen/width_flowdirection"
+                    android:layout_height="@dimen/height_flowdirection"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/arrow6" />
+
+                <ImageView
+                    android:layout_width="@dimen/width_flowdirection"
+                    android:layout_height="@dimen/height_flowdirection"
+                    android:layout_marginTop="@dimen/flowdirection_margin"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/arrow6" />
+
+                <ImageView
+                    android:layout_width="@dimen/width_flowdirection"
+                    android:layout_height="@dimen/height_flowdirection"
+                    android:layout_marginTop="@dimen/flowdirection_margin"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/arrow6" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/air_ll_14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="760px"
+                android:layout_marginTop="@dimen/flowdirection_top"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:layout_width="@dimen/width_flowdirection"
+                    android:layout_height="@dimen/height_flowdirection"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/arrow6" />
+
+                <ImageView
+                    android:layout_width="@dimen/width_flowdirection"
+                    android:layout_height="@dimen/height_flowdirection"
+                    android:layout_marginTop="@dimen/flowdirection_margin"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/arrow6" />
+
+                <ImageView
+                    android:layout_width="@dimen/width_flowdirection"
+                    android:layout_height="@dimen/height_flowdirection"
+                    android:layout_marginTop="@dimen/flowdirection_margin"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/arrow6" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="220px"
+                android:layout_marginTop="298px">
+                <ImageView
+                    android:id="@+id/air_iv_alarm_11"
+                    android:layout_width="@dimen/width_air_iv_alarm"
+                    android:layout_height="@dimen/width_air_iv_alarm"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/st_on" />
+
+                <ImageView
+                    android:id="@+id/air_iv_alarm_31"
+                    android:layout_width="@dimen/width_air_iv_alarm"
+                    android:layout_height="@dimen/width_air_iv_alarm"
+                    android:background="@android:color/transparent"
+                    android:layout_marginLeft="@dimen/margin_air_iv_alarm"
+                    android:src="@drawable/st_on" />
+
+                <ImageView
+                    android:id="@+id/air_iv_alarm_41"
+                    android:layout_width="@dimen/width_air_iv_alarm"
+                    android:layout_height="@dimen/width_air_iv_alarm"
+                    android:background="@android:color/transparent"
+                    android:layout_marginLeft="@dimen/margin_air_iv_alarm"
+                    android:src="@drawable/st_on" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/air_iv_alarm_51"
+                android:layout_width="@dimen/width_air_iv_alarm"
+                android:layout_height="@dimen/width_air_iv_alarm"
+                android:layout_marginLeft="755px"
+                android:layout_marginTop="465px"
+                android:background="@android:color/transparent"
+                android:src="@drawable/st_on" />
+
+
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="800px"
+            android:layout_marginTop="520px">
+            <include
+                android:id="@+id/layout_air_launch"
+                layout="@layout/item_air_control"/>
+            <View
+                android:layout_width="@dimen/margin"
+                android:layout_height="1px"/>
+            <include
+                android:id="@+id/layout_air__pa"
+                layout="@layout/item_air_control"/>
+            <View
+                android:layout_width="@dimen/margin"
+                android:layout_height="1px"/>
+            <include
+                android:id="@+id/layout_air_duty"
+                layout="@layout/item_air_control"/>
+
+
+        </LinearLayout>
+
+
+
+
+</FrameLayout>

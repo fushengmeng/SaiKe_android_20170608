@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ui="http://schemas.android.com/apk/res-auto"
+    android:layout_width="140px"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+
+
+    <LinearLayout
+        android:id="@+id/layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/bg_index_air">
+        <LinearLayout
+            android:id="@+id/layout_music_mode_loop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="@dimen/margin">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/sk_leku_33"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/music_mode_loop"
+                android:textSize="@dimen/txt_params"
+                android:layout_marginLeft="@dimen/margin_l"/>
+        </LinearLayout>
+        <View
+            android:layout_width="140px"
+            android:layout_height="@dimen/line"
+            android:background="@color/line"/>
+
+        <LinearLayout
+            android:id="@+id/layout_music_mode_shuffle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="@dimen/margin">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/sk_leku_36"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/music_mode_shuffle"
+                android:textSize="@dimen/txt_params"
+                android:layout_marginLeft="@dimen/margin_l"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="140px"
+            android:layout_height="@dimen/line"
+            android:background="@color/line"/>
+
+        <LinearLayout
+            android:id="@+id/layout_music_mode_one"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="@dimen/margin">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/sk_leku_38"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/music_mode_one"
+                android:textSize="@dimen/txt_params"
+                android:layout_marginLeft="@dimen/margin_l"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <com.keruiyun.saike.uiview.TriangleUi
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        ui:triangColor="?attr/custom_attr_color_primaryDark"
+        ui:triangSize="10px"
+        ui:triang_down="true"/>
+</LinearLayout>

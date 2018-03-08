@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/menu_layout"
+    android:layout_width="300px"
+    android:layout_height="400px"
+    android:padding="@dimen/margin_l">
+
+    <android.opengl.GLSurfaceView
+        android:id="@+id/glview_call"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <android.view.SurfaceView
+        android:id="@+id/preview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:id="@+id/closeVideoButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/sk_video"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="@dimen/margin"
+        android:layout_marginRight="@dimen/margin"/>
+
+    <Button
+        android:id="@+id/endButton"
+        android:layout_width="120px"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/margin"
+        android:text="@string/cancel"
+        android:background="@drawable/bg_border"
+        android:textColor="@color/theme_color_primary"
+        />
+
+    <Button
+        android:id="@+id/switchCameraButton"
+        android:layout_width="180px"
+        android:layout_height="68px"
+        android:layout_marginLeft="22px"
+        android:layout_marginTop="178px"
+        android:text="切换摄像头"
+        android:background="@drawable/air_btn_bg_selector4"
+        android:textColor="@color/black"
+        android:textSize="28px"
+        android:visibility="gone"/>
+
+
+
+
+</RelativeLayout>

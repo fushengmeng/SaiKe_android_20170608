@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/dialog_ll_air_setting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20px"
+        android:orientation="horizontal" >
+
+        <EditText
+            android:id="@+id/editText1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15px"
+            android:background="@drawable/et_air_bg"
+            android:inputType="number"
+            android:minHeight="45px"
+            android:minWidth="160px"
+            android:padding="15px"
+            android:textColor="@color/white"
+            android:textSize="30px"
+            android:textStyle="bold" >
+
+            <requestFocus />
+        </EditText>
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="/秒"
+            android:textColor="@color/white"
+            android:textSize="30px"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</LinearLayout>

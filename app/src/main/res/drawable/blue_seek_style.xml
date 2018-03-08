@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item android:id="@android:id/background">
+        <shape>
+            <corners android:radius="3.0px" />
+
+            <gradient
+                android:angle="270.0"
+                android:endColor="@color/common_gray10"
+                android:startColor="@color/common_gray10" />
+        </shape>
+    </item>
+    <item android:id="@android:id/progress">
+        <clip>
+            <shape>
+                <corners android:radius="3.0px" />
+
+                <gradient
+                    android:angle="270.0"
+                    android:centerColor="@color/sauna_button"
+                    android:endColor="@color/sauna_button"
+                    android:startColor="@color/sauna_button" />
+            </shape>
+        </clip>
+    </item>
+    <item android:id="@android:id/secondaryProgress">
+        <clip>
+            <shape>
+                <corners android:radius="0.0px" />
+
+                <gradient
+                    android:angle="270.0"
+                    android:centerColor="@color/sauna_button"
+                    android:endColor="@color/sauna_button"
+                    android:startColor="@color/sauna_button" />
+            </shape>
+        </clip>
+    </item>
+
+</layer-list>

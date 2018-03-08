@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:ui="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?attr/custom_attr_app_theme_bg">
+
+
+    <LinearLayout
+        android:id="@+id/layout_timer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="70dp"
+        android:layout_marginLeft="@dimen/margin"
+        android:layout_marginRight="@dimen/margin">
+
+        <com.keruiyun.saike.uiview.OperationTimeUi
+            android:id="@+id/operation_timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin"
+            ui:CircleIsSecond="true" />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="48px"
+            android:layout_marginStart="@dimen/margin"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/title_operationtimer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_operationtimer"
+                android:lines="1"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:textSize="@dimen/title_operationtimer"/>
+            <TextView
+                android:id="@+id/en_title_operationtimer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/en_title_operationtimer"
+                android:textSize="@dimen/en_title_operationtimer"
+                android:layout_below="@id/title_operationtimer"
+                android:layout_alignStart="@id/title_operationtimer"               />
+            <ImageView
+                android:id="@+id/img_start_pause"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/sk_index_03"
+                android:layout_marginStart="@dimen/margin"
+                android:layout_marginTop="68px"
+                android:layout_below="@id/en_title_operationtimer"
+                android:layout_alignStart="@id/title_operationtimer"/>
+            <TextView
+                android:id="@+id/txt_start_pause"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pause"
+                android:textSize="@dimen/txt_h"
+                android:gravity="center"
+                android:layout_below="@id/img_start_pause"
+                android:layout_alignStart="@id/img_start_pause"
+               />
+
+            <ImageView
+                android:id="@+id/img_reset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/sk_index_05"
+                android:layout_marginLeft="48px"
+                android:layout_alignTop="@id/img_start_pause"
+                android:layout_below="@id/en_title_operationtimer"
+                android:layout_toRightOf="@id/img_start_pause"/>
+            <TextView
+                android:id="@+id/txt_reset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/reset"
+                android:lines="1"
+                android:textSize="@dimen/txt_h"
+                android:layout_below="@id/img_reset"
+                android:gravity="center"
+                android:layout_alignLeft="@id/img_reset"
+                />
+        </RelativeLayout>
+
+        <com.keruiyun.saike.uiview.AnesTimeUi
+            android:id="@+id/anes_timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            ui:CircleIsSecond="true" />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="48px"
+            android:layout_marginLeft="@dimen/margin"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/title_anestimer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_anestimer"
+                android:textSize="@dimen/title_operationtimer"/>
+            <TextView
+                android:id="@+id/en_title_anestimer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/en_title_anestimer"
+                android:textSize="@dimen/en_title_operationtimer"
+                android:layout_below="@id/title_anestimer"
+                android:layout_alignLeft="@id/title_anestimer"               />
+            <ImageView
+                android:id="@+id/img_anes_start_pause"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/sk_index_03"
+                android:layout_marginLeft="@dimen/margin"
+                android:layout_marginTop="68px"
+                android:layout_below="@id/en_title_anestimer"
+                android:layout_alignLeft="@id/title_anestimer"/>
+            <TextView
+                android:id="@+id/txt_anes_start_pause"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pause"
+                android:textSize="@dimen/txt_h"
+                android:gravity="center"
+                android:layout_below="@id/img_anes_start_pause"
+                android:layout_alignLeft="@id/img_anes_start_pause"
+                />
+
+            <ImageView
+                android:id="@+id/img_anes_reset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24px"
+                android:layout_alignTop="@+id/img_anes_setting"
+                android:layout_toEndOf="@+id/txt_anes_start_pause"
+                android:src="@drawable/sk_index_05" />
+            <TextView
+                android:id="@+id/txt_anes_reset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/reset"
+                android:lines="1"
+                android:textSize="@dimen/txt_h"
+                android:layout_below="@id/img_anes_reset"
+                android:gravity="center"
+                android:layout_alignLeft="@id/img_anes_reset"
+                />
+
+            <ImageView
+                android:id="@+id/img_anes_setting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/sk_index_11"
+                android:layout_marginLeft="24px"
+                android:layout_alignTop="@id/img_anes_start_pause"
+                android:layout_below="@id/en_title_anestimer"
+                android:layout_toEndOf="@id/img_anes_reset"/>
+            <TextView
+                android:id="@+id/txt_anes_setting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/setting"
+                android:textSize="@dimen/txt_h"
+                android:lines="1"
+                android:layout_below="@id/img_anes_reset"
+                android:gravity="center"
+                android:layout_alignLeft="@id/img_anes_setting"
+                />
+        </RelativeLayout>
+
+        <com.keruiyun.saike.uiview.SystemTimeUi
+            android:id="@+id/ui_systime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/margin"
+            ui:hasDate="true" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_air_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_below="@id/layout_timer"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="96dp"
+        android:layout_marginRight="96dp"
+        android:layout_marginBottom="@dimen/margin_l">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/air_system"
+            android:textSize="@dimen/txt_params"/>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1px"
+            android:layout_weight="1"/>
+        <ImageView
+            android:id="@+id/img_indicator_run"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/sk_index_19"/>
+        <TextView
+            android:id="@+id/txt_indicator_run"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/run"
+            android:textSize="@dimen/txt_params"
+            android:layout_marginLeft="@dimen/margin_l"
+            android:layout_marginRight="@dimen/margin"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_air"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_below="@id/layout_air_status"
+        android:layout_marginLeft="96dp"
+        android:layout_marginRight="96dp"
+        android:layout_marginTop="8dp"
+        android:paddingTop="@dimen/margin"
+        android:paddingBottom="@dimen/margin"
+        android:paddingLeft="72dp"
+        android:paddingRight="72dp"
+        android:background="@drawable/bg_index_air">
+        <include
+            android:id="@+id/layout_air_temperature"
+            layout="@layout/item_air_info"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+            <include
+                android:id="@+id/layout_air_rh"
+                layout="@layout/item_air_info"/>
+        </LinearLayout>
+
+
+        <include
+            android:id="@+id/layout_air_pa"
+            layout="@layout/item_air_info"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout_air"
+        android:layout_marginTop="80dp"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal">
+
+        <include
+            android:id="@+id/layout_control"
+            layout="@layout/item_index_control"/>
+        <include
+            android:id="@+id/layout_air_system"
+            layout="@layout/item_index_control"/>
+        <include
+            android:id="@+id/layout_call"
+            layout="@layout/item_index_control"/>
+        <include
+            android:id="@+id/layout_music"
+            layout="@layout/item_index_control"/>
+        <include
+            android:id="@+id/layout_gas"
+            layout="@layout/item_index_control"/>
+
+    </LinearLayout>
+
+    <include
+        android:id="@+id/layout_bottom_index"
+        layout="@layout/layout_appbottom"/>
+
+
+
+    <ImageView
+        android:id="@+id/data_status"
+        android:layout_width="40px"
+        android:layout_height="40px"
+        android:layout_gravity="right|top"
+        android:layout_margin="@dimen/margin"
+        android:adjustViewBounds="true"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/st_error"
+        android:visibility="gone" />
+
+</RelativeLayout>

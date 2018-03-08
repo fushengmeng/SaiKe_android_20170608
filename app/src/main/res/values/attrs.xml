@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="LrcView">
+        <attr name="lrcTextSize" format="dimension" />
+        <attr name="lrcDividerHeight" format="dimension" />
+        <attr name="lrcNormalTextColor" format="reference|color" />
+        <attr name="lrcCurrentTextColor" format="reference|color" />
+        <attr name="lrcAnimationDuration" format="integer" />
+        <attr name="lrcLabel" format="string" />
+        <attr name="lrcPadding" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="RoundImageView">
+        <!-- 描边宽度-->
+        <attr name="border_width" format="dimension"/>
+        <!-- 描边颜色-->
+        <attr name="border_color" format="color"/>
+        <!--圆角大小-->
+        <attr name="corner_radius" format="dimension"/>
+        <!--左上圆角大小-->
+        <attr name="leftTop_corner_radius" format="dimension"/>
+        <!--右上圆角大小-->
+        <attr name="rightTop_corner_radius" format="dimension"/>
+        <!--左下圆角大小-->
+        <attr name="leftBottom_corner_radius" format="dimension"/>
+        <!--右下圆角大小-->
+        <attr name="rightBottom_corner_radius" format="dimension"/>
+        <!--图片类型：圆角或者圆形-->
+        <attr name="type" format="enum">
+            <enum name="oval" value="2"/>
+            <enum name="round" value="1"/>
+            <enum name="circle" value="0"/>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="hint_editText">
+        <attr name="bkHintColor" format="color" />
+        <attr name="bkHintText" format="string" />
+    </declare-styleable>
+    <declare-styleable name="RoundAngleImageView">
+        <attr name="roundWidth" format="dimension" />
+        <attr name="roundHeight" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="PullToRefresh">
+        <attr name="adapterViewBackground" format="reference|color" />
+        <attr name="headerBackground" format="reference|color" />
+        <attr name="headerTextColor" format="color" />
+        <attr name="mode">
+            <flag name="pullDownFromTop" value="0x1" />
+            <flag name="pullUpFromBottom" value="0x2" />
+            <flag name="both" value="0x3" />
+        </attr>
+    </declare-styleable>
+
+    <!-- Defines the custom XML attributes supported for a HorizontalListView -->
+    <declare-styleable name="HorizontalListView">
+        <attr name="dividerWidth" format="dimension" />
+        <attr name="android:divider" />
+        <attr name="android:requiresFadingEdge" />
+        <attr name="android:fadingEdgeLength" />
+    </declare-styleable>
+    <declare-styleable name="PagerSlidingTabStrip">
+        <attr name="pstsIndicatorColor" format="color" />
+        <attr name="pstsUnderlineColor" format="color" />
+        <attr name="pstsDividerColor" format="color" />
+        <attr name="pstsIndicatorHeight" format="dimension" />
+        <attr name="pstsUnderlineHeight" format="dimension" />
+        <attr name="pstsDividerPadding" format="dimension" />
+        <attr name="pstsTabPaddingLeftRight" format="dimension" />
+        <attr name="pstsScrollOffset" format="dimension" />
+        <attr name="pstsTabBackground" format="reference" />
+        <attr name="pstsShouldExpand" format="boolean" />
+        <attr name="pstsTextAllCaps" format="boolean" />
+        <attr name="pstsTabTextSize" format="dimension" />
+        <attr name="pstsTabTextColor" format="color" />
+    </declare-styleable>
+
+    <!-- CircularImageView Custom Styling -->
+    <declare-styleable name="CircularImageView">
+
+        <!-- Whether or not to draw a circular border around the image. -->
+        <attr name="civ_border" format="boolean" />
+        <!-- The color of the border draw around the image. (if enabled) -->
+        <attr name="civ_borderColor" format="color" />
+        <!-- Makes the border this pixels wide. (if enabled) -->
+        <attr name="civ_borderWidth" format="dimension" />
+        <!-- Whether or not to draw a selector on this view upon touch events. -->
+        <attr name="civ_selector" format="boolean" />
+        <!-- The color of the selector draw on top of the image upon touch events. (if enabled) -->
+        <attr name="civ_selectorColor" format="color" />
+        <!-- The color of the selector stroke drawn around the image upon touch events. Be sure to provide some opacity. (if enabled) -->
+        <attr name="civ_selectorStrokeColor" format="color" />
+        <!-- The selector stroke drawn around the image upon touch events this pixels wide. (if enabled) -->
+        <attr name="civ_selectorStrokeWidth" format="dimension" />
+        <!-- Whether or not to draw a shadow around your circular image. -->
+        <attr name="civ_shadow" format="boolean" />
+        <!-- The radius for the shadow to extend to. (if enabled) -->
+        <attr name="civ_shadowRadius" format="float" />
+        <!-- Horizontal shadow offset. (if enabled) -->
+        <attr name="civ_shadowDx" format="float" />
+        <!-- Vertical shadow offset. (if enabled) -->
+        <attr name="civ_shadowDy" format="float" />
+        <!-- The color of the shadow drawn around your circular image. (if enabled) -->
+        <attr name="civ_shadowColor" format="color" />
+    </declare-styleable>
+    <declare-styleable name="CircularImageViewStyle">
+        <attr name="circularImageViewDefault" format="reference" />
+    </declare-styleable>
+    <declare-styleable name="ViewFlow">
+        <attr name="ViewFlow_sidebuffer" format="integer" />
+    </declare-styleable>
+    <declare-styleable name="CircleFlowIndicator">
+        <attr name="CircleFlowIndicator_activeColor" format="color" />
+        <attr name="CircleFlowIndicator_inactiveColor" format="color" />
+        <attr name="CircleFlowIndicator_radius" format="dimension" />
+        <attr name="CircleFlowIndicator_spacing" format="dimension" />
+        <attr name="CircleFlowIndicator_centered" format="boolean" />
+        <attr name="CircleFlowIndicator_fadeOut" format="integer" />
+        <attr name="CircleFlowIndicator_inactiveType">
+            <flag name="stroke" value="0" />
+            <flag name="fill" value="1" />
+        </attr>
+        <attr name="CircleFlowIndicator_activeType">
+            <flag name="stroke" value="0" />
+            <flag name="fill" value="1" />
+        </attr>
+        <attr name="CircleFlowIndicator_snap" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="TitleFlowIndicator">
+        <attr name="TitleFlowIndicator_titlePadding" format="dimension" />
+        <!-- Left/right padding of not active view titles. -->
+        <attr name="TitleFlowIndicator_clipPadding" format="dimension" />
+        <attr name="TitleFlowIndicator_selectedColor" format="color" />
+        <attr name="TitleFlowIndicator_selectedBold" format="boolean" />
+        <attr name="TitleFlowIndicator_selectedSize" format="dimension" />
+        <attr name="TitleFlowIndicator_textColor" format="color" />
+        <attr name="TitleFlowIndicator_textSize" format="dimension" />
+        <attr name="TitleFlowIndicator_footerLineHeight" format="dimension" />
+        <attr name="TitleFlowIndicator_footerColor" format="color" />
+        <attr name="TitleFlowIndicator_footerTriangleHeight" format="dimension" />
+        <attr name="TitleFlowIndicator_customTypeface" format="string" />
+    </declare-styleable>
+    <declare-styleable name="GifView">
+        <attr name="gif" format="reference" />
+        <attr name="paused" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="CustomTheme">
+        <attr name="gifViewStyle" format="reference" />
+    </declare-styleable>
+    <declare-styleable name="ArcProgress">
+        <attr name="arc_progress" format="integer" />
+        <attr name="arc_angle" format="float" />
+        <attr name="arc_stroke_width" format="dimension" />
+        <attr name="arc_max" format="integer" />
+        <attr name="arc_unfinished_color" format="color" />
+        <attr name="arc_finished_color" format="color" />
+        <attr name="arc_text_size" format="dimension" />
+        <attr name="arc_text_color" format="color" />
+        <attr name="arc_suffix_text" format="string" />
+        <attr name="arc_suffix_text_size" format="dimension" />
+        <attr name="arc_suffix_text_padding" format="dimension" />
+        <attr name="arc_bottom_text" format="string" />
+        <attr name="arc_bottom_text_size" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="DashboardView">
+        <attr name="radius" format="dimension" />
+        <!-- 扇形半径 -->
+        <attr name="startAngle" format="integer" />
+        <!-- 起始角度 -->
+        <attr name="sweepAngle" format="integer" />
+        <!-- 绘制角度 -->
+        <attr name="bigSliceCount" format="integer" />
+        <!-- 长刻度条数 -->
+        <attr name="sliceCountInOneBigSlice" format="integer" />
+        <!-- 长刻度条数 -->
+        <attr name="arcColor" format="color" />
+        <!-- 弧度颜色 -->
+        <attr name="measureTextSize" format="dimension" />
+        <!-- 刻度字体大小 -->
+        <attr name="textColor" format="color" />
+        <!-- 字体颜色 -->
+        <attr name="headerTitle" format="string" />
+        <!-- 表头 -->
+        <attr name="headerTextSize" format="string" />
+        <!-- 表头字体大小 -->
+        <attr name="headerRadius" format="dimension" />
+        <!-- 表头半径 -->
+        <attr name="pointerRadius" format="dimension" />
+        <!-- 指针半径 -->
+        <attr name="circleRadius" format="dimension" />
+        <!-- 中心圆半径 -->
+        <attr name="minValue" format="integer" />
+        <!-- 最小值 -->
+        <attr name="maxValue" format="integer" />
+        <!-- 最大值 -->
+        <attr name="realTimeValue" format="float" />
+        <!-- 实时值 -->
+        <attr name="stripeWidth" format="dimension" />
+        <!-- 色带宽度 -->
+        <attr name="stripeMode">
+
+            <!-- 色条显示位置 -->
+            <enum name="normal" value="0" />
+            <enum name="inner" value="1" />
+            <enum name="outer" value="2" />
+        </attr>
+        <attr name="bgColor" format="color" />
+        <!-- 背景颜色 -->
+    </declare-styleable>
+    <declare-styleable name="WheelPicker">
+        <attr name="wheel_data" format="reference" />
+        <attr name="wheel_bg_color_gradient_start" format="color" />
+        <attr name="wheel_bg_color_gradient_end" format="color" />
+        <attr name="wheel_current_item_position" format="integer" />
+        <attr name="wheel_item_text_size" format="dimension" />
+        <attr name="wheel_item_text_color" format="color" />
+        <attr name="wheel_current_item_text_color" format="color" />
+        <attr name="wheel_same_width" format="boolean" />
+        <attr name="wheel_maximum_width_text" format="string" />
+        <attr name="wheel_maximum_width_text_position" format="integer" />
+        <attr name="wheel_direction" format="enum">
+            <enum name="vertical" value="0" />
+            <enum name="horizontal" value="1" />
+        </attr>
+        <attr name="wheel_visible_item_count" format="integer" />
+        <attr name="wheel_item_space" format="dimension" />
+        <attr name="wheel_indicator" format="boolean" />
+        <attr name="wheel_indicator_color" format="color" />
+        <attr name="wheel_indicator_size" format="dimension" />
+        <attr name="wheel_curtain" format="boolean" />
+        <attr name="wheel_curtain_color" format="color" />
+        <attr name="wheel_atmospheric" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="MarqueeView">
+        <attr name="marqueeInterval" format="integer" />
+        <attr name="marqueeAnimDuration" format="integer" />
+        <attr name="marqueeAnimIn" format="reference" />
+        <attr name="marqueeAnimOut" format="reference" />
+    </declare-styleable>
+
+</resources>

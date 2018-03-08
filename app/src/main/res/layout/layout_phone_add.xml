@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="300px"
+    android:layout_height="220px"
+    android:orientation="vertical"
+    >
+    <TextView
+        android:id="@+id/txt_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add"
+        android:layout_margin="@dimen/margin"
+        android:textSize="18sp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40px"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/sk_icon_call_name"
+            android:layout_marginLeft="@dimen/margin"
+            android:layout_marginRight="@dimen/margin"/>
+        <EditText
+            android:id="@+id/input_call_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:lines="1"
+            android:paddingLeft="@dimen/margin"
+            android:textSize="@dimen/txtsize_l"
+            android:hint="@string/hint_name"
+            android:layout_marginRight="@dimen/margin"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40px"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/margin_l">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/sk_icon_call_ip"
+            android:layout_marginLeft="@dimen/margin"
+            android:layout_marginRight="@dimen/margin"/>
+        <EditText
+            android:id="@+id/input_call_ip"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:lines="1"
+            android:inputType="text"
+            android:paddingLeft="@dimen/margin"
+            android:textSize="@dimen/txtsize_l"
+            android:hint="@string/hint_call_ip"
+            android:layout_marginRight="@dimen/margin"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="20dp">
+        <com.bilibili.magicasakura.widgets.TintTextView
+            android:id="@+id/txt_sure"
+            android:text="@string/sure"
+            style="@style/btn_sure"/>
+        <View
+            android:layout_width="48px"
+            android:layout_height="1dp"/>
+        <com.bilibili.magicasakura.widgets.TintTextView
+            android:id="@+id/txt_cancle"
+            android:text="@string/cancel"
+            style="@style/btn_sure"/>
+
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

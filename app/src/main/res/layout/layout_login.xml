@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <com.bilibili.magicasakura.widgets.TintLinearLayout
+        android:layout_width="350px"
+        android:layout_height="450px"
+        android:layout_margin="@dimen/margin"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:gravity="center_horizontal"
+        android:background="@drawable/background_border"
+        app:imageTint="@color/theme_color_primary">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/sk_xtdl_03"
+            android:layout_marginTop="@dimen/margin"
+           />
+        <EditText
+           android:id="@+id/input_username"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:padding="@dimen/margin_l"
+           android:hint="@string/hint_username"
+            android:layout_marginLeft="@dimen/margin_l"
+            android:layout_marginRight="@dimen/margin_l"
+            android:background="@drawable/bg_input"
+           android:gravity="center_vertical"
+           android:textColor="?android:attr/textColor"
+            android:textSize="@dimen/txt_size_setting"
+           android:layout_marginTop="40px"
+           android:drawableLeft="@drawable/sk_xtdl_07"/>
+
+        <EditText
+            android:id="@+id/input_psw"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_l"
+            android:hint="@string/hint_userpasw"
+            android:layout_marginLeft="@dimen/margin_l"
+            android:layout_marginRight="@dimen/margin_l"
+            android:background="@drawable/bg_input"
+            android:textSize="@dimen/txt_size_setting"
+            android:gravity="center_vertical"
+            android:layout_marginTop="@dimen/margin"
+            android:textColor="?android:attr/textColor"
+            android:drawableLeft="@drawable/sk_xtdl_10"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="24px"
+            android:gravity="center_vertical">
+            <CheckBox
+                android:id="@+id/box_psw_remember"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/checkbox"
+                android:textSize="@dimen/txt_size_setting"
+                android:textColor="?android:attr/textColor"
+                android:layout_marginLeft="0dp"
+                android:text="@string/psw_remember"/>
+            <android.support.v4.widget.Space
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="1px" />
+
+            <TextView
+                android:id="@+id/txt_psw_forget"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/margin"
+                android:textSize="@dimen/txt_size_setting"
+                android:text="@string/psw_forget"/>
+
+        </LinearLayout>
+        <com.bilibili.magicasakura.widgets.TintTextView
+            android:id="@+id/txt_login"
+            android:text="@string/login"
+            style="@style/btn_sure"
+            android:layout_marginTop="24px"/>
+    </com.bilibili.magicasakura.widgets.TintLinearLayout>
+</FrameLayout>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Setting_Gas">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:src">@drawable/line_gas</item>
+    </style>
+
+    <style name="Setting_Smartstart">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+
+    </style>
+
+    <style name="Setting_Title" parent="@style/Setting_Smartstart">
+        <item name="android:textSize">25sp</item>
+        <item name="android:layout_marginTop">@dimen/top_setting_row</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+    </style>
+
+    <style name="Setting_Row" >
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_marginLeft">@dimen/left_smartstart_lighting</item>
+        <item name="android:layout_marginRight">@dimen/left_smartstart_lighting</item>
+        <item name="android:layout_marginTop">@dimen/top_setting_row</item>
+        <item name="android:gravity">center_vertical</item>
+
+    </style>
+
+    <style name="Setting_Row_smartstart" parent="@style/Setting_Row" >
+        <item name="android:layout_marginTop">56px</item>
+
+
+    </style>
+
+
+    <style name="Smartstart_Switch_Tag" >
+        <item name="android:layout_width">144px</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minWidth">@dimen/minwidth_smartstart_switch_tag</item>
+        <item name="android:gravity">center_vertical|right</item>
+        <item name="android:layout_marginRight">@dimen/margin</item>
+    </style>
+
+    <style name="Smartstart_Switch_Cell" >
+        <item name="android:layout_width">144px</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:orientation">horizontal</item>
+
+    </style>
+
+    <style name="Smartstart_Switch_Cell_left" >
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:orientation">horizontal</item>
+
+    </style>
+
+
+    <style name="Smartstart_Setting_Value" parent="@style/Setting_Smartstart">
+        <item name="android:textSize">25sp</item>
+        <item name="android:minWidth">40px</item>
+        <item name="android:minHeight">30px</item>
+        <item name="android:maxHeight">30px</item>
+        <item name="android:gravity">center_vertical|right</item>
+    </style>
+
+    <style name="Smartstart_Setting_Value_unit" parent="@style/Smartstart_Setting_Value">
+        <item name="android:textSize">14sp</item>
+        <item name="android:gravity">bottom|left</item>
+    </style>
+
+    <style name="Smartstart_Setting_imgbutton" parent="@style/Setting_Smartstart">
+        <item name="android:layout_marginLeft">@dimen/margin</item>
+        <item name="android:layout_marginRight">@dimen/margin</item>
+        <item name="android:background">@drawable/background_add_sub</item>
+    </style>
+
+    <style name="checkbox" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">?android:attr/textColor</item>
+        <item name="android:textSize">?android:attr/textSize</item>
+        <item name="android:button">@drawable/checkbox</item>
+        <item name="android:layout_marginLeft">0px</item>
+        <item name="android:layout_marginRight">144px</item>
+        <item name="android:layout_marginTop">10px</item>
+        <item name="android:layout_marginBottom">10px</item>
+    </style>
+
+    <style name="call_num">
+        <item name="android:layout_width">@dimen/width_number</item>
+        <item name="android:layout_height">@dimen/width_number</item>
+        <item name="android:layout_marginLeft">@dimen/margin_number</item>
+        <item name="android:layout_marginRight">@dimen/margin_number</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/background_border</item>
+
+    </style>
+
+    <style name="Call_Num_Child">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/txt_color_selector</item>
+    </style>
+
+    <style name="btn_sure">
+        <item name="android:layout_width">80px</item>
+        <item name="android:layout_height">32px</item>
+        <item name="android:textColor">@color/txt_color_selector</item>
+        <item name="android:textSize">14px</item>
+        <item name="android:background">@drawable/background_sure</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="Call_Num_Child_2">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">10px</item>
+        <item name="android:textColor">@color/txt_color_selector</item>
+    </style>
+
+    <style name="air_syatem_params">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">12px</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:gravity">center</item>
+    </style>
+</resources>

@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="WheelArrayDefault">
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+        <item>25</item>
+        <item>30</item>
+        <item>35</item>
+        <item>40</item>
+        <item>45</item>
+        <item>50</item>
+        <item>55</item>
+        <item>60</item>
+        <item>65</item>
+        <item>70</item>
+        <item>75</item>
+        <item>80</item>
+        <item>85</item>
+    </string-array>
+
+    <string-array name="WheelArray_month">
+        <item>01</item>
+        <item>02</item>
+        <item>03</item>
+        <item>04</item>
+        <item>05</item>
+        <item>06</item>
+        <item>07</item>
+        <item>08</item>
+        <item>09</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+    </string-array>
+
+    <string-array name="WheelArray_Hour">
+        <item>00</item>
+        <item>01</item>
+        <item>02</item>
+        <item>03</item>
+        <item>04</item>
+        <item>05</item>
+        <item>06</item>
+        <item>07</item>
+        <item>08</item>
+        <item>09</item>
+
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+    </string-array>
+
+    <string-array name="WheelArray_Minute">
+        <item>00</item>
+        <item>01</item>
+        <item>02</item>
+        <item>03</item>
+        <item>04</item>
+        <item>05</item>
+        <item>06</item>
+        <item>07</item>
+        <item>08</item>
+        <item>09</item>
+
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+        <item>26</item>
+        <item>27</item>
+        <item>28</item>
+        <item>29</item>
+
+        <item>30</item>
+        <item>31</item>
+        <item>32</item>
+        <item>33</item>
+        <item>34</item>
+        <item>35</item>
+        <item>36</item>
+        <item>37</item>
+        <item>38</item>
+        <item>39</item>
+
+        <item>40</item>
+        <item>41</item>
+        <item>42</item>
+        <item>43</item>
+        <item>44</item>
+        <item>45</item>
+        <item>46</item>
+        <item>47</item>
+        <item>48</item>
+        <item>49</item>
+
+        <item>50</item>
+        <item>51</item>
+        <item>52</item>
+        <item>53</item>
+        <item>54</item>
+        <item>55</item>
+        <item>56</item>
+        <item>57</item>
+        <item>58</item>
+        <item>59</item>
+
+    </string-array>
+
+    <string-array name="WheelArrayWeek">
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+        <item>Saturday</item>
+        <item>Sunday</item>
+    </string-array>
+
+    <string-array name="arr_index_control">
+        <item>综合控制</item>
+        <item>空调系统</item>
+        <item>联系电话</item>
+        <item>背景音乐</item>
+        <item>气体状态</item>
+    </string-array>
+
+    <string-array name="arr_index_air">
+        <item>温度/</item>
+        <item>湿度/</item>
+        <item>压差/</item>
+
+    </string-array>
+
+    <string-array name="arr_air_bottom">
+        <item>启动</item>
+        <item>负压</item>
+        <item>值班</item>
+    </string-array>
+
+    <string-array name="arr_air_right">
+        <item>运行参数</item>
+        <item>运行状态</item>
+        <item>报警状态</item>
+    </string-array>
+
+    <string-array name="arr_air_params">
+        <item>回风温度设定值</item>
+        <item>回风温度</item>
+
+        <item>送风温度设定值</item>
+        <item>送风温度</item>
+        <item>送风湿度设定值</item>
+        <item>送风湿度</item>
+
+        <item>新风温度设定值</item>
+        <item>新风温度</item>
+        <item>新风湿度设定值</item>
+        <item>新风湿度</item>
+
+        <item>房间压差设定值</item>
+        <item>房间压差</item>
+    </string-array>
+
+
+
+    <string-array name="arr_air_params_run">
+        <item>冷热水模式</item>
+        <item>送风机</item>
+        <item>排风机</item>
+
+        <item>电加热1</item>
+        <item>电加热2</item>
+        <item>电加热3</item>
+        <item>电加热4</item>
+        <item>电加热5</item>
+
+    </string-array>
+
+    <string-array name="arr_air_params_warning">
+        <item>初效报警</item>
+        <item>中效报警</item>
+        <item>高效报警</item>
+
+        <item>缺风报警</item>
+        <item>高温报警</item>
+        <item>急停报警</item>
+
+    </string-array>
+
+    <string-array name="arr_air_params_unit">
+        <item>℃</item>
+        <item>℃</item>
+
+        <item>℃</item>
+        <item>℃</item>
+        <item>RH%</item>
+        <item>RH%</item>
+
+        <item>℃</item>
+        <item>℃</item>
+        <item>RH%</item>
+        <item>RH%</item>
+
+        <item>Pa</item>
+        <item>Pa</item>
+    </string-array>
+
+    <string-array name="arr_fragment_control">
+        <item>照明1</item>
+        <item>照明2</item>
+        <item>排风机</item>
+        <item>观片灯</item>
+
+        <item>无影灯</item>
+        <item>书写台</item>
+        <item>空调启停</item>
+        <item>空调值班</item>
+    </string-array>
+
+    <string-array name="arr_fragment_gas">
+        <item>氧气/O2</item>
+        <item>笑气/N2O</item>
+        <item>氮气/N2</item>
+        <item>二氧化碳/CO2</item>
+
+        <item>负压吸引/VAC</item>
+        <item>压缩空气/AIR</item>
+        <item>氩气/Ar</item>
+
+    </string-array>
+
+    <string-array name="arr_setting">
+        <!--<item>有效期</item>-->
+        <item>智能启动</item>
+        <item>空调系统</item>
+        <item>wifi设置</item>
+        <item>蓝牙</item>
+
+        <item>用户管理</item>
+        <item>语言</item>
+        <item>高级设置</item>
+        <item>关于</item>
+
+    </string-array>
+    <string-array name="arr_language" >
+        <item>中文</item>
+        <item>English</item>
+    </string-array>
+
+    <string-array name="arr_standby_time" >
+        <item>5分钟</item>
+        <item>10分钟</item>
+        <item>30分钟</item>
+        <item>从不待机</item>
+    </string-array>
+</resources>
