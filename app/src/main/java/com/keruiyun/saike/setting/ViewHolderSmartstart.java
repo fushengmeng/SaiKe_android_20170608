@@ -20,8 +20,10 @@ import com.keruiyun.saike.setting.util.OnTouchListenerAddSub;
 import com.keruiyun.saike.setting.util.OnTouchSub;
 import com.keruiyun.saike.timerserver.AlarmReceiver;
 import com.keruiyun.saike.uiview.SwitchButton;
+import com.keruiyun.saike.util.LogCus;
 import com.util.DateTime;
 
+import java.math.BigDecimal;
 import java.util.Calendar;
 
 import butterknife.BindView;
@@ -125,11 +127,11 @@ public class ViewHolderSmartstart extends BaseViewHolder {
 
         txtValueTemp.setText(data_smartstart.getTxtValueTemp()+"");
 
-        txtValueTimerOn.setText(DateTime.getDate(DateTime.DEFHM,data_smartstart.getTxtValueTimerOn())+"");
+        txtValueTimerOn.setText(data_smartstart.getTxtValueTimerOn()+"");
 
         txtValueRh.setText(data_smartstart.getTxtValueRh()+"");
 
-        txtValueTimerOff.setText(DateTime.getDate(DateTime.DEFHM,data_smartstart.getTxtValueTimerOff())+"");
+        txtValueTimerOff.setText(data_smartstart.getTxtValueTimerOff()+"");
 
         txtValuePa.setText(data_smartstart.getTxtValuePa()+"");
 
@@ -262,14 +264,14 @@ public class ViewHolderSmartstart extends BaseViewHolder {
                 txtValueTemp.setText(data_smartstart.getTxtValueTemp()+"");
                 break;
             case R.id.b_timer_on_sub:
-                if (data_smartstart.getTxtValueTimerOn()>0)
-                    data_smartstart.setTxtValueTimerOn(data_smartstart.getTxtValueTimerOn()-60000);
-                txtValueTimerOn.setText(DialogFragment_Music.formatTime( data_smartstart.getTxtValueTimerOn() )+"");
+//                if (data_smartstart.getTxtValueTimerOn()>0)
+//                    data_smartstart.setTxtValueTimerOn(data_smartstart.getTxtValueTimerOn()-60000);
+//                txtValueTimerOn.setText(DialogFragment_Music.formatTime( data_smartstart.getTxtValueTimerOn() )+"");
 
                 break;
             case R.id.b_timer_on_add:
-                data_smartstart.setTxtValueTimerOn(data_smartstart.getTxtValueTimerOn()+60000);
-                txtValueTimerOn.setText(DialogFragment_Music.formatTime( data_smartstart.getTxtValueTimerOn() )+"");
+//                data_smartstart.setTxtValueTimerOn(data_smartstart.getTxtValueTimerOn()+60000);
+//                txtValueTimerOn.setText(DialogFragment_Music.formatTime( data_smartstart.getTxtValueTimerOn() )+"");
 
                 break;
             case R.id.b_rh_sub:
@@ -283,14 +285,14 @@ public class ViewHolderSmartstart extends BaseViewHolder {
                 txtValueRh.setText(data_smartstart.getTxtValueRh()+"");
                 break;
             case R.id.b_timer_off_sub:
-                if (data_smartstart.getTxtValueTimerOff()>0)
-                    data_smartstart.setTxtValueTimerOff(data_smartstart.getTxtValueTimerOff()-60000);
-                txtValueTimerOff.setText( DialogFragment_Music.formatTime( data_smartstart.getTxtValueTimerOff() )+"");
+//                if (data_smartstart.getTxtValueTimerOff()>0)
+//                    data_smartstart.setTxtValueTimerOff(data_smartstart.getTxtValueTimerOff()-60000);
+//                txtValueTimerOff.setText( DialogFragment_Music.formatTime( data_smartstart.getTxtValueTimerOff() )+"");
                 break;
             case R.id.b_timer_off_add:
-                data_smartstart.setTxtValueTimerOff(data_smartstart.getTxtValueTimerOff()+60000);
-
-                txtValueTimerOff.setText( DialogFragment_Music.formatTime( data_smartstart.getTxtValueTimerOff() )+"");
+//                data_smartstart.setTxtValueTimerOff(data_smartstart.getTxtValueTimerOff()+60000);
+//
+//                txtValueTimerOff.setText( DialogFragment_Music.formatTime( data_smartstart.getTxtValueTimerOff() )+"");
                 break;
             case R.id.b_pa_sub:
                 if (data_smartstart.getTxtValuePa()>data_air.getTxtValuePaMin())
@@ -306,11 +308,10 @@ public class ViewHolderSmartstart extends BaseViewHolder {
                 new DialogFragment_SelectTime().setOnSelectTimeListener(new DialogFragment_SelectTime.OnSelectTimeListener() {
                     @Override
                     public void onSelectTime(String hour, String minute) {
-                        long time=Integer.parseInt(hour)*60*60+(Integer.parseInt(minute)*60);
-                        time=time*1000;
-                        data_smartstart.setTxtValueTimerOn(time);
+
+                        data_smartstart.setTxtValueTimerOn( hour+":"+minute);
                         txtValueTimerOn.setText( hour+":"+minute);
-                        setAlarm(context,true,hour,minute);
+                        setAlarm(context,true,hour,minute,false);
                     }
                 }).show(((BaseActivity)context).getSupportFragmentManager(),DialogFragment_SelectTime.class.getName());
 
@@ -319,12 +320,11 @@ public class ViewHolderSmartstart extends BaseViewHolder {
                 new DialogFragment_SelectTime().setOnSelectTimeListener(new DialogFragment_SelectTime.OnSelectTimeListener() {
                     @Override
                     public void onSelectTime(String hour, String minute) {
-                        long time=Integer.parseInt(hour)*60*60+(Integer.parseInt(minute)*60);
-                        time=time*1000;
-                        data_smartstart.setTxtValueTimerOff(time);
+
+                        data_smartstart.setTxtValueTimerOff(hour+":"+minute);
 
                         txtValueTimerOff.setText( hour+":"+minute);
-                        setAlarm(context,false,hour,minute);
+                        setAlarm(context,false,hour,minute,false);
                     }
                 }).show(((BaseActivity)context).getSupportFragmentManager(),DialogFragment_SelectTime.class.getName());
                 break;
@@ -332,7 +332,7 @@ public class ViewHolderSmartstart extends BaseViewHolder {
         }
     }
 
-    public static void setAlarm(Context context,boolean isStart,String hourStr,String minuteStr ){
+    public static void setAlarm(Context context,boolean isStart,String hourStr,String minuteStr,boolean isNext ){
         Calendar c= Calendar.getInstance();
         int hour,minute;
         try {
@@ -349,15 +349,17 @@ public class ViewHolderSmartstart extends BaseViewHolder {
             //设置一个PendingIntent对象，发送广播
             AlarmManager am=(AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
             //获取AlarmManager对象
-            am.set(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), pi);
+            long time=c.getTimeInMillis();
+            BigDecimal t=new BigDecimal(time);
+            BigDecimal result=new BigDecimal(0);
+            if (isNext)
+                result=t.add(new BigDecimal(24*60*60*1000l));
+            LogCus.msg("定时器："+result.longValue());
+            am.set(AlarmManager.RTC_WAKEUP,result.longValue() , pi);
         }catch (NumberFormatException e){
             e.printStackTrace();
             return;
         }
-
-
-
-
 
 
     }
