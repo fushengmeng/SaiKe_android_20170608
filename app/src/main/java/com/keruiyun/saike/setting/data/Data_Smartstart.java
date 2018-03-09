@@ -105,12 +105,12 @@ public class Data_Smartstart {
         SharePreferenceUtil.putInt("txtValueTemp",txtValueTemp);
     }
 
-    public long getTxtValueTimerOn() {
-        return SharePreferenceUtil.getLong("txtValueTimerOn",0);
+    public String getTxtValueTimerOn() {
+        return SharePreferenceUtil.getString("txtValueTimerOn","");
     }
 
-    public void setTxtValueTimerOn(long txtValueTimerOn) {
-        SharePreferenceUtil.putLong("txtValueTimerOn",txtValueTimerOn);
+    public void setTxtValueTimerOn(String txtValueTimerOn) {
+        SharePreferenceUtil.putString("txtValueTimerOn",txtValueTimerOn);
     }
 
     public int getTxtValueRh() {
@@ -122,13 +122,13 @@ public class Data_Smartstart {
         SharePreferenceUtil.putInt("txtValueRh",txtValueRh);
     }
 
-    public long getTxtValueTimerOff() {
-        return SharePreferenceUtil.getLong("txtValueTimerOff",0);
+    public String getTxtValueTimerOff() {
+        return SharePreferenceUtil.getString("txtValueTimerOff","");
     }
 
-    public void setTxtValueTimerOff(long txtValueTimerOff) {
+    public void setTxtValueTimerOff(String txtValueTimerOff) {
 
-        SharePreferenceUtil.putLong("txtValueTimerOff",txtValueTimerOff);
+        SharePreferenceUtil.putString("txtValueTimerOff",txtValueTimerOff);
     }
 
     public int getTxtValuePa() {

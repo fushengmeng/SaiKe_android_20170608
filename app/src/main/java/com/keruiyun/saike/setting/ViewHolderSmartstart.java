@@ -246,10 +246,10 @@ public class ViewHolderSmartstart extends BaseViewHolder {
 
     @OnClick({R.id.b_temp_sub, R.id.b_temp_add,
             R.id.b_timer_on_sub, R.id.b_timer_on_add,
-            R.id.txt_value_timer_on,
+            R.id.txt_value_timer_on, R.id.txt_value_timer_on_1,
             R.id.b_rh_sub, R.id.b_rh_add,
             R.id.b_timer_off_sub, R.id.b_timer_off_add,
-            R.id.txt_value_timer_off,
+            R.id.txt_value_timer_off,R.id.txt_value_timer_off_1,
             R.id.b_pa_sub, R.id.b_pa_add})
     public void onViewClicked(View view) {
         switch (view.getId()) {
@@ -304,6 +304,7 @@ public class ViewHolderSmartstart extends BaseViewHolder {
                     data_smartstart.setTxtValuePa(data_smartstart.getTxtValuePa()+1);
                 txtValuePa.setText(data_smartstart.getTxtValuePa()+"");
                 break;
+            case R.id.txt_value_timer_on_1:
             case R.id.txt_value_timer_on:
                 new DialogFragment_SelectTime().setOnSelectTimeListener(new DialogFragment_SelectTime.OnSelectTimeListener() {
                     @Override
@@ -316,6 +317,7 @@ public class ViewHolderSmartstart extends BaseViewHolder {
                 }).show(((BaseActivity)context).getSupportFragmentManager(),DialogFragment_SelectTime.class.getName());
 
                 break;
+            case R.id.txt_value_timer_off_1:
             case R.id.txt_value_timer_off:
                 new DialogFragment_SelectTime().setOnSelectTimeListener(new DialogFragment_SelectTime.OnSelectTimeListener() {
                     @Override
@@ -352,6 +354,7 @@ public class ViewHolderSmartstart extends BaseViewHolder {
             long time=c.getTimeInMillis();
             BigDecimal t=new BigDecimal(time);
             BigDecimal result=new BigDecimal(0);
+            LogCus.msg("定时器：t"+t);
             if (isNext)
                 result=t.add(new BigDecimal(24*60*60*1000l));
             LogCus.msg("定时器："+result.longValue());

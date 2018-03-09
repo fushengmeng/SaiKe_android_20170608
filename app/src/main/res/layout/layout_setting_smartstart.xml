@@ -202,6 +202,7 @@
             android:orientation="horizontal"
             android:gravity="center_vertical">
             <TextView
+                android:id="@+id/txt_value_timer_on_1"
                 style="@style/Smartstart_Switch_Tag"
                 android:text="@string/timer_on"/>
             <ImageView
@@ -213,6 +214,7 @@
                 android:id="@+id/txt_value_timer_on"
                 style="@style/Smartstart_Setting_Value"
                 android:text="00:00"
+                android:minWidth="72px"
                 android:layout_marginLeft="@dimen/margin"
                 android:textColor="?attr/custom_attr_app_color_illuminant"/>
 
@@ -264,6 +266,7 @@
             android:orientation="horizontal"
             android:gravity="center_vertical">
             <TextView
+                android:id="@+id/txt_value_timer_off_1"
                 style="@style/Smartstart_Switch_Tag"
                 android:text="@string/setting_timer_off"/>
             <ImageView
@@ -275,6 +278,8 @@
                 android:id="@+id/txt_value_timer_off"
                 style="@style/Smartstart_Setting_Value"
                 android:text="00:00"
+                android:minWidth="72px"
+
                 android:layout_marginLeft="@dimen/margin"
                 android:textColor="?attr/custom_attr_app_color_illuminant"/>
 
