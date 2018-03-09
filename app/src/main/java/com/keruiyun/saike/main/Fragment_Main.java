@@ -26,6 +26,7 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.bilibili.magicasakura.widgets.TintImageView;
+import com.keruiyun.db.BeanPhone;
 import com.keruiyun.saike.R;
 import com.keruiyun.saike.datacollection.Data_Main_Air;
 import com.keruiyun.saike.fragment.BaseDialogFragment;
@@ -34,6 +35,8 @@ import com.keruiyun.saike.fragment.DialogFragment_Call;
 import com.keruiyun.saike.fragment.DialogFragment_Control;
 import com.keruiyun.saike.fragment.DialogFragment_Gas;
 import com.keruiyun.saike.fragment.DialogFragment_Music;
+import com.keruiyun.saike.fragment.DialogFragment_PhoneBill;
+import com.keruiyun.saike.fragment.DialogFragment_Phone_Edit;
 import com.keruiyun.saike.fragment.DialogFragment_Setting;
 import com.keruiyun.saike.pop.PopVoice;
 import com.keruiyun.saike.pop.PopWheel;
@@ -121,7 +124,7 @@ public class Fragment_Main extends BaseFragment implements
     private  DialogFragment_Control dialogFragmentControl;
     private DialogFragment_Gas dialogFragmentGas;
     private DialogFragment_Music musicDialogFragment;
-    DialogFragment_Call callDialogFragment;
+
 
     private PopVoice popVoice;
 
@@ -258,7 +261,7 @@ public class Fragment_Main extends BaseFragment implements
         setControlStatus(-1);
         dialogFragmentGas=null;
         musicDialogFragment=null;
-        callDialogFragment=null;
+
     }
 
     @OnClick({R.id.img_start_pause, R.id.txt_start_pause,
@@ -340,9 +343,10 @@ public class Fragment_Main extends BaseFragment implements
                             onFragmentListener.setCurrentItem(1);
                             break;
                         case 2:
-                            callDialogFragment=new DialogFragment_Call();
-                            callDialogFragment.setOnDialogFragmentListener(Fragment_Main.this);
-                            callDialogFragment.show(fragmentManager,DialogFragment_Call.class.getName());
+                            DialogFragment_PhoneBill  phoneBill=new DialogFragment_PhoneBill(false);
+                            phoneBill.setOnDialogFragmentListener(Fragment_Main.this);
+                            phoneBill.show(fragmentManager,DialogFragment_PhoneBill.class.getName());
+
                             break;
                         case 3:
                             musicDialogFragment = new DialogFragment_Music();
@@ -430,7 +434,8 @@ public class Fragment_Main extends BaseFragment implements
             public void onClick(View v) {
                 switch (v.getId()){
                     case R.id.img_back:
-                        onFragmentListener.setCurrentItem(-1);
+//                        onFragmentListener.setCurrentItem(-1);
+
                         break;
                     case R.id.img_bluetooth:
 
@@ -672,28 +677,45 @@ public class Fragment_Main extends BaseFragment implements
            vhGas.imgControl.setImageTintList(R.color.red);
            if (!isStartGasAlarm){
                isStartGasAlarm=true;
-               mGasHandler.sendEmptyMessage(1);
+               mErrHandler.sendEmptyMessage(1);
            }
 
        }else {
            isStartGasAlarm=false;
            vhGas.imgControl.setImageTintList(R.color.white);
-           mGasHandler.removeCallbacksAndMessages(null);
+           mErrHandler.sendEmptyMessage(-2);
+           mErrHandler.removeCallbacksAndMessages(null);
        }
 
 
     }
-    private Handler mGasHandler = new Handler(new Handler.Callback() {
+    private Handler mErrHandler = new Handler(new Handler.Callback() {
         @Override
         public boolean handleMessage(Message msg) {
             switch (msg.what) {
-                case 1:
+                case 1://气体报警
                     vhGas.imgControl.setImageTintList(R.color.red);
-                    mGasHandler.sendEmptyMessageDelayed(2,1000);
+                    mErrHandler.sendEmptyMessageDelayed(2,1000);
                     break;
                 case 2:
                     vhGas.imgControl.setImageTintList(R.color.area_bg);
-                    mGasHandler.sendEmptyMessageDelayed(1,1000);
+                    mErrHandler.sendEmptyMessageDelayed(1,1000);
+                    break;
+                case -2:
+                    vhAirSystem.imgControl.setImageTintList(R.color.white);
+                    mErrHandler.removeCallbacksAndMessages(null);
+                    break;
+                case 3://空调报警
+                    vhAirSystem.imgControl.setImageTintList(R.color.red);
+                    mErrHandler.sendEmptyMessageDelayed(4,1000);
+                    break;
+                case 4:
+                    vhAirSystem.imgControl.setImageTintList(R.color.area_bg);
+                    mErrHandler.sendEmptyMessageDelayed(3,1000);
+                    break;
+                case -4:
+                    vhAirSystem.imgControl.setImageTintList(R.color.white);
+                    mErrHandler.removeCallbacksAndMessages(null);
                     break;
                 default:
                     break;
@@ -711,6 +733,19 @@ public class Fragment_Main extends BaseFragment implements
         } else {
             txtIndicatorRun.setText(mContext.getResources().getString(R.string.stop));
             imgIndicatorRun.setImageResource(R.drawable.sk_index_21);
+        }
+    }
+    //故障报警
+    private void alarm(int data)
+    {
+        if (1 == data)//故障
+        {
+            mErrHandler.sendEmptyMessage(3);
+        }
+        else
+        {
+            mErrHandler.sendEmptyMessage(-4);
+
         }
     }
 
@@ -775,15 +810,31 @@ public class Fragment_Main extends BaseFragment implements
                             // 机组状态-系统运行
                             int systemRunning = data & 0x01;
                             systemRunning(systemRunning);
-                            /*// 机组状态-值班运行
+                            // 机组状态-值班运行
                             int waitRunning = (data >> 1) & 0x01;
-                            waitRunning(waitRunning);
+
                             // 机组状态-系统故障
                             int alarmSystem = (data >> 2) & 0x01;
-                            alarmSystem(alarmSystem);
+
+                            // 机组状态-初效报警
+                            int alarm1 = (data >> 3) & 0x01;
+
+                            // 机组状态-中效报警
+                            int alarm2 = (data >> 4) & 0x01;
+
                             // 机组状态-高效报警
                             int alarm3 = (data >> 5) & 0x01;
-                            alarm3(alarm3);*/
+
+                            // 机组状态-缺风报警
+                            int alarmwind = (data >> 6) & 0x01;
+
+                            // 机组状态-高温报警
+                            int alarmTemp = (data >> 7) & 0x01;
+
+                            // 机组状态-是否有报警
+                            int isAlarm=0x00;
+                            isAlarm=isAlarm|alarmSystem|alarm1|alarm2|alarm3|alarmwind|alarmTemp;
+                            alarm(isAlarm);
 
                             //消防状态
                             int alarmFire = (data >> 12) & 0x01;
@@ -935,9 +986,7 @@ public class Fragment_Main extends BaseFragment implements
                             musicBack=data==1;
                             if (musicDialogFragment!=null)
                                 musicDialogFragment.updateSerialData(addr,data);
-                            if (callDialogFragment!=null){
-                                callDialogFragment.updateSerialData(addr,data);
-                            }
+
 
                             break;
                         case SerialSaunaThread.ADDR_CALL_KEY:

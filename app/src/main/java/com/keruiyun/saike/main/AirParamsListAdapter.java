@@ -45,13 +45,13 @@ public class AirParamsListAdapter extends BaseAdapter {
         valuesRunParams=new HashMap<Integer, String>();
         valuesRunSataus=new HashMap<Integer, String>();
         valuesRunAlarm=new HashMap<Integer, String>();
-        String defaultValue="";
+        String defaultValue="0";
         for (int i=0;i<paramsKeyParams.length;i++)
             valuesRunParams.put(i,defaultValue);
-//        defaultValue=resources.getString(R.string.status_normal);
+        defaultValue=resources.getString(R.string.close);
         for (int i=0;i<paramsKeyRun.length;i++)
             valuesRunSataus.put(i,defaultValue);
-//        defaultValue=resources.getString(R.string.run);
+        defaultValue=resources.getString(R.string.status_normal);
         for (int i=0;i<paramsKeyWarning.length;i++)
             valuesRunAlarm.put(i,defaultValue);
     }

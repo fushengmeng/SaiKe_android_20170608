@@ -1,5 +1,6 @@
 package com.keruiyun.saike.fragment;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,6 +22,8 @@ import com.keruiyun.saike.R;
 import com.keruiyun.saike.serialservice.SerialSaunaThread;
 import com.keruiyun.saike.setting.util.OnTouchListenerAddSub;
 import com.keruiyun.saike.util.DrawableUtil;
+import com.keruiyun.saike.util.LogCus;
+import com.keruiyun.saike.util.PhoneUtil;
 import com.music.musicplayer.utility.Constants;
 
 import butterknife.BindView;
@@ -75,7 +78,19 @@ public class DialogFragment_Call extends BaseDialogFragment {
 
 
     private StringBuffer callNumBuf;
-    private boolean isHandUp;
+    private boolean isHandUp=true;
+
+    private String number;
+    private boolean rightAwayCall;
+
+    public DialogFragment_Call() {
+    }
+
+    @SuppressLint("ValidFragment")
+    public DialogFragment_Call(String number) {
+        this.number = number;
+        rightAwayCall=true;
+    }
 
     @Override
     public int loadContentView() {
@@ -86,7 +101,10 @@ public class DialogFragment_Call extends BaseDialogFragment {
     public void initView(View view) {
         super.initView(view);
         callNumBuf = new StringBuffer();
-        callNumBuf.append(txtInput.getText().toString().trim());
+        if (number!=null)
+            callNumBuf.append(number);
+        LogCus.msg("专呼电话："+callNumBuf.toString());
+        txtInput.setText(callNumBuf.toString()+"");
 //        View[] views = new View[]{one, two, three, four, five, six, seven, eight, nine, xing, zero, jing, call};
 //
 //        for (View item : views) {
@@ -106,6 +124,10 @@ public class DialogFragment_Call extends BaseDialogFragment {
                 return false;
             }
         });
+
+        if (rightAwayCall){
+            callPhone();
+        }
     }
 
     @OnClick({R.id.img_input_del,
@@ -172,47 +194,39 @@ public class DialogFragment_Call extends BaseDialogFragment {
                 break;
 
             case R.id.call:
-
-                String num=txtInput.getText().toString();
-                if (num.length() <= 0&&!isHandUp){
-                    break;
-                }
-                isHandUp=!isHandUp;
-                if (isHandUp){//通话状态
-                    quickCall(num);
-                    call.setImageResource(R.drawable.sk_lxdh_15);
-                }else {
-                    SerialSaunaThread.writeCmdQueue(1, SerialSaunaThread.ADDR_HANDFREE_KEY,0);
-                    call.setImageResource(R.drawable.sk_lxdh_21);
-                }
-
-
+                callPhone();
                 break;
-
             case R.id.specially_call:
-                DialogFragment_PhoneBill phoneBill =  new DialogFragment_PhoneBill(false);
-                phoneBill.setOnQuickCallListener(new DialogFragment_PhoneBill.OnQuickCallListener() {
-                    @Override
-                    public void onQuickCall(String name, String number) {
-                        if (number.length() <= 0){
-                           return;
-                        }
-                        isHandUp=true;
-                        txtInput.setText(number);
-                        quickCall(number);
-                        call.setImageResource(R.drawable.sk_lxdh_15);
-                    }
-                });
-                phoneBill.show(((BaseActivity) mContext).getSupportFragmentManager(),
-                                DialogFragment_PhoneBill.class.getName());
+                handUp();
+                dismiss();
                 break;
             case R.id.video_call:
+                handUp();
                 new DialogFragment_PhoneBill(true)
                         .show(((BaseActivity) mContext).getSupportFragmentManager(),
                                 DialogFragment_PhoneBill.class.getName());
                 break;
 
         }
+    }
+
+    private void callPhone(){
+        String num=txtInput.getText().toString();
+        if (num.length() <= 0&&!isHandUp){
+            return;
+        }
+        if (isHandUp){//通话状态
+            quickCall(num);
+        }else {
+            handUp();
+        }
+    }
+
+    private void handUp() {
+        isHandUp=true;
+        SerialSaunaThread.writeCmdQueue(1, SerialSaunaThread.ADDR_HANDFREE_KEY,0);
+        txtInput.setText("");
+        call.setImageResource(R.drawable.sk_lxdh_21);
     }
 
     private int musicBack=-1;
@@ -235,8 +249,8 @@ public class DialogFragment_Call extends BaseDialogFragment {
     /*专呼电话*/
     public  void quickCall(String number)
     {
-
-
+        isHandUp=false;
+        call.setImageResource(R.drawable.sk_lxdh_15);
 
         /* handUp*/
         SerialSaunaThread.writeCmdQueue(1, SerialSaunaThread.ADDR_HANDFREE_KEY,0);

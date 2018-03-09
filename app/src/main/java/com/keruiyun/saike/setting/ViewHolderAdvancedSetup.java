@@ -63,10 +63,6 @@ public class ViewHolderAdvancedSetup extends BaseViewHolder {
         this.onSettingListener=onSettingListener;
     }
 
-    @Override
-    public boolean isAuthValid() {
-        return false;
-    }
 
     @Override
     public int loadContentView() {

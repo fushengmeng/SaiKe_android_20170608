@@ -146,13 +146,25 @@ public class SaikeScollBar extends View {
 
         switch (event.getAction()) {
             case MotionEvent.ACTION_UP:
-                boolean isUp=rawX>=rectUp.left&&rawX<=rectUp.right&&rawY>=rectUp.top&&rawY<=rectUp.bottom;
-                if (isUp&&mSeekBarChangeListener!=null)
-                    mSeekBarChangeListener.onSeekUp();
+                int x= (int) event.getX(),y= (int) event.getY();
+                boolean isUp=x>=rectUp.left&&x<=rectUp.right&&y>=rectUp.top&&y<=rectUp.bottom;
+                LogCus.msg("isUp:"+isUp+""+x+":"+y+"--rectUp:"+rectUp.left+":"+rectUp.top+":"+rectUp.right+":"+rectUp.bottom);
 
-                boolean isDown=rawX>=rectDown.left&&rawX<=rectDown.right&&rawY>=rectDown.top&&rawY<=rectDown.bottom;
-                if (isDown&&mSeekBarChangeListener!=null)
+                if (isUp&&mSeekBarChangeListener!=null) {
+
+                    rectSeek.top=rectSeekArea.top;
+                    invalidate();
+                    mSeekBarChangeListener.onSeekUp();
+                }
+
+                boolean isDown=x>=rectDown.left&&x<=rectDown.right&&y>=rectDown.top&&y<=rectDown.bottom;
+                LogCus.msg("isDown:"+isDown+""+rawX+":"+rawY+"--rectUp:"+rectDown.left+":"+rectDown.top+":"+rectDown.right+":"+rectDown.bottom);
+                if (isDown&&mSeekBarChangeListener!=null) {
+                    rectSeek.top=rectSeekArea.bottom-seekHeight;
+                    invalidate();
                     mSeekBarChangeListener.onSeekDown();
+
+                }
                 mHandler.removeCallbacksAndMessages(null);
                 break;
             case MotionEvent.ACTION_DOWN:

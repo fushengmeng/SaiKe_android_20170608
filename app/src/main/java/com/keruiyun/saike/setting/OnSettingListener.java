@@ -5,6 +5,24 @@ package com.keruiyun.saike.setting;
  */
 
 public interface OnSettingListener {
+    /**
+     * 账户登录
+     * */
+    public void onLogin(String user);
+    /**
+     * 账户退出
+     * */
+    public void onLogout();
+
+    /**
+     * 账户修改密码
+     * */
+    public void toModifyPsw();
+
+    /**
+     * 账户密码修改成功
+     * */
+    public void onModifyPsw(String user);
 
     /**
      * @param adminLev 管理员等级

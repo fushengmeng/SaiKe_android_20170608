@@ -33,6 +33,8 @@ public class DialogFragment_Phone_Edit extends BaseDialogFragment {
     TintTextView txtCancle;
     @BindView(R.id.txt_sure)
     TintTextView txtSure;
+    @BindView(R.id.txt_delete)
+    TintTextView txtDelete;
 
     T_M_PhoneVideo t_m_phoneVideo;
     T_M_PhoneCall t_m_phoneCall;
@@ -95,13 +97,17 @@ public class DialogFragment_Phone_Edit extends BaseDialogFragment {
         super.onDestroy();
     }
 
-    @OnClick({R.id.txt_cancle, R.id.txt_sure})
+    @OnClick({R.id.txt_cancle, R.id.txt_sure, R.id.txt_delete})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.txt_cancle:
                 dismiss();
                 break;
             case R.id.txt_sure:
+                editCall();
+                break;
+            case R.id.txt_delete:
+                type=2;
                 editCall();
                 break;
         }

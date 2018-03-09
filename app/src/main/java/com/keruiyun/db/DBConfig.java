@@ -11,7 +11,7 @@ public class DBConfig {
         public String id="_id";
         public String user="user";
         public String psw="psw";
-        public String type="type";
+        public String type="type";//0---操作员；1---管理员；2---超级管理员
         public String img="img";
 
         public String createTable(){

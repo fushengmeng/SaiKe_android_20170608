@@ -11,6 +11,7 @@ import com.keruiyun.saike.R;
 import com.keruiyun.saike.controls.VerticalSeekBar;
 import com.keruiyun.saike.main.Fragment_Main;
 import com.keruiyun.saike.serialservice.SerialSaunaThread;
+import com.keruiyun.saike.util.LogCus;
 
 import butterknife.BindView;
 
@@ -30,7 +31,7 @@ public class PopVoice extends BasePopupWindow {
     private int currentVolume;
 
     AudioManager audioMgr;
-    int maxVolume;
+    int maxVolume,curSystemVolume;
 
     public PopVoice(Context context) {
         super(context);
@@ -49,18 +50,23 @@ public class PopVoice extends BasePopupWindow {
         audioMgr = (AudioManager) getContext().getSystemService(Context.AUDIO_SERVICE);
         // 获取最大音乐音量
         maxVolume = audioMgr.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+        curSystemVolume = audioMgr.getStreamVolume( AudioManager.STREAM_MUSIC );
         layout=findById(R.id.layout);
         seekbarVoice=findById(R.id.seekbar_voice);
 //        SerialSaunaThread.writeCmdQueue(1, SerialSaunaThread.ADDR_MUSIC_KEY, 0);
-        currentVolume= Fragment_Main.volume;
+//        currentVolume= Fragment_Main.volume;//Modbus 外置声音
+        if (maxVolume!=0)
+            currentVolume= curSystemVolume*4/maxVolume;
+        LogCus.msg("系统声音："+curSystemVolume+":"+maxVolume+"----Mob:"+Fragment_Main.volume+":setting:"+currentVolume);
+        SerialSaunaThread.writeCmdQueue(1, SerialSaunaThread.ADDR_VOLUMN_KEY, currentVolume);
         seekbarVoice.setMax(4);
         seekbarVoice.setProgress(currentVolume);
         seekbarVoice.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 //                int voice=progress/20;
-                if (progress!=0)
-                    adjustVolume(maxVolume*4/progress);
+                adjustVolume(progress*maxVolume/4);
+
                 SerialSaunaThread.writeCmdQueue(1, SerialSaunaThread.ADDR_VOLUMN_KEY,
                         progress);
             }
@@ -94,7 +100,7 @@ public class PopVoice extends BasePopupWindow {
      */
     private void adjustVolume(int curVolume) {
         audioMgr.setStreamVolume(AudioManager.STREAM_MUSIC, curVolume,
-                AudioManager.FLAG_PLAY_SOUND);
+                AudioManager.FLAG_PLAY_SOUND | AudioManager.FLAG_SHOW_UI);
     }
 
 }

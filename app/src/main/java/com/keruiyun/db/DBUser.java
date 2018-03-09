@@ -31,6 +31,8 @@ public class DBUser extends SQLiteOpenHelper {
         db.execSQL(new DBConfig.T_user().createTable());
         db.execSQL(new DBConfig.T_Phone().createTable());
         db.execSQL(new DBConfig.T_Phone_call().createTable());
+
+        inserDefaultUser(db);
         inserDefaultData(db);
         inserDefaultCallData(db);
     }
@@ -40,6 +42,18 @@ public class DBUser extends SQLiteOpenHelper {
 
     }
 
+    /**默认账户*/
+    public void inserDefaultUser(SQLiteDatabase db){
+        DBConfig.T_user userKeyInfo =new DBConfig.T_user();
+
+        ContentValues values=new ContentValues();
+        values.put(userKeyInfo.type,1);
+        values.put(userKeyInfo.user,"saike");
+        values.put(userKeyInfo.psw,"1111");
+        db.insert(userKeyInfo.T_name, userKeyInfo.user, values);
+    }
+
+    /**默认视频电话*/
     public void inserDefaultData(SQLiteDatabase db){
         DBConfig.T_Phone userKeyInfo =new DBConfig.T_Phone();
         String operating_room = context.getResources().getString(R.string.operating_room);
@@ -51,13 +65,14 @@ public class DBUser extends SQLiteOpenHelper {
         }
     }
 
+    /**默认专呼电话*/
     public void inserDefaultCallData(SQLiteDatabase db){
         DBConfig.T_Phone_call userKeyInfo =new DBConfig.T_Phone_call();
         String operating_room = context.getResources().getString(R.string.operating_room);
-        for (int i=1;i<=18;i++){
+        for (int i=1;i<=30;i++){
             ContentValues values=new ContentValues();
             values.put(userKeyInfo.name,operating_room+""+i);
-            values.put(userKeyInfo.ip,"80"+i);
+            values.put(userKeyInfo.ip,(800+i)+"");
             db.insert(userKeyInfo.T_name, userKeyInfo.ip, values);
         }
     }

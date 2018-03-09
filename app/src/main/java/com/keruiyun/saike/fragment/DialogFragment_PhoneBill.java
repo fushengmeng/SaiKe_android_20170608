@@ -99,16 +99,23 @@ public class DialogFragment_PhoneBill extends BaseDialogFragment {
                         }else {
                             BeanPhone item = listData.get(curCheck);
                             String number= item.getIp();
-                            if (onQuickCallListener!=null)
-                                onQuickCallListener.onQuickCall(item.getName(),number);
-                            dismiss();
+                            DialogFragment_Call call = new DialogFragment_Call(number);
+                            call.show(getChildFragmentManager(),DialogFragment_Call.class.getName());
                         }
                         break;
                     case R.id.layout_add:
                         addOrEdit(0);
                         break;
-                    case R.id.layout_delete:
-                        addOrEdit(2);
+                    case R.id.layout_delete://返回
+                        if (isVideo){
+                            dismiss();
+                        }else {
+                            DialogFragment_Call call = new DialogFragment_Call();
+                            call.show(getChildFragmentManager(),DialogFragment_Call.class.getName());
+                        }
+
+                        //删除
+                        //addOrEdit(2);
                         break;
                     case R.id.layout_edit:
                         addOrEdit(1);
@@ -184,12 +191,16 @@ public class DialogFragment_PhoneBill extends BaseDialogFragment {
         saikeScollBar.setOnSeekBarChangeListener(new SaikeScollBar.OnSeekBarChangeListener() {
             @Override
             public void onSeekUp() {
-
+                gridview.scrollTo(0,0);
             }
 
             @Override
             public void onSeekDown() {
+                int y=listData.size()/3*gridview.getChildAt(0).getHeight();
+                LogCus.msg("列表高度："+y+":"+gridview.getHeight());
+                y=y-gridview.getHeight();
 
+                gridview.scrollTo(0,y);
             }
 
             @Override
@@ -211,6 +222,16 @@ public class DialogFragment_PhoneBill extends BaseDialogFragment {
         });
 
 
+    }
+
+    public int getScrollY() {
+        View c = gridview.getChildAt(0);
+        if (c == null) {
+            return 0;
+        }
+        int firstVisiblePosition = gridview.getFirstVisiblePosition();
+        int top = c.getTop();
+        return -top + firstVisiblePosition * c.getHeight() ;
     }
 
     @Override
@@ -339,13 +360,5 @@ public class DialogFragment_PhoneBill extends BaseDialogFragment {
         TintLinearLayout layout;
         TextView txtName, txtIp;
     }
-    OnQuickCallListener onQuickCallListener;
 
-    public void setOnQuickCallListener(OnQuickCallListener onQuickCallListener) {
-        this.onQuickCallListener = onQuickCallListener;
-    }
-
-    public interface OnQuickCallListener{
-        public void onQuickCall(String name,String number);
-    }
 }

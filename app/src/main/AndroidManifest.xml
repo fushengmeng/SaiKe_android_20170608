@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.keruiyun.saike"
-    android:versionCode="22"
-    android:versionName="v4.1.3">
+    android:versionCode="23"
+    android:versionName="v4.1.4">
 
     <uses-sdk
         android:minSdkVersion="18"
@@ -52,7 +52,10 @@
 
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
-    <uses-feature android:glEsVersion="0x00020000" android:required="true" />
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
@@ -80,7 +83,8 @@
             android:name="BUGLY_ENABLE_DEBUG"
             android:value="false" />
 
-       <!-- <activity
+        <!--
+        <activity
             android:name=".ClockActivity"
             android:configChanges="screenSize|keyboardHidden|orientation"
             android:screenOrientation="landscape"
@@ -104,7 +108,9 @@
             android:name=".TimeSettingDialogActivity"
             android:configChanges="screenSize|keyboardHidden|orientation"
             android:screenOrientation="landscape"
-            android:theme="@style/customDialog"></activity>-->
+            android:theme="@style/customDialog"></activity>
+        -->
+
 
         <!-- android:name=".main.MainActivity" -->
         <activity
@@ -125,18 +131,28 @@
 
         <receiver android:name=".receiver.BootCompletedReceiver">
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"></action>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
 
-        <service android:name=".serialservice.SerialSaunaService"></service>
+        <service android:name=".serialservice.SerialSaunaService" />
 
         <!-- 音乐播放器start -->
 
-        <service
-            android:name="com.music.musicplayer.service.MusicService" />
+        <service android:name="com.music.musicplayer.service.MusicService" />
         <!-- 音乐播放器end -->
 
+        <!--5分钟后退出账户-->
+        <service
+            android:name=".timerserver.ServiceFiveTimer"
+            android:enabled="true"
+            android:exported="true"></service>
+
+        <receiver android:name=".timerserver.AlarmReceiver">
+            <intent-filter>
+                <action android:name="com.keruiyun.saike.timerserver.AlarmReceiver"></action>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

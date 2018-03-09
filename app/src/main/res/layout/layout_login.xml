@@ -33,6 +33,7 @@
            android:gravity="center_vertical"
            android:textColor="?android:attr/textColor"
             android:textSize="@dimen/txt_size_setting"
+            android:lines="1"
            android:layout_marginTop="40px"
            android:drawableLeft="@drawable/sk_xtdl_07"/>
 
@@ -46,6 +47,8 @@
             android:layout_marginRight="@dimen/margin_l"
             android:background="@drawable/bg_input"
             android:textSize="@dimen/txt_size_setting"
+            android:inputType="numberPassword"
+            android:lines="1"
             android:gravity="center_vertical"
             android:layout_marginTop="@dimen/margin"
             android:textColor="?android:attr/textColor"

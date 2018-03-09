@@ -1,7 +1,11 @@
 package com.keruiyun.saike.fragment;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.SystemClock;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,8 +32,11 @@ import com.keruiyun.saike.setting.ViewHolderUser;
 import com.keruiyun.saike.setting.ViewHolderValiduntil;
 import com.keruiyun.saike.setting.ViewHolderWifi;
 import com.keruiyun.saike.setting.data.Data_validnutil;
+import com.keruiyun.saike.timerserver.ServiceFiveTimer;
 import com.keruiyun.saike.util.LogCus;
+import com.keruiyun.saike.util.PreferencesUtil;
 import com.util.SystemBrightManager;
+import com.util.ToastUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,6 +74,7 @@ public class DialogFragment_Setting extends BaseDialogFragment implements OnSett
     BaseViewHolder[] viewHolderSettings=new BaseViewHolder[8];
 
     private int curPosition;
+    private boolean isLogin;
 
     @Override
     public int loadContentView() {
@@ -96,12 +104,14 @@ public class DialogFragment_Setting extends BaseDialogFragment implements OnSett
                 item.onDestory();
         }
         super.onDestroy();
+        unRegisterFiveRevceiver();
 
     }
 
     @Override
     public void initView(View view) {
         super.initView(view);
+        isLogin=PreferencesUtil.getInstance(mContext).getBooleanValue("User", "login",false);
         initData();
         viewHolderSettings[0] = new ViewHolderSmartstart(mContext, layoutRight,DialogFragment_Setting.this);
         isAutoSystemIntensity = SystemBrightManager.isAutoBrightness(getActivity());
@@ -159,6 +169,7 @@ public class DialogFragment_Setting extends BaseDialogFragment implements OnSett
                 }
             }
         });
+        registerFiveRevceiver();
     }
 
     @Override
@@ -239,6 +250,51 @@ public class DialogFragment_Setting extends BaseDialogFragment implements OnSett
     }
 
     ViewHolderValiduntil validHolder;
+
+    @Override
+    public void onLogin(String user) {
+        PreferencesUtil.getInstance(mContext).setStringValue("User", "login_user",user);
+        PreferencesUtil.getInstance(mContext).setLongValue("User", "login_user_time",System.currentTimeMillis());
+        PreferencesUtil.getInstance(mContext).setBooleanValue("User", "login",true);
+        isLogin=true;
+        settingAdapter.notifyDataSetChanged();
+        onAuthVaild(false);
+        mContext.startService(new Intent(mContext, ServiceFiveTimer.class));
+        if (viewHolderSettings[4]!=null){
+            ViewHolderUser viewHolderUsers = (ViewHolderUser) viewHolderSettings[4];
+            viewHolderUsers.refresh();
+        }
+    }
+
+    @Override
+    public void onLogout() {
+        PreferencesUtil.getInstance(mContext).setStringValue("User", "login_user","");
+        PreferencesUtil.getInstance(mContext).setBooleanValue("User", "login",false);
+        isLogin=false;
+        if (viewHolderSettings[4]!=null){
+            ViewHolderUser viewHolderUsers = (ViewHolderUser) viewHolderSettings[4];
+            viewHolderUsers.refresh();
+        }
+        settingAdapter.notifyDataSetChanged();
+        onAuthVaild(false);
+    }
+
+    @Override
+    public void toModifyPsw() {
+        if (viewHolderSettings[4]!=null){
+            ViewHolderUser viewHolderUsers = (ViewHolderUser) viewHolderSettings[4];
+            viewHolderUsers.refreshRegisterView(R.layout.item_user_modify);
+        }
+    }
+
+    @Override
+    public void onModifyPsw(String user) {
+        if (viewHolderSettings[4]!=null){
+            ViewHolderUser viewHolderUsers = (ViewHolderUser) viewHolderSettings[4];
+            viewHolderUsers.refreshRegisterView(R.layout.item_user_info);
+        }
+    }
+
     @Override
     public void onSettingVaild(int adminLev) {
         if (validHolder==null){
@@ -254,17 +310,33 @@ public class DialogFragment_Setting extends BaseDialogFragment implements OnSett
         int visibility=View.GONE;
         boolean isValidStop=false;
         if (isAuth){
-            Data_validnutil dataValidnutil = new Data_validnutil();
-            if (dataValidnutil.isEnable()){
-                isValidStop=dataValidnutil.isValidStop();
-                if (isValidStop){
-                    visibility=View.VISIBLE;
+            if (isLogin){
+                Data_validnutil dataValidnutil = new Data_validnutil();
+                if (dataValidnutil.isEnable()){
+                    isValidStop=dataValidnutil.isValidStop();
+                    if (isValidStop){
+                        visibility=View.VISIBLE;
+                        vRightValid.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                ToastUtil.showToast(getResources().getString(R.string.no_validstop));
+                            }
+                        });
+                    }
                 }
+            }else {
+                visibility=View.VISIBLE;
+                isValidStop=true;
+                vRightValid.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        ToastUtil.showToast(getResources().getString(R.string.no_login));
+                    }
+                });
             }
-
-
         }
-        LogCus.msg("onAuthVaild:"+visibility+"isValidStop :"+isValidStop);
+
+
         vRightValid.setVisibility(visibility);
         return isValidStop;
     }
@@ -281,9 +353,11 @@ public class DialogFragment_Setting extends BaseDialogFragment implements OnSett
 
     private class SettingAdapter extends BaseAdapter {
         LayoutInflater inflater;
-
+        int select,noselect;
         public SettingAdapter() {
             inflater = LayoutInflater.from(mContext);
+            select=  ContextCompat.getColor(mContext,R.color.theme_color_primary);
+            noselect=  ContextCompat.getColor(mContext,R.color.white);
         }
 
         public void refreshCheck(){
@@ -321,7 +395,15 @@ public class DialogFragment_Setting extends BaseDialogFragment implements OnSett
             ItemSetting item = getItem(position);
             viewHolder.iconView.setImageResource(item.icon);
             viewHolder.iconView.setImageTintList(curPosition==position?R.color.theme_color_primary:R.color.white);
-            viewHolder.txtName.setSelected(curPosition==position);
+            if (isLogin){
+                viewHolder.txtName.setTextColor(curPosition==position?select:noselect);
+            }else {
+                if (curPosition==position)
+                    viewHolder.txtName.setTextColor(ContextCompat.getColor(mContext,R.color.white));
+                else
+                    viewHolder.txtName.setTextColor(ContextCompat.getColor(mContext,R.color.img_no_select));
+            }
+
             viewHolder.txtName.setText(item.name + "");
             return convertView;
         }
@@ -346,5 +428,30 @@ public class DialogFragment_Setting extends BaseDialogFragment implements OnSett
             onSettingVaild(2);
         }
     }
+
+    private void registerFiveRevceiver(){
+
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(ServiceFiveTimer.ACTION_FiveTimer);
+        mContext.registerReceiver(fiveLogoutReceiver, filter);// 注册
+    }
+
+    private void unRegisterFiveRevceiver(){
+        mContext.unregisterReceiver(fiveLogoutReceiver);
+    }
+
+    private BroadcastReceiver fiveLogoutReceiver=new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+
+            if (intent.getAction().equals(ServiceFiveTimer.ACTION_FiveTimer)){
+                LogCus.msg("登录到期:");
+                isLogin=false;
+                settingAdapter.notifyDataSetChanged();
+                onAuthVaild(false);
+                onLogout();
+            }
+        }
+    };
 
 }

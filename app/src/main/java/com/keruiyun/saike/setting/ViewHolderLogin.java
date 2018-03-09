@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -13,6 +14,7 @@ import com.bilibili.magicasakura.widgets.TintTextView;
 import com.keruiyun.db.T_M_User;
 import com.keruiyun.saike.BaseActivity;
 import com.keruiyun.saike.R;
+import com.keruiyun.saike.util.PreferencesUtil;
 import com.util.ToastUtil;
 
 import butterknife.BindView;
@@ -43,6 +45,12 @@ public class ViewHolderLogin extends BaseViewHolder {
     }
 
     @Override
+    public boolean isAuthValid() {
+        return false;
+    }
+
+
+    @Override
     public int loadContentView() {
         return R.layout.layout_login;
     }
@@ -62,12 +70,26 @@ public class ViewHolderLogin extends BaseViewHolder {
     }
 
     @Override
-    public void initView(Context context, ViewGroup viewParent) {
-        super.initView(context, viewParent);
+    public void initView(Context contextv, ViewGroup viewParent) {
+        super.initView(contextv, viewParent);
         viewParent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 BaseActivity.hideSoftInput(v);
+            }
+        });
+        boolean isRememberPsw = PreferencesUtil.getInstance(context).getBooleanValue("User", "isRememberPsw",false);
+        boxPswRemember.setChecked(isRememberPsw);
+        String login_user =  PreferencesUtil.getInstance(context).getStringValue("User", "login_user","");
+        inputUsername.setText(login_user+"");
+        if (isRememberPsw){
+            String psw=t_m_user.getUserPsw(login_user);
+            inputPsw.setText(psw+"");
+        }
+        boxPswRemember.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                PreferencesUtil.getInstance(context).setBooleanValue("User", "isRememberPsw",isChecked);
             }
         });
 
@@ -98,6 +120,8 @@ public class ViewHolderLogin extends BaseViewHolder {
         }
         if (t_m_user.isSurePsw(user,psw)){
             ToastUtil.showToast(res.getString(R.string.login_success));
+            onSettingListener.onLogin(user);
+
         }
     }
 }

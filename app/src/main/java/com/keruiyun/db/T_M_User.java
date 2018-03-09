@@ -87,6 +87,40 @@ public class T_M_User {
         }
     }
 
+    public String getUserPsw(String user) {
+        String select=userKeyInfo.user+" = \""+user+"\"";
+        Cursor c=query(select);
+        String userPsw="";
+        if (c.moveToFirst()) {
+            userPsw=c.getString(c.getColumnIndex(userKeyInfo.psw));
+
+        }
+        c.close();
+        return userPsw;
+    }
+
+    public int getUserType(String user) {
+        String select=userKeyInfo.user+" = \""+user+"\"";
+        Cursor c=query(select);
+        int type=0;
+        if (c.moveToFirst()) {
+            type=c.getInt(c.getColumnIndex(userKeyInfo.type));
+
+        }
+        c.close();
+        return type;
+    }
+
+    public boolean modifyUserPsw(String user,String psw) {
+        String select=userKeyInfo.user+" = \""+user+"\"";
+        ContentValues values=new ContentValues();
+        values.put(userKeyInfo.psw,psw);
+        int rowNum = db.update(userKeyInfo.T_name, values, select, null);
+        return rowNum>0;
+    }
+
+
+
     // Bitmap to byte[]
     public byte[] bmpToByteArray(Bitmap bmp) {
         if (bmp==null)
@@ -121,4 +155,5 @@ public class T_M_User {
         c.close();
         return null;
     }
+
 }

@@ -1,6 +1,9 @@
 package com.keruiyun.saike.setting;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -15,8 +18,11 @@ import com.keruiyun.saike.setting.data.Data_Smartstart;
 import com.keruiyun.saike.setting.util.OnTouchAdd;
 import com.keruiyun.saike.setting.util.OnTouchListenerAddSub;
 import com.keruiyun.saike.setting.util.OnTouchSub;
+import com.keruiyun.saike.timerserver.AlarmReceiver;
 import com.keruiyun.saike.uiview.SwitchButton;
 import com.util.DateTime;
+
+import java.util.Calendar;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -304,6 +310,7 @@ public class ViewHolderSmartstart extends BaseViewHolder {
                         time=time*1000;
                         data_smartstart.setTxtValueTimerOn(time);
                         txtValueTimerOn.setText( hour+":"+minute);
+                        setAlarm(context,true,hour,minute);
                     }
                 }).show(((BaseActivity)context).getSupportFragmentManager(),DialogFragment_SelectTime.class.getName());
 
@@ -317,11 +324,42 @@ public class ViewHolderSmartstart extends BaseViewHolder {
                         data_smartstart.setTxtValueTimerOff(time);
 
                         txtValueTimerOff.setText( hour+":"+minute);
+                        setAlarm(context,false,hour,minute);
                     }
                 }).show(((BaseActivity)context).getSupportFragmentManager(),DialogFragment_SelectTime.class.getName());
                 break;
 
         }
+    }
+
+    public static void setAlarm(Context context,boolean isStart,String hourStr,String minuteStr ){
+        Calendar c= Calendar.getInstance();
+        int hour,minute;
+        try {
+            hour=Integer.parseInt(hourStr);
+            minute=Integer.parseInt(minuteStr);
+            c.set(Calendar.HOUR_OF_DAY, hour);
+            c.set(Calendar.MINUTE, minute);
+            Intent intent=new Intent(context,AlarmReceiver.class);
+            intent.setAction("com.keruiyun.saike.timerserver.AlarmReceiver");
+            intent.putExtra("isStart",isStart);
+            intent.putExtra("hour",hour);
+            intent.putExtra("minute",minute);
+            PendingIntent pi= PendingIntent.getBroadcast(context, 0, intent,0);
+            //设置一个PendingIntent对象，发送广播
+            AlarmManager am=(AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
+            //获取AlarmManager对象
+            am.set(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), pi);
+        }catch (NumberFormatException e){
+            e.printStackTrace();
+            return;
+        }
+
+
+
+
+
+
     }
 
 
