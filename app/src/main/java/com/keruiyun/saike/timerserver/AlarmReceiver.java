@@ -3,6 +3,8 @@ package com.keruiyun.saike.timerserver;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Handler;
+import android.os.Message;
 
 import com.keruiyun.saike.serialservice.SerialSaunaThread;
 import com.keruiyun.saike.setting.ViewHolderSmartstart;
@@ -29,7 +31,11 @@ public class AlarmReceiver extends BroadcastReceiver {
             SerialSaunaThread.writeCmdQueue(1,
                     SerialSaunaThread.ADDR_POWER_KEY, 0);
         }
-        ViewHolderSmartstart.setAlarm(context,isStart,hour+"",minute+"");
+
+        ViewHolderSmartstart.setAlarm(context,isStart,hour+"",minute+"",true);
+
 
     }
+
+
 }
