@@ -342,22 +342,26 @@ public class ViewHolderSmartstart extends BaseViewHolder {
             minute=Integer.parseInt(minuteStr);
             c.set(Calendar.HOUR_OF_DAY, hour);
             c.set(Calendar.MINUTE, minute);
-            Intent intent=new Intent(context,AlarmReceiver.class);
+            Intent intent=new Intent();
             intent.setAction("com.keruiyun.saike.timerserver.AlarmReceiver");
             intent.putExtra("isStart",isStart);
             intent.putExtra("hour",hour);
             intent.putExtra("minute",minute);
-            PendingIntent pi= PendingIntent.getBroadcast(context, 0, intent,0);
+
+            PendingIntent pi= PendingIntent.getBroadcast(context,isStart?1:2, intent,0);
             //设置一个PendingIntent对象，发送广播
             AlarmManager am=(AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
             //获取AlarmManager对象
             long time=c.getTimeInMillis();
             BigDecimal t=new BigDecimal(time);
             BigDecimal result=new BigDecimal(0);
-            LogCus.msg("定时器：t"+t);
+
             if (isNext)
                 result=t.add(new BigDecimal(24*60*60*1000l));
-            LogCus.msg("定时器："+result.longValue());
+            else
+                result=new BigDecimal(time);
+
+            LogCus.msg("---定时器设置："+":"+isStart+":---"+hour+":"+minute+"----"+result.longValue());
             am.set(AlarmManager.RTC_WAKEUP,result.longValue() , pi);
         }catch (NumberFormatException e){
             e.printStackTrace();
