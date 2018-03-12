@@ -226,6 +226,7 @@ public class DialogFragment_Call extends BaseDialogFragment {
         isHandUp=true;
         SerialSaunaThread.writeCmdQueue(1, SerialSaunaThread.ADDR_HANDFREE_KEY,0);
         txtInput.setText("");
+        callNumBuf=new StringBuffer();
         call.setImageResource(R.drawable.sk_lxdh_21);
     }
 

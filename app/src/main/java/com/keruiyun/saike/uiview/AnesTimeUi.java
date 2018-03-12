@@ -32,16 +32,16 @@ import java.util.Date;
 
 public class AnesTimeUi extends BaseProgressBar implements DialogFragment_Countdown.OnCountdownListener {
     /**
-     * 倒计时是否结束
-     */
-    protected boolean isTikle = true;
-    /**
-     * 是否是计时器；
-     * Start（）时isTikle=true&&anesTimerValue==0 是为计时器
+     * 倒计时是否接收
      *
      */
-    protected boolean isTimer = false;
-    private int anesTimer, anesTimerValue = 0;;
+    protected boolean isTikle=true ;
+    /**
+     * 是否显示倒计时文字
+     *
+     */
+    protected boolean isShowTxt=false ;
+    private int anesTimer, anesTimerValue = 1;;
     private Context context;
     private Handler mAnesTwinkleHandler;
 
@@ -104,10 +104,14 @@ public class AnesTimeUi extends BaseProgressBar implements DialogFragment_Countd
                 0);
         anesTimerValue = PreferencesUtil.getInstance(context).getIntValue("AnesTimer", "countdown",
                 0);
-
-        isTimer=anesTimerValue==0;
-        startRotate=0;
+        isShowTxt=PreferencesUtil.getInstance(getContext()).getBooleanValue("AnesTimer", "isShowTxt",
+                false);
+        if (isTikle)
+            startRotate=-90;
+        else
+            startRotate=0;
         currRotate=startRotate;
+
         long tempTime = new Date().getTime();
         if (0 != anesTime && -1 != anesTime && tempTime >= anesTime)
         {
@@ -152,14 +156,14 @@ public class AnesTimeUi extends BaseProgressBar implements DialogFragment_Countd
                 anesTimerStart();
             }
         }
-        LogCus.msg(":倒计时：isTikle:"+isTikle+":isTimer:"+isTimer+":anesTime:"+anesTime+":currRotate:"+currRotate+":anesTimerValue:"+anesTimerValue);
+        LogCus.msg(":倒计时：isTikle:"+isTikle+":anesTime:"+anesTime+":currRotate:"+currRotate+":anesTimerValue:"+anesTimerValue);
     }
 
 
     @Override
     public void setArcColors(int roundColor, int progressEndColor) {
 
-        isTikle = PreferencesUtil.getInstance(getContext()).getBooleanValue("AnesTimer", "isTikle",false);
+        isTikle = PreferencesUtil.getInstance(getContext()).getBooleanValue("AnesTimer", "isTikle",true);
 
         if (isTikle){
             positions =  new float[]{0,0.9f,1f};
@@ -196,7 +200,7 @@ public class AnesTimeUi extends BaseProgressBar implements DialogFragment_Countd
     @Override
     protected void drawTextTime(Canvas canvas) {
         super.drawTextTime(canvas);
-        if (isStart()&&isTikle&&!isInvisibleHour&&!isTimer){
+        if (isStart()&&isTikle&&!isInvisibleHour&&isShowTxt){
             textPaint.setTextSize(25);
             Paint.FontMetricsInt fontMetricsDate = textPaint.getFontMetricsInt();
             int baselineDate = centerY-fontMetricsDate.top+32;
@@ -207,14 +211,14 @@ public class AnesTimeUi extends BaseProgressBar implements DialogFragment_Countd
     @Override
     protected void drawProgress(Canvas canvas) {
 
-        if(isTimer){
+        if (isTikle){
             super.drawProgress(canvas);
         }else {
             // 确定圆弧的绘制位置，也就是里面圆弧坐标和外面圆弧坐标
             oval.set(centerX-radius_within, centerY-radius_within, centerX+radius_within, centerY+radius_within);
             canvas.save();
 
-            canvas.rotate(-90-currRotate,centerX,centerY);
+            canvas.rotate(startRotate-currRotate,centerX,centerY);
             // 画圆弧，第二个参数为：起始角度，第三个为跨的角度，第四个为true的时候是实心，false的时候为空心
 
             canvas.drawArc(oval,
@@ -226,6 +230,8 @@ public class AnesTimeUi extends BaseProgressBar implements DialogFragment_Countd
             canvas.drawCircle(centerProgress[0],centerProgress[1],progressCircleRadius,progressCirclePaint);
             canvas.restore();
         }
+
+
 
     }
 
@@ -250,9 +256,9 @@ public class AnesTimeUi extends BaseProgressBar implements DialogFragment_Countd
             case 3:
                 anesTimerValue = PreferencesUtil.getInstance(context).getIntValue("AnesTimer", "countdown",
                         0);
-                isTikle = PreferencesUtil.getInstance(getContext()).getBooleanValue("AnesTimer", "isTikle",false);
 
-                LogCus.msg(msg.what+"倒计时drawProgress：isTimer:"+isTimer+":isTikle:"+isTikle+":anesTimerValue:"+anesTimerValue);
+
+                LogCus.msg(msg.what+"倒计时drawProgress："+":isTikle:"+isTikle+":anesTimerValue:"+anesTimerValue);
                 if (anesTimerValue > 0) {
 
                     if (anesTimer > 0) {
@@ -265,8 +271,10 @@ public class AnesTimeUi extends BaseProgressBar implements DialogFragment_Countd
                         mHandler.sendMessageDelayed(
                                 mHandler.obtainMessage(3, 0, 0), 500);
                     } else {
-
                         isTikle = true;
+                        isShowTxt=true;
+                        PreferencesUtil.getInstance(getContext()).setBooleanValue("AnesTimer", "isShowTxt",
+                                isShowTxt);
                         PreferencesUtil.getInstance(getContext()).setBooleanValue("AnesTimer", "isTikle",
                                 isTikle);
                         setArcColors();
@@ -317,14 +325,9 @@ public class AnesTimeUi extends BaseProgressBar implements DialogFragment_Countd
 
      @Override
     protected float secondRotate(int progress) {
-        if (isTikle){
-            if (isTimer){
-                currRotate=super.secondRotate(progress);
 
-                return currRotate;
-            }else {
-                currRotate=360;
-            }
+        if (isTikle){
+            currRotate=super.secondRotate(progress);
 
         }else if (anesTimerValue!=0){
             currRotate=(anesTimerValue-anesTimer+1)/(float)anesTimerValue*360.0f;
@@ -350,28 +353,19 @@ public class AnesTimeUi extends BaseProgressBar implements DialogFragment_Countd
 
     // 手术定时器开始
     public void anesTimerStart() {
-        isTikle = PreferencesUtil.getInstance(getContext()).getBooleanValue("AnesTimer", "isTikle",false);
+        isTikle = PreferencesUtil.getInstance(getContext()).getBooleanValue("AnesTimer", "isTikle",true);
         anesTimerValue = PreferencesUtil.getInstance(context).getIntValue("AnesTimer", "countdown",
                 0);
 
-        isTimer=false;
+
         if (!isStart()){
             if (isTikle) {
                 mHandler.removeCallbacksAndMessages(null);
                 mHandler.sendMessageDelayed(
                         mHandler.obtainMessage(4, anesTimer, 0), 0);
-                if (anesTimerValue==0){
-                    isTimer=true;
-                    startRotate=-90;
-                    currRotate=startRotate;
-                }else {
-                    isTimer=false;
-                    startRotate=0;
-                    currRotate=startRotate;
-                    mAnesTwinkleHandler.removeCallbacksAndMessages(null);
-                    mAnesTwinkleHandler.sendMessageDelayed(
-                            mAnesTwinkleHandler.obtainMessage(1, anesTimer, 0), 0);
-                }
+                mAnesTwinkleHandler.removeCallbacksAndMessages(null);
+                mAnesTwinkleHandler.sendMessageDelayed(
+                        mAnesTwinkleHandler.obtainMessage(1, anesTimer, 0), 0);
 
             } else {
                 mHandler.sendMessageDelayed(
@@ -383,7 +377,7 @@ public class AnesTimeUi extends BaseProgressBar implements DialogFragment_Countd
             PreferencesUtil.getInstance(context).setLongValue("AnesTimer", "time",
                     new Date().getTime());
             setArcColors(roundColor,progressEndColor);
-            LogCus.msg("倒计时开始：isTikle:"+isTikle+":isTimer:"+isTimer+":isStart():"+isStart()+":anesTimerValue:"+anesTimerValue);
+            LogCus.msg("倒计时开始：isTikle:"+isTikle+":isStart():"+isStart()+":anesTimerValue:"+anesTimerValue);
             start();
         }
 
@@ -398,7 +392,14 @@ public class AnesTimeUi extends BaseProgressBar implements DialogFragment_Countd
 
     // 手术定时器复位
     public void opTimerReset() {
-        isTikle = true;
+        isTikle=true;
+        isShowTxt=false;
+        startRotate=-90;
+        currRotate=startRotate;
+        PreferencesUtil.getInstance(getContext()).setBooleanValue("AnesTimer", "isShowTxt",
+                isShowTxt);
+        PreferencesUtil.getInstance(getContext()).setBooleanValue("AnesTimer", "isTikle",
+                isTikle);
         opTimerReset(0);
     }
 
@@ -413,23 +414,17 @@ public class AnesTimeUi extends BaseProgressBar implements DialogFragment_Countd
 
         anesTimer = anesTimerValue;
 
+        PreferencesUtil.getInstance(context).setBooleanValue("AnesTimer", "isTikle",
+                isTikle);
         PreferencesUtil.getInstance(context).setIntValue("AnesTimer", "count",
                 anesTimer);
         PreferencesUtil.getInstance(context).setLongValue("AnesTimer", "time",
                 0);
-        isTimer=anesTimerValue==0;
-        isTikle = anesTimerValue==0;
-        LogCus.msg("倒计时复位：isTimer:"+isTimer+":anesTimerValue:"+anesTimerValue);
-        PreferencesUtil.getInstance(context).setBooleanValue("AnesTimer", "isTikle",
-                isTikle);
+
+        LogCus.msg("倒计时复位："+":anesTimerValue:"+anesTimerValue);
+
         setArcColors(roundColor,progressEndColor);
-        if (isTimer){
-            startRotate=-90;
-            currRotate=startRotate;
-        }else {
-            startRotate=0;
-            currRotate=startRotate;
-        }
+
         postInvalidate();
     }
 
@@ -461,6 +456,14 @@ public class AnesTimeUi extends BaseProgressBar implements DialogFragment_Countd
     public void onCountdownListener(int hour, int minute, int second) {
         anesTimerValue = hour * 60 * 60 + minute * 60
                 + second;
+        isTikle=false;
+        isShowTxt=true;
+        startRotate=-90;
+        currRotate=0;
+        PreferencesUtil.getInstance(getContext()).setBooleanValue("AnesTimer", "isShowTxt",
+                isShowTxt);
+        PreferencesUtil.getInstance(getContext()).setBooleanValue("AnesTimer", "isTikle",
+                isTikle);
         opTimerReset(anesTimerValue);
     }
 }

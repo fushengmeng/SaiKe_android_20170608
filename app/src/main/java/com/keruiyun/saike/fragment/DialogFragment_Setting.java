@@ -1,9 +1,12 @@
 package com.keruiyun.saike.fragment;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.os.Build;
 import android.os.SystemClock;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
@@ -38,11 +41,15 @@ import com.keruiyun.saike.util.PreferencesUtil;
 import com.util.SystemBrightManager;
 import com.util.ToastUtil;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+
+import static com.keruiyun.saike.timerserver.ServiceFiveTimer.TIME_logout;
 
 /**
  * 系统设置
@@ -112,8 +119,23 @@ public class DialogFragment_Setting extends BaseDialogFragment implements OnSett
     public void initView(View view) {
         super.initView(view);
         isLogin=PreferencesUtil.getInstance(mContext).getBooleanValue("User", "login",false);
+        if (isLogin){
+            long login_time=  PreferencesUtil.getInstance(mContext).getLongValue("User", "login_time",0)/1000;
+            long cur=System.currentTimeMillis()/1000;
+            if ((cur-login_time)>TIME_logout*60){
+                isLogin=false;
+                PreferencesUtil.getInstance(mContext).setBooleanValue("User", "login",false);
+            }
+        }
+        LogCus.msg("DialogFragment_Setting账户isLogin："+isLogin);
         initData();
-        viewHolderSettings[0] = new ViewHolderSmartstart(mContext, layoutRight,DialogFragment_Setting.this);
+        if (isLogin) {
+            curPosition=0;
+            viewHolderSettings[0] = new ViewHolderSmartstart(mContext, layoutRight, DialogFragment_Setting.this);
+        }else {
+            curPosition=4;
+            viewHolderSettings[4] = new ViewHolderUser(mContext, layoutRight, DialogFragment_Setting.this);
+        }
         isAutoSystemIntensity = SystemBrightManager.isAutoBrightness(getActivity());
         defalutValue = SystemBrightManager.getBrightness(getActivity());
         seekIntensity.setProgress(defalutValue);
@@ -259,7 +281,7 @@ public class DialogFragment_Setting extends BaseDialogFragment implements OnSett
         isLogin=true;
         settingAdapter.notifyDataSetChanged();
         onAuthVaild(false);
-        mContext.startService(new Intent(mContext, ServiceFiveTimer.class));
+        setAlarmLogin();
         if (viewHolderSettings[4]!=null){
             ViewHolderUser viewHolderUsers = (ViewHolderUser) viewHolderSettings[4];
             viewHolderUsers.refresh();
@@ -432,7 +454,7 @@ public class DialogFragment_Setting extends BaseDialogFragment implements OnSett
     private void registerFiveRevceiver(){
 
         IntentFilter filter = new IntentFilter();
-        filter.addAction(ServiceFiveTimer.ACTION_FiveTimer);
+        filter.addAction(ServiceFiveTimer.ACTION_FiveTimerLogout);
         mContext.registerReceiver(fiveLogoutReceiver, filter);// 注册
     }
 
@@ -444,7 +466,7 @@ public class DialogFragment_Setting extends BaseDialogFragment implements OnSett
         @Override
         public void onReceive(Context context, Intent intent) {
 
-            if (intent.getAction().equals(ServiceFiveTimer.ACTION_FiveTimer)){
+            if (intent.getAction().equals(ServiceFiveTimer.ACTION_FiveTimerLogout)){
                 LogCus.msg("登录到期:");
                 isLogin=false;
                 settingAdapter.notifyDataSetChanged();
@@ -453,5 +475,30 @@ public class DialogFragment_Setting extends BaseDialogFragment implements OnSett
             }
         }
     };
+
+    /*登录计时闹钟*/
+    public  void setAlarmLogin(){
+        Intent intent=new Intent();
+        intent.setAction(ServiceFiveTimer.ACTION_FiveTimer);
+
+        PendingIntent pi= PendingIntent.getBroadcast(mContext,3, intent,PendingIntent.FLAG_CANCEL_CURRENT);
+        //设置一个PendingIntent对象，发送广播
+        AlarmManager am=(AlarmManager)mContext.getSystemService(Context.ALARM_SERVICE);
+        //获取AlarmManager对象
+        long cur=System.currentTimeMillis();
+        PreferencesUtil.getInstance(mContext).setLongValue("User", "login_time",cur);
+        BigDecimal t=new BigDecimal(cur);
+        /*五分钟后的时间*/
+        BigDecimal result=t.add(new BigDecimal(TIME_logout*60*1000l));
+        LogCus.msg("---登录到期时间："+":"+result.longValue());
+        am.set(AlarmManager.RTC_WAKEUP, result.longValue() , pi);
+//        if(Build.VERSION.SDK_INT < 19){
+//            am.set(AlarmManager.RTC_WAKEUP, result.longValue() , pi);
+//        }else{
+//            am.setExact(AlarmManager.RTC_WAKEUP, result.longValue() , pi);
+//        }
+
+
+    }
 
 }

@@ -594,6 +594,7 @@ public class Fragment_Air extends BaseFragment {
                         int waitRunning = (data >> 1) & 0x01;
                         // 机组状态-系统故障
                         int alarmSystem = (data >> 2) & 0x01;
+                        airParamsListAdapter.refreshItem(paramsType,2,6,alarmSystem==1?alarmFault:alarmNormal);
                         // 机组状态-初效报警
                         int alarm1 = (data >> 3) & 0x01;
                         airParamsListAdapter.refreshItem(paramsType,2,0,alarm1==1?alarmFault:alarmNormal);

@@ -4,6 +4,7 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -348,7 +349,7 @@ public class ViewHolderSmartstart extends BaseViewHolder {
             intent.putExtra("hour",hour);
             intent.putExtra("minute",minute);
 
-            PendingIntent pi= PendingIntent.getBroadcast(context,isStart?1:2, intent,0);
+            PendingIntent pi= PendingIntent.getBroadcast(context,isStart?1:2, intent,PendingIntent.FLAG_ONE_SHOT);
             //设置一个PendingIntent对象，发送广播
             AlarmManager am=(AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
             //获取AlarmManager对象
@@ -362,7 +363,12 @@ public class ViewHolderSmartstart extends BaseViewHolder {
                 result=new BigDecimal(time);
 
             LogCus.msg("---定时器设置："+":"+isStart+":---"+hour+":"+minute+"----"+result.longValue());
-            am.set(AlarmManager.RTC_WAKEUP,result.longValue() , pi);
+//            am.set(AlarmManager.RTC_WAKEUP,result.longValue() , pi);
+            if(Build.VERSION.SDK_INT < 19){
+                am.set(AlarmManager.RTC_WAKEUP, result.longValue() , pi);
+            }else{
+                am.setExact(AlarmManager.RTC_WAKEUP, result.longValue() , pi);
+            }
         }catch (NumberFormatException e){
             e.printStackTrace();
             return;

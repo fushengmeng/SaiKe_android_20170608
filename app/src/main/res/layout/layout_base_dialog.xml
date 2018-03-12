@@ -8,6 +8,7 @@
         android:id="@+id/albumArt"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_gravity="center"
         android:scaleType="fitXY"
         android:layout_margin="1px"/>
     <com.bilibili.magicasakura.widgets.TintImageView

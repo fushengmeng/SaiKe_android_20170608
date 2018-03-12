@@ -143,10 +143,13 @@
         <!-- 音乐播放器end -->
 
         <!--5分钟后退出账户-->
-        <service
+        <receiver
             android:name=".timerserver.ServiceFiveTimer"
-            android:enabled="true"
-            android:exported="true"></service>
+           >
+            <intent-filter>
+                <action android:name="com.keruiyun.saike.timerserver.ServiceFiveTimer"></action>
+            </intent-filter>
+        </receiver>
 
         <receiver android:name=".timerserver.AlarmReceiver">
             <intent-filter>

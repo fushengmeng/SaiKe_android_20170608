@@ -157,7 +157,7 @@ public class ViewHolderWifi extends BaseViewHolder {
                 wifiBean.setCapabilities(scanResults.get(i).capabilities);
                 int wifiLevel=scanResults.get(i).level;
                 wifiBean.setLevel(WifiSupport.getLevel(wifiLevel)+"");
-                LogCus.msg("wifi信号：wifiLevel:" + wifiLevel+":level:"+wifiBean.getLevel());
+//                LogCus.msg("wifi信号：wifiLevel:" + wifiLevel+":level:"+wifiBean.getLevel());
                 realWifiList.add(wifiBean);
 
                 //排序

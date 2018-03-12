@@ -100,7 +100,7 @@ public class SaikeScollBar extends View {
         super.onLayout(changed, left, top, right, bottom);
         mHeight=getWidth();
         mHeight=getHeight();
-        LogCus.msg("onLayout---getWidth:"+mHeight+":getHeight:"+mHeight);
+//        LogCus.msg("onLayout---getWidth:"+mHeight+":getHeight:"+mHeight);
         invalidate();
     }
 
@@ -148,7 +148,7 @@ public class SaikeScollBar extends View {
             case MotionEvent.ACTION_UP:
                 int x= (int) event.getX(),y= (int) event.getY();
                 boolean isUp=x>=rectUp.left&&x<=rectUp.right&&y>=rectUp.top&&y<=rectUp.bottom;
-                LogCus.msg("isUp:"+isUp+""+x+":"+y+"--rectUp:"+rectUp.left+":"+rectUp.top+":"+rectUp.right+":"+rectUp.bottom);
+//                LogCus.msg("isUp:"+isUp+""+x+":"+y+"--rectUp:"+rectUp.left+":"+rectUp.top+":"+rectUp.right+":"+rectUp.bottom);
 
                 if (isUp&&mSeekBarChangeListener!=null) {
 
@@ -158,7 +158,7 @@ public class SaikeScollBar extends View {
                 }
 
                 boolean isDown=x>=rectDown.left&&x<=rectDown.right&&y>=rectDown.top&&y<=rectDown.bottom;
-                LogCus.msg("isDown:"+isDown+""+rawX+":"+rawY+"--rectUp:"+rectDown.left+":"+rectDown.top+":"+rectDown.right+":"+rectDown.bottom);
+//                LogCus.msg("isDown:"+isDown+""+rawX+":"+rawY+"--rectUp:"+rectDown.left+":"+rectDown.top+":"+rectDown.right+":"+rectDown.bottom);
                 if (isDown&&mSeekBarChangeListener!=null) {
                     rectSeek.top=rectSeekArea.bottom-seekHeight;
                     invalidate();

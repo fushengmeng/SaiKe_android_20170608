@@ -212,6 +212,7 @@
         <item>高温报警</item>
         <item>急停报警</item>
 
+        <item>系统故障</item>
     </string-array>
 
     <string-array name="arr_air_params_unit">

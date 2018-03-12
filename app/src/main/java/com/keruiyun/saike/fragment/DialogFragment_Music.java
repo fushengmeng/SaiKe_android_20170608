@@ -8,6 +8,8 @@ import android.os.Messenger;
 import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
@@ -202,6 +204,9 @@ public class DialogFragment_Music extends BaseDialogFragment {
         mPosition = SpTools.getInt(mContext, "music_current_position", 0);
         mIsPlaying = MusicService.isPlaying();
 
+        FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) albumArt.getLayoutParams();
+        lp.width=684;
+        lp.height=512;
         switchSongUI(mPosition, mIsPlaying);
     }
 

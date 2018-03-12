@@ -21,6 +21,7 @@ import com.keruiyun.saike.BaseActivity;
 import com.keruiyun.saike.R;
 import com.keruiyun.saike.model.PeerModel;
 import com.keruiyun.saike.serialservice.SerialSaunaThread;
+import com.keruiyun.saike.uiview.GridViewBar;
 import com.keruiyun.saike.uiview.SaikeScollBar;
 import com.keruiyun.saike.util.LogCus;
 import com.music.musicplayer.utility.Constants;
@@ -41,7 +42,7 @@ public class DialogFragment_PhoneBill extends BaseDialogFragment {
     @BindView(R.id.txt_title)
     TextView txtTitle;
     @BindView(R.id.gridview)
-    GridView gridview;
+    GridViewBar gridview;
     @BindView(R.id.scollbar)
     SaikeScollBar saikeScollBar;
 
@@ -134,7 +135,7 @@ public class DialogFragment_PhoneBill extends BaseDialogFragment {
         return R.drawable.sk_djs1_03;
     }
 
-    int last;
+
     @Override
     public void initView(View view) {
         super.initView(view);
@@ -147,92 +148,17 @@ public class DialogFragment_PhoneBill extends BaseDialogFragment {
             listData = t_m_phone.queryAll();
         }
 
-
+        gridview.setOnGridViewBarListener(saikeScollBar);
         phoneAdapter = new PhoneAdapter();
         gridview.setAdapter(phoneAdapter);
 
 
-        gridview.setOnScrollListener(new AbsListView.OnScrollListener() {
-
-            /**
-             *监听着ListView的滑动状态改变。官方的有三种状态SCROLL_STATE_TOUCH_SCROLL、SCROLL_STATE_FLING、SCROLL_STATE_IDLE：
-             * SCROLL_STATE_TOUCH_SCROLL：手指正拖着ListView滑动
-             * SCROLL_STATE_FLING：ListView正自由滑动
-             * SCROLL_STATE_IDLE：ListView滑动后静止
-             * */
-            @Override
-            public void onScrollStateChanged(AbsListView view, int scrollState) {
-
-                LogCus.msg("gridview:onScrollStateChanged:"+scrollState);
-                if (scrollState==AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL){
-                    last=gridview.getScrollY();
-                }else{
-                    int offsetY = gridview.getScrollY()-last;
-                    saikeScollBar.setOffsetY(offsetY);
-                    last= gridview.getScrollY();
-                }
-            }
-
-            /*滚动时一直回调，直到停止滚动时才停止回调。单击时回调一次。
-            firstVisibleItem：当前能看见的第一个列表项ID（从0开始）
-            visibleItemCount：当前能看见的列表项个数（小半个也算）
-            totalItemCount：列表项共数
-
-            判断是否滚到最后一行
-            if (firstVisibleItem + visibleItemCount == totalItemCount && totalItemCount > 0) {
-                isLastRow = true;
-            }*/
-            @Override
-            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-
-            }
-        });
-
-        saikeScollBar.setOnSeekBarChangeListener(new SaikeScollBar.OnSeekBarChangeListener() {
-            @Override
-            public void onSeekUp() {
-                gridview.scrollTo(0,0);
-            }
-
-            @Override
-            public void onSeekDown() {
-                int y=listData.size()/3*gridview.getChildAt(0).getHeight();
-                LogCus.msg("列表高度："+y+":"+gridview.getHeight());
-                y=y-gridview.getHeight();
-
-                gridview.scrollTo(0,y);
-            }
-
-            @Override
-            public void onSeekTop() {
-                gridview.scrollTo(gridview.getScrollX(),0);
-            }
-
-            @Override
-            public void onSeekBottom() {
-//                AbsListView.LayoutParams lp = (AbsListView.LayoutParams) gridview.getLayoutParams();
-//                LogCus.msg("AbsListView:"+);
-//                gridview.scrollTo(gridview.getScrollX(),lp.width);
-            }
-
-            @Override
-            public void onProgressChanged(int offsetY) {
-                gridview.scrollTo(gridview.getScrollX(),gridview.getScrollY()+offsetY);
-            }
-        });
-
 
     }
 
-    public int getScrollY() {
-        View c = gridview.getChildAt(0);
-        if (c == null) {
-            return 0;
-        }
-        int firstVisiblePosition = gridview.getFirstVisiblePosition();
-        int top = c.getTop();
-        return -top + firstVisiblePosition * c.getHeight() ;
-    }
+
+
+
 
     @Override
     public void onDestroy() {
