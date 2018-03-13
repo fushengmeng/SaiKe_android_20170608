@@ -18,8 +18,10 @@ import com.keruiyun.saike.util.LogCus;
 public class GridViewBar extends GridView {
 
     int childHeight;
-    int y;
+    int y=8;
     int viewHeight;
+    float availableScrollHeight;
+
 
     public GridViewBar(Context context) {
         super(context);
@@ -35,7 +37,49 @@ public class GridViewBar extends GridView {
         super(context, attrs, defStyleAttr);
 
     }
+    @Override
+    public void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 
+        int expandSpec = MeasureSpec.makeMeasureSpec(
+                Integer.MAX_VALUE >> 2, MeasureSpec.AT_MOST);
+        super.onMeasure(widthMeasureSpec, expandSpec);
+    }
+    /**
+     * downY：手指按下时距离View顶部的距离
+     * moveY：手指在屏幕上滑动的距离（不停变化）     *
+     */
+    private int downY,moveY;
+
+
+
+    /*@Override
+    public boolean onTouchEvent(MotionEvent event) {
+
+        LogCus.msg("getAction:"+event.getAction());
+        switch (event.getAction()){
+            case MotionEvent.ACTION_DOWN:
+                //手指按下时距离View上面的距离
+                downY = (int) event.getY();
+                break;
+            case MotionEvent.ACTION_MOVE:
+                moveY = (int) event.getY();
+                //deY是滑动的距离，向上滑时deY<0 ，向下滑时deY>0
+                float deY =moveY-downY;
+
+                y= (int) (y-deY);
+                LogCus.msg("y:"+y+":deY:"+deY+":moveY:"+moveY+":downY:"+downY);
+                if (y<0)
+                    y=0;
+                if (availableScrollHeight!=0&&y>availableScrollHeight)
+                    y= (int) availableScrollHeight;
+
+                 scrollTo(0,y);
+
+                break;
+
+        }
+        return super.onTouchEvent(event);
+    }*/
 
 
 
@@ -45,64 +89,89 @@ public class GridViewBar extends GridView {
         if (getChildCount()>0){
             View c = getChildAt(0);
             childHeight=c.getHeight();
-            if (getNumColumns()>0){
-                viewHeight=getCount()/getNumColumns()*childHeight;
-            }
 
+            if (getNumColumns()>0){
+                int row;
+                if (getCount()%getNumColumns()==0)
+                    row=getCount()/getNumColumns();
+                else
+                    row=getCount()/getNumColumns()+1;
+                viewHeight=(childHeight+8)*row;
+
+
+                if (row>6){
+                    availableScrollHeight=(childHeight+8)*(row-6);
+                }else {
+                    availableScrollHeight=0;
+                }
+
+
+            }
+            if (saikeScollBar!=null)
+                saikeScollBar.setStep(getBarStep());
             LogCus.msg("getCount:"+getCount()+":getChildCount:"+getChildCount()+":NumColumns:"+getNumColumns()
-                    +":child_height:"+c.getHeight()+":getScrollY:"+getScrollY()+":viewHeight:"+viewHeight+
-                    ":LastVisiblePosition:"+getLastVisiblePosition()+":FirstVisiblePosition:"+getFirstVisiblePosition());
+                    +":getHeight:"+getHeight()+":viewHeight:"+viewHeight+":child_height:"+c.getHeight()+":getScrollY:"+getScrollY()
+                    +":LastVisiblePosition:"+getLastVisiblePosition()+":FirstVisiblePosition:"+getFirstVisiblePosition());
         }
 
     }
     private SaikeScollBar saikeScollBar;
 
+
     public void setOnGridViewBarListener(SaikeScollBar saikeScollBar) {
         this.saikeScollBar = saikeScollBar;
+        saikeScollBar.setStep(getBarStep());
         saikeScollBar.setOnSeekBarChangeListener(new SaikeScollBar.OnSeekBarChangeListener() {
             @Override
             public void onSeekUp() {
-                if (y>=childHeight){
-                    y-=childHeight;
-                }else {
+                if (y<=childHeight+8)
                     y=0;
-                }
-                scrollBy(0,y);
+                else
+                    y=y-childHeight-8;
+                scrollTo(getScrollX(),y);
+
             }
 
             @Override
             public void onSeekDown() {
-                isToBottom();
-                LogCus.msg("滚动条：y"+y+":"+getScrollY());
-                if (y<=viewHeight-childHeight-childHeight){
-                    y+=childHeight;
-                }else {
-                    y=viewHeight-childHeight;
-                }
-                scrollBy(0,y);
+                if (y>availableScrollHeight)
+                    y= (int) availableScrollHeight;
+                else
+                    y=y+childHeight+8;
+                scrollTo(getScrollX(),y);
+
             }
 
             @Override
             public void onSeekTop() {
-                scrollTo(getScrollX(),0);
+                y=0;
+
+                scrollTo(getScrollX(),y);
+
             }
 
             @Override
             public void onSeekBottom() {
+                y=(int) availableScrollHeight;
+                scrollTo(getScrollX(), y);
 
             }
 
             @Override
-            public void onProgressChanged(int offsetY) {
-                LogCus.msg("滚动条："+offsetY+":"+getScrollY());
-                scrollBy(getScrollX(),y+offsetY);
+            public void onProgressChanged(float scale) {
+                y= (int) (scale*availableScrollHeight);
+                scrollTo(getScrollX(),y);
+
             }
         });
     }
 
-    private boolean isToBottom(){
-
-        return true;
-    };
+    private float getBarStep(){
+        float step=0;
+        if (saikeScollBar!=null&&availableScrollHeight!=0){
+            step= (childHeight+8)/availableScrollHeight;
+        }
+        return step;
+    }
 
 }

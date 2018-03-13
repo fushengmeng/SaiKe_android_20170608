@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.keruiyun.saike"
-    android:versionCode="23"
-    android:versionName="v4.1.4">
+    android:versionCode="24"
+    android:versionName="v4.1.5">
 
     <uses-sdk
         android:minSdkVersion="18"

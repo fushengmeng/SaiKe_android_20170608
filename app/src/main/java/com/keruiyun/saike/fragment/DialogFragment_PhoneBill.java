@@ -3,6 +3,8 @@ package com.keruiyun.saike.fragment;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -136,6 +138,7 @@ public class DialogFragment_PhoneBill extends BaseDialogFragment {
     }
 
 
+
     @Override
     public void initView(View view) {
         super.initView(view);
@@ -151,7 +154,6 @@ public class DialogFragment_PhoneBill extends BaseDialogFragment {
         gridview.setOnGridViewBarListener(saikeScollBar);
         phoneAdapter = new PhoneAdapter();
         gridview.setAdapter(phoneAdapter);
-
 
 
     }

@@ -12,6 +12,7 @@ import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.SeekBar;
 
 import com.keruiyun.saike.R;
 import com.keruiyun.saike.util.LogCus;
@@ -27,8 +28,9 @@ public class SaikeScollBar extends View {
     private int seekHeight=30,seekAreaHight;
     private float curSeekTop;
 
-
-    private int offsetY;
+    private int max=100;
+    private float scale;
+    private float step=0.1f;
 
     private Paint paint;
 
@@ -111,101 +113,88 @@ public class SaikeScollBar extends View {
         drawSeek(canvas);
     }
 
-    private int lastX;
-    private int lastY;
-
-    private Handler mHandler=new Handler(){
-        @Override
-        public void handleMessage(Message msg) {
-            super.handleMessage(msg);
-            switch (msg.what){
-                case 1:
-                    if (mSeekBarChangeListener!=null){
-                        mSeekBarChangeListener.onSeekUp();
-                    }
-                    mHandler.sendEmptyMessageDelayed(1,10);
-                    break;
-                case 2:
-                    if (mSeekBarChangeListener!=null){
-                        mSeekBarChangeListener.onSeekDown();
-                    }
-                    mHandler.sendEmptyMessageDelayed(1,10);
-                    break;
-            }
-
-        }
-    };
-
-
-
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         // 获取当前触摸的绝对坐标
-        int rawX = (int) event.getRawX();
-        int rawY = (int) event.getRawY();
-
         switch (event.getAction()) {
             case MotionEvent.ACTION_UP:
-                int x= (int) event.getX(),y= (int) event.getY();
-                boolean isUp=x>=rectUp.left&&x<=rectUp.right&&y>=rectUp.top&&y<=rectUp.bottom;
-//                LogCus.msg("isUp:"+isUp+""+x+":"+y+"--rectUp:"+rectUp.left+":"+rectUp.top+":"+rectUp.right+":"+rectUp.bottom);
-
-                if (isUp&&mSeekBarChangeListener!=null) {
-
-                    rectSeek.top=rectSeekArea.top;
-                    invalidate();
-                    mSeekBarChangeListener.onSeekUp();
-                }
-
-                boolean isDown=x>=rectDown.left&&x<=rectDown.right&&y>=rectDown.top&&y<=rectDown.bottom;
-//                LogCus.msg("isDown:"+isDown+""+rawX+":"+rawY+"--rectUp:"+rectDown.left+":"+rectDown.top+":"+rectDown.right+":"+rectDown.bottom);
-                if (isDown&&mSeekBarChangeListener!=null) {
-                    rectSeek.top=rectSeekArea.bottom-seekHeight;
-                    invalidate();
-                    mSeekBarChangeListener.onSeekDown();
-
-                }
-                mHandler.removeCallbacksAndMessages(null);
-                break;
-            case MotionEvent.ACTION_DOWN:
-                // 上一次离开时的坐标
-                lastX = rawX;
-                lastY = rawY;
-                boolean isUpDown=rawX>=rectUp.left&&rawX<=rectUp.right&&rawY>=rectUp.top&&rawY<=rectUp.bottom;
-                if (isUpDown){
-                    mHandler.sendEmptyMessage(1);
-                }
-                boolean isDownDown=rawX>=rectDown.left&&rawX<=rectDown.right&&rawY>=rectDown.top&&rawY<=rectDown.bottom;
-                if (isDownDown){
-                    mHandler.sendEmptyMessage(2);
-                }
-                break;
-            case MotionEvent.ACTION_MOVE:
-                // 两次的偏移量
-//                int offsetX = rawX - lastX;
-                offsetY = rawY - lastY;
-                // 不断修改上次移动完成后坐标
-                lastX = rawX;
-                lastY = rawY;
-                boolean isMove= rectSeek.top>=rectSeekArea.top&&rectSeek.bottom<=rectSeekArea.bottom;
-//                LogCus.msg("offsetY:"+offsetY+":isMove:"+isMove+":rectSeek.top:"+rectSeek.top+":rectSeekArea.top:"+rectSeekArea.top);
-//                LogCus.msg("offsetY:"+offsetY+":isMove:"+isMove+":rectSeek.bottom:"+rectSeek.bottom+":rectSeekArea.bottom:"+rectSeekArea.bottom);
-                if (curSeekTop<=mTopHeight){
+                if (scale==0){
                     rectSeek.top=rectSeekArea.top;
                     if (mSeekBarChangeListener!=null){
                         mSeekBarChangeListener.onSeekTop();
                     }
+                    invalidate();
                 }
-                if (curSeekTop>=mHeight-mTopHeight-seekHeight){
+                if (scale==1){
                     rectSeek.top=rectSeekArea.bottom-seekHeight;
                     if (mSeekBarChangeListener!=null){
                         mSeekBarChangeListener.onSeekBottom();
                     }
+                    invalidate();
                 }
 
+                int x= (int) event.getX(),y= (int) event.getY();
+                boolean isUp=x>=rectUp.left&&x<=rectUp.right&&y>=rectUp.top&&y<=rectUp.bottom;
+//
+                if (isUp&&mSeekBarChangeListener!=null) {
+                    float avail=availableHeight();
+                    int add= (int) (step*avail);
+
+                    rectSeek.top-=add;
+                    if (rectSeek.top<=rectSeekArea.top){
+                        rectSeek.top=rectSeekArea.top;
+                        mSeekBarChangeListener.onSeekTop();
+                    }else {
+                        mSeekBarChangeListener.onSeekUp();
+                    }
+
+                    if (avail!=0)
+                        scale=(rectSeek.top-rectSeekArea.top)/avail;
+                    invalidate();
+
+                }
+
+                boolean isDown=x>=rectDown.left&&x<=rectDown.right&&y>=rectDown.top&&y<=rectDown.bottom;
+//
+                if (isDown&&mSeekBarChangeListener!=null) {
+                    float avail=availableHeight();
+                    int add= (int) (step*avail);
+
+                    rectSeek.top+=add;
+                    if (rectSeek.top>=rectSeekArea.bottom-seekHeight) {
+                        rectSeek.top = rectSeekArea.bottom - seekHeight;
+                        mSeekBarChangeListener.onSeekBottom();
+                    }else {
+                        mSeekBarChangeListener.onSeekDown();
+                    }
+
+                    if (avail!=0)
+                        scale=(rectSeek.top-rectSeekArea.top)/avail;
+                    invalidate();
+
+                }
+
+
+
+                break;
+            case MotionEvent.ACTION_DOWN:
+
+                break;
+            case MotionEvent.ACTION_MOVE:
+                final float available = availableHeight();
+                final int yPoint = (int) event.getY();
+                if (yPoint<=rectSeekArea.top){
+                    scale=0;
+                }else if (yPoint>=rectSeekArea.bottom-rectSeek.bottom+rectSeek.top){
+                    scale=1;
+                }else {
+                    scale = (yPoint - rectSeekArea.top) / available;
+                }
+                boolean isMove= rectSeek.top>=rectSeekArea.top&&rectSeek.bottom<=rectSeekArea.bottom;
+//                LogCus.msg("y:"+event.getY()+":scale:"+scale);
                 if (isMove&&mSeekBarChangeListener!=null){
                     if (curSeekTop>mTopHeight&&curSeekTop<mHeight-mTopHeight-seekHeight)
-                        mSeekBarChangeListener.onProgressChanged(offsetY);
+                        mSeekBarChangeListener.onProgressChanged(scale);
                 }
                 invalidate();
                 break;
@@ -215,14 +204,21 @@ public class SaikeScollBar extends View {
         return true;
     }
 
+    public void setStep(float step) {
 
-    public void setOffsetY(int offsetY) {
-        this.offsetY = offsetY;
-        invalidate();
+        if (step==0)
+            return;
+        this.step = step;
+
+    }
+
+    public float availableHeight(){
+        return rectSeekArea.bottom-rectSeekArea.top-rectSeek.bottom+rectSeek.top;
     }
 
     private void drawSeek(Canvas canvas){
-        float top=offsetY+rectSeek.top;
+        float available = rectSeekArea.bottom - rectSeekArea.top - rectSeek.bottom + rectSeek.top;
+        float top=scale*available+rectSeekArea.top;
         curSeekTop = top;
         if (top<mTopHeight)
             top=mTopHeight;
@@ -313,7 +309,7 @@ public class SaikeScollBar extends View {
         public void onSeekTop();
         public void onSeekBottom();
 
-        public void onProgressChanged(int offsetY);
+        public void onProgressChanged(float scale);
 
 
     }
