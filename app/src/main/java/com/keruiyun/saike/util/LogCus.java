@@ -9,6 +9,6 @@ import android.util.Log;
 public class LogCus {
     private static String tag="LogCus";
     public static void msg(String msg){
-        Log.i(tag,msg);
+//        Log.i(tag,msg);
     }
 }

@@ -24,7 +24,7 @@ import java.util.Locale;
  * Created by Administrator on 2017/12/26.
  */
 
-public class SystemTimeUi extends BaseProgressBar implements DialogFragment_SettingSystemTime.OnSystemSettingListener {
+public class SystemTimeUi extends BaseProgressBar {
 
     private SimpleDateFormat sdf, sdf1;
 
@@ -153,22 +153,23 @@ public class SystemTimeUi extends BaseProgressBar implements DialogFragment_Sett
         dialog.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         getContext().startActivity(dialog);*/
         DialogFragment_SettingSystemTime settingSystemTime=new DialogFragment_SettingSystemTime();
-        settingSystemTime.set_listener(this);
+        settingSystemTime.set_listener(new DialogFragment_SettingSystemTime.OnSystemSettingListener() {
+            @Override
+            public void onSystemSettingListener(int year, int month, int day, int hour, int minute, int second) {
+                String msg="设置成功";
+                try {
+                    SystemDateTime.setDateTime(year, month, day, hour, minute, second);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    msg="设置失败";
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                    msg="设置失败";
+                }
+                ToastUtil.showToast(msg);
+            }
+        });
         settingSystemTime.show(((BaseActivity)getContext()).getSupportFragmentManager(),this.getClass().getName());
     }
 
-    @Override
-    public void onSystemSettingListener(int year, int month, int day, int hour, int minute, int second) {
-        String msg="设置成功";
-        try {
-            SystemDateTime.setDateTime(year, month, day, hour, minute, second);
-        } catch (IOException e) {
-            e.printStackTrace();
-            msg="设置失败";
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-            msg="设置失败";
-        }
-        ToastUtil.showToast(msg);
-    }
 }

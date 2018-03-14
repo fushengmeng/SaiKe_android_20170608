@@ -100,7 +100,7 @@ public class PopVoice extends BasePopupWindow {
      */
     private void adjustVolume(int curVolume) {
         audioMgr.setStreamVolume(AudioManager.STREAM_MUSIC, curVolume,
-                AudioManager.FLAG_PLAY_SOUND | AudioManager.FLAG_SHOW_UI);
+                AudioManager.FLAG_PLAY_SOUND );
     }
 
 }
