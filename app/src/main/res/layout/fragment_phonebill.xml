@@ -12,32 +12,45 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:layout_marginTop="@dimen/margin"
-        android:layout_marginLeft="@dimen/margin"
-        android:layout_marginRight="@dimen/margin"
         android:orientation="horizontal">
-        <com.keruiyun.saike.uiview.GridViewBar
-            android:id="@+id/gridview"
+        <com.keruiyun.saike.uiview.ListScrollView
+            android:id="@+id/listscrollview"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:numColumns="3"
-            android:scrollbars="none"
-            android:layout_marginTop="@dimen/margin"
-            android:layout_marginLeft="@dimen/margin"
-            android:layout_marginRight="@dimen/margin"
-            android:horizontalSpacing="8px"
-            android:verticalSpacing="8px"></com.keruiyun.saike.uiview.GridViewBar>
+            android:scrollbars="none">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <com.keruiyun.saike.uiview.GridViewBar
+                    android:id="@+id/gridview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:numColumns="3"
+                    android:scrollbars="none"
+                    android:layout_marginTop="@dimen/margin"
+                    android:layout_marginLeft="@dimen/margin"
+                    android:layout_marginRight="@dimen/margin"
+                    android:layout_marginBottom="@dimen/margin"
+                    android:horizontalSpacing="8px"
+                    android:verticalSpacing="8px"></com.keruiyun.saike.uiview.GridViewBar>
 
+
+            </LinearLayout>
+        </com.keruiyun.saike.uiview.ListScrollView>
         <com.keruiyun.saike.uiview.SaikeScollBar
             android:id="@+id/scollbar"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginTop="24px"
             android:layout_marginBottom="24px"
-            />
+            android:layout_marginRight="@dimen/margin_l"/>
 
     </LinearLayout>
+
+
 
 
 

@@ -15,7 +15,7 @@ import com.keruiyun.saike.util.LogCus;
  * Created by Administrator on 2018/3/12.
  */
 
-public class GridViewBar extends GridView {
+public class GridViewBar extends GridView implements ListScrollView.OnScrolledY {
 
     int childHeight;
     int y=8;
@@ -174,4 +174,13 @@ public class GridViewBar extends GridView {
         return step;
     }
 
+    @Override
+    public void onScrollY(int scrollY) {
+        float scale = scrollY / availableScrollHeight;
+        if (saikeScollBar!=null){
+            saikeScollBar.scale=scale;
+            saikeScollBar.invalidate();
+        }
+
+    }
 }

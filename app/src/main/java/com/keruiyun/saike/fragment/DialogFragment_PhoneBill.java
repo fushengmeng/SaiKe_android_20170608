@@ -24,6 +24,7 @@ import com.keruiyun.saike.R;
 import com.keruiyun.saike.model.PeerModel;
 import com.keruiyun.saike.serialservice.SerialSaunaThread;
 import com.keruiyun.saike.uiview.GridViewBar;
+import com.keruiyun.saike.uiview.ListScrollView;
 import com.keruiyun.saike.uiview.SaikeScollBar;
 import com.keruiyun.saike.util.LogCus;
 import com.music.musicplayer.utility.Constants;
@@ -43,6 +44,8 @@ public class DialogFragment_PhoneBill extends BaseDialogFragment {
 
     @BindView(R.id.txt_title)
     TextView txtTitle;
+    @BindView(R.id.listscrollview)
+    ListScrollView listScrollView;
     @BindView(R.id.gridview)
     GridViewBar gridview;
     @BindView(R.id.scollbar)
@@ -152,6 +155,7 @@ public class DialogFragment_PhoneBill extends BaseDialogFragment {
         }
 
         gridview.setOnGridViewBarListener(saikeScollBar);
+        listScrollView.setOnScrolledY(gridview);
         phoneAdapter = new PhoneAdapter();
         gridview.setAdapter(phoneAdapter);
 

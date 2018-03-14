@@ -29,7 +29,7 @@ public class SaikeScollBar extends View {
     private float curSeekTop;
 
     private int max=100;
-    private float scale;
+    float scale;
     private float step=0.1f;
 
     private Paint paint;

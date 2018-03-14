@@ -57,6 +57,10 @@ public class PopVoice extends BasePopupWindow {
 //        currentVolume= Fragment_Main.volume;//Modbus 外置声音
         if (maxVolume!=0)
             currentVolume= curSystemVolume*4/maxVolume;
+        if (currentVolume==0) {
+            currentVolume = 1;
+            adjustVolume(currentVolume*maxVolume/4);
+        }
         LogCus.msg("系统声音："+curSystemVolume+":"+maxVolume+"----Mob:"+Fragment_Main.volume+":setting:"+currentVolume);
         SerialSaunaThread.writeCmdQueue(1, SerialSaunaThread.ADDR_VOLUMN_KEY, currentVolume);
         seekbarVoice.setMax(4);
