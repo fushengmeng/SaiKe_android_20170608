@@ -23,6 +23,10 @@ import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
+
+import com.bilibili.magicasakura.utils.ThemeUtils;
+import com.bilibili.magicasakura.widgets.TintView;
+import com.bilibili.magicasakura.widgets.Tintable;
 import com.keruiyun.saike.R;
 import com.keruiyun.saike.util.LogCus;
 import com.keruiyun.saike.util.PreferencesUtil;
@@ -37,7 +41,7 @@ import java.util.Date;
  * @author xiaanming
  *
  */
-public  class BaseProgressBar extends View  {
+public  class BaseProgressBar extends View implements Tintable {
 
 
 	/**
@@ -196,6 +200,7 @@ public  class BaseProgressBar extends View  {
 		roundColor = typedArray.getColor(0, defaultColor);
 		// don't forget the resource recycling
         typedArray.recycle();
+        roundColor= ThemeUtils.replaceColorById(getContext(),R.color.theme_color_primary);
 
         attrsArray = new int[]{android.R.attr.textColor};
         typedArray = context.obtainStyledAttributes(attrsArray);
@@ -214,7 +219,15 @@ public  class BaseProgressBar extends View  {
 
 	}
 
-	public void  setArcColors(int roundColor,int progressEndColor){
+    @Override
+    public void tint() {
+        LogCus.msg("计时器：tint");
+        roundColor= ThemeUtils.replaceColorById(getContext(),R.color.theme_color_primary);
+        setArcColors();
+        invalidate();
+    }
+
+    public void  setArcColors(int roundColor, int progressEndColor){
          positions =  new float[]{0,0.9f,1f};
          arcColors =  new int[] {roundColor,roundColor,progressEndColor};
 
@@ -323,14 +336,19 @@ public  class BaseProgressBar extends View  {
          */
 //        LogCus.msg("radius:"+radius+":centerX:"+centerX+":centerY:"+centerY);
 //        paint.setColor(roundColor); //设置圆环的颜色
-        paint.setColor(Color.parseColor("#154e57"));
-        paint.setStrokeWidth(3); //设置圆环的宽度
-        canvas.drawCircle(centerX, centerX, radius, paint); //画出圆环边框
 
         paint.setColor(roundColor); //设置圆环的颜色
 //        paint.setColor(Color.parseColor("#217885"));
         paint.setStrokeWidth(roundWidth); //设置圆环的宽度
         canvas.drawCircle(centerX, centerX, radius_within, paint); //画出圆环
+
+
+        paint.setColor(roundColor);
+        paint.setAlpha(90);
+        paint.setStrokeWidth(3); //设置圆环的宽度
+        canvas.drawCircle(centerX, centerX, radius, paint); //画出圆环边框
+
+
     }
 
     protected void drawProgress(Canvas canvas){

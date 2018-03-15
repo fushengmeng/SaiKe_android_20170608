@@ -25,7 +25,10 @@ public class BluetoothUtil {
 //
         if (!isBleEnable(activity)){
             BluetoothManager manager = (BluetoothManager) activity.getSystemService(Context.BLUETOOTH_SERVICE);
-            manager.getAdapter().enable();
+            BluetoothAdapter ada = manager.getAdapter();
+            if (ada==null)
+                return;
+            ada.enable();
         }
     }
 

@@ -17,13 +17,15 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Checkable;
 
+import com.bilibili.magicasakura.utils.ThemeUtils;
+import com.bilibili.magicasakura.widgets.Tintable;
 import com.keruiyun.saike.R;
 
 
 /**
  * SwitchButton.
  */
-public class SwitchButton extends View implements Checkable {
+public class SwitchButton extends View implements Checkable,Tintable {
     private static final int DEFAULT_WIDTH = dp2pxInt(58);
     private static final int DEFAULT_HEIGHT = dp2pxInt(36);
 
@@ -119,6 +121,8 @@ public class SwitchButton extends View implements Checkable {
         checkedColor = optColor(typedArray,
                 R.styleable.SwitchButton_sb_checked_color,
                 0Xff51d367);//0Xff51d367;
+        int theme= ThemeUtils.replaceColorById(getContext(),R.color.theme_color_primary);
+        checkedColor=theme;
 
         borderWidth = optPixelSize(typedArray,
                 R.styleable.SwitchButton_sb_border_width,
@@ -758,6 +762,14 @@ public class SwitchButton extends View implements Checkable {
 
     public void setOnCheckedChangeListener(OnCheckedChangeListener l){
         onCheckedChangeListener = l;
+    }
+
+    @Override
+    public void tint() {
+        int theme= ThemeUtils.replaceColorById(getContext(),R.color.theme_color_primary);
+        checkedColor=theme;
+        toggle();
+        toggle();
     }
 
     public interface OnCheckedChangeListener{

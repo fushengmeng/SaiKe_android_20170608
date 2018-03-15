@@ -1,13 +1,19 @@
 package com.keruiyun.saike.pop;
 
 import android.content.Context;
+import android.content.res.AssetManager;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.keruiyun.saike.R;
+import com.keruiyun.saike.main.MainApplication;
 import com.keruiyun.saike.setting.data.Data_Air;
 import com.keruiyun.saike.util.LogCus;
 import com.keruiyun.saike.wheelpicker.WheelPicker;
+import com.util.AssetsFiles;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +25,7 @@ import butterknife.BindView;
  */
 
 public class PopWheel extends BasePopupWindow {
-
+    LinearLayout layout;
     ImageView icUp,icDown;
     WheelPicker wheelpicker;
     int type;
@@ -42,6 +48,10 @@ public class PopWheel extends BasePopupWindow {
     @Override
     public void initView() {
         super.initView();
+        layout=findById(R.id.layout);
+        BitmapDrawable drawable = AssetsFiles.getImageFromAssetsDrawable(getContext(), "sk_index_tc_03.png");
+        if (drawable!=null)
+            layout.setBackground(drawable);
         wheelpicker=findById(R.id.wheelpicker);
 
         icUp=findById(R.id.ic_wheel_sub);

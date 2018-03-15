@@ -500,64 +500,64 @@ public class ViewHolderAirSystem extends BaseViewHolder {
                     }
                 }).showAsDropDown(layoutSelectGas);
                 break;
-            case R.id.b_temp_max_sub:
-                tempMaxSub();
-                break;
-            case R.id.b_temp_max_add:
-                tempMaxAdd();
-                break;
-            case R.id.b_temp_min_sub:
-                tempMinSub();
-                break;
-            case R.id.b_temp_min_add:
-                tempMinAdd();
-                break;
-            case R.id.b_rh_max_sub:
-                rhMaxSub();
-                break;
-            case R.id.b_rh_max_add:
-                rhMaxAdd();
-                break;
-            case R.id.b_rh_min_sub:
-                rhMinSub();
-
-                break;
-            case R.id.b_rh_min_add:
-                rhMinAdd();
-
-                break;
-            case R.id.b_pa_max_sub:
-                paMaxSub();
-
-                break;
-            case R.id.b_pa_max_add:
-                paMaxAdd();
-
-                break;
-            case R.id.b_pa_min_sub:
-                paMinSub();
-
-                break;
-            case R.id.b_pa_min_add:
-                paMinAdd();
-
-                break;
-
-            case R.id.b_light_delay_closing_sub:
-                lightDelayClosingSub();
-
-                break;
-            case R.id.b_light_delay_closing_add:
-                lightDelayClosingAdd();
-                break;
-
-            case R.id.b_delay_off_timer_sub:
-                delayOffTimerSub();
-
-                break;
-            case R.id.b_delay_off_timer_add:
-                delayOffTimerAdd();
-                break;
+//            case R.id.b_temp_max_sub:
+//                tempMaxSub();
+//                break;
+//            case R.id.b_temp_max_add:
+//                tempMaxAdd();
+//                break;
+//            case R.id.b_temp_min_sub:
+//                tempMinSub();
+//                break;
+//            case R.id.b_temp_min_add:
+//                tempMinAdd();
+//                break;
+//            case R.id.b_rh_max_sub:
+//                rhMaxSub();
+//                break;
+//            case R.id.b_rh_max_add:
+//                rhMaxAdd();
+//                break;
+//            case R.id.b_rh_min_sub:
+//                rhMinSub();
+//
+//                break;
+//            case R.id.b_rh_min_add:
+//                rhMinAdd();
+//
+//                break;
+//            case R.id.b_pa_max_sub:
+//                paMaxSub();
+//
+//                break;
+//            case R.id.b_pa_max_add:
+//                paMaxAdd();
+//
+//                break;
+//            case R.id.b_pa_min_sub:
+//                paMinSub();
+//
+//                break;
+//            case R.id.b_pa_min_add:
+//                paMinAdd();
+//
+//                break;
+//
+//            case R.id.b_light_delay_closing_sub:
+//                lightDelayClosingSub();
+//
+//                break;
+//            case R.id.b_light_delay_closing_add:
+//                lightDelayClosingAdd();
+//                break;
+//
+//            case R.id.b_delay_off_timer_sub:
+//                delayOffTimerSub();
+//
+//                break;
+//            case R.id.b_delay_off_timer_add:
+//                delayOffTimerAdd();
+//                break;
         }
     }
 }

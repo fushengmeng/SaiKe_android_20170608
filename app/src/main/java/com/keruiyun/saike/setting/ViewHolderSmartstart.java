@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bilibili.magicasakura.widgets.TintTextView;
+import com.bilibili.magicasakura.widgets.TintThemeTextView;
 import com.keruiyun.saike.BaseActivity;
 import com.keruiyun.saike.R;
 import com.keruiyun.saike.fragment.DialogFragment_Music;
@@ -60,31 +62,31 @@ public class ViewHolderSmartstart extends BaseViewHolder {
     @BindView(R.id.b_temp_sub)
     ImageView bTempSub;
     @BindView(R.id.txt_value_temp)
-    TextView txtValueTemp;
+    TintThemeTextView txtValueTemp;
     @BindView(R.id.b_temp_add)
     ImageView bTempAdd;
     @BindView(R.id.b_timer_on_sub)
     ImageView bTimerOnSub;
     @BindView(R.id.txt_value_timer_on)
-    TextView txtValueTimerOn;
+    TintThemeTextView txtValueTimerOn;
     @BindView(R.id.b_timer_on_add)
     ImageView bTimerOnAdd;
     @BindView(R.id.b_rh_sub)
     ImageView bRhSub;
     @BindView(R.id.txt_value_rh)
-    TextView txtValueRh;
+    TintThemeTextView txtValueRh;
     @BindView(R.id.b_rh_add)
     ImageView bRhAdd;
     @BindView(R.id.b_timer_off_sub)
     ImageView bTimerOffSub;
     @BindView(R.id.txt_value_timer_off)
-    TextView txtValueTimerOff;
+    TintThemeTextView txtValueTimerOff;
     @BindView(R.id.b_timer_off_add)
     ImageView bTimerOffAdd;
     @BindView(R.id.b_pa_sub)
     ImageView bPaSub;
     @BindView(R.id.txt_value_pa)
-    TextView txtValuePa;
+    TintThemeTextView txtValuePa;
     @BindView(R.id.b_pa_add)
     ImageView bPaAdd;
 
@@ -245,25 +247,48 @@ public class ViewHolderSmartstart extends BaseViewHolder {
         switchVacuumRun.setOnCheckedChangeListener(onCheckedChangeListener);
     }
 
-    @OnClick({R.id.b_temp_sub, R.id.b_temp_add,
+    @OnClick({
+            R.id.b_temp_sub, R.id.b_temp_add,
+            R.id.b_rh_sub, R.id.b_rh_add,
+            R.id.b_pa_sub, R.id.b_pa_add,
             R.id.b_timer_on_sub, R.id.b_timer_on_add,
             R.id.txt_value_timer_on, R.id.txt_value_timer_on_1,
-            R.id.b_rh_sub, R.id.b_rh_add,
+
             R.id.b_timer_off_sub, R.id.b_timer_off_add,
-            R.id.txt_value_timer_off,R.id.txt_value_timer_off_1,
-            R.id.b_pa_sub, R.id.b_pa_add})
+            R.id.txt_value_timer_off,R.id.txt_value_timer_off_1,           })
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.b_temp_sub:
-                if (data_smartstart.getTxtValueTemp()>data_air.getTxtValueTempMin())
-                    data_smartstart.setTxtValueTemp(data_smartstart.getTxtValueTemp()-1);
-                txtValueTemp.setText(data_smartstart.getTxtValueTemp()+"");
-                break;
-            case R.id.b_temp_add:
-                if (data_smartstart.getTxtValueTemp()<data_air.getTxtValueTempMax())
-                    data_smartstart.setTxtValueTemp(data_smartstart.getTxtValueTemp()+1);
-                txtValueTemp.setText(data_smartstart.getTxtValueTemp()+"");
-                break;
+//            case R.id.b_temp_sub:
+//                if (data_smartstart.getTxtValueTemp()>data_air.getTxtValueTempMin())
+//                    data_smartstart.setTxtValueTemp(data_smartstart.getTxtValueTemp()-1);
+//                txtValueTemp.setText(data_smartstart.getTxtValueTemp()+"");
+//                break;
+//            case R.id.b_temp_add:
+//                if (data_smartstart.getTxtValueTemp()<data_air.getTxtValueTempMax())
+//                    data_smartstart.setTxtValueTemp(data_smartstart.getTxtValueTemp()+1);
+//                txtValueTemp.setText(data_smartstart.getTxtValueTemp()+"");
+//                break;
+//            case R.id.b_rh_sub:
+//                if (data_smartstart.getTxtValueRh()>data_air.getTxtValueRhMin())
+//                    data_smartstart.setTxtValueRh(data_smartstart.getTxtValueRh()-1);
+//                txtValueRh.setText(data_smartstart.getTxtValueRh()+"");
+//                break;
+//            case R.id.b_rh_add:
+//                if (data_smartstart.getTxtValueRh()<data_air.getTxtValueRhMax())
+//                    data_smartstart.setTxtValueRh(data_smartstart.getTxtValueRh()+1);
+//                txtValueRh.setText(data_smartstart.getTxtValueRh()+"");
+//                break;
+//            case R.id.b_pa_sub:
+//                if (data_smartstart.getTxtValuePa()>data_air.getTxtValuePaMin())
+//                    data_smartstart.setTxtValuePa(data_smartstart.getTxtValuePa()-1);
+//                txtValuePa.setText(data_smartstart.getTxtValuePa()+"");
+//                break;
+//            case R.id.b_pa_add:
+//                if (data_smartstart.getTxtValuePa()<data_air.getTxtValuePaMax())
+//                    data_smartstart.setTxtValuePa(data_smartstart.getTxtValuePa()+1);
+//                txtValuePa.setText(data_smartstart.getTxtValuePa()+"");
+//                break;
+
             case R.id.b_timer_on_sub:
 //                if (data_smartstart.getTxtValueTimerOn()>0)
 //                    data_smartstart.setTxtValueTimerOn(data_smartstart.getTxtValueTimerOn()-60000);
@@ -275,16 +300,7 @@ public class ViewHolderSmartstart extends BaseViewHolder {
 //                txtValueTimerOn.setText(DialogFragment_Music.formatTime( data_smartstart.getTxtValueTimerOn() )+"");
 
                 break;
-            case R.id.b_rh_sub:
-                if (data_smartstart.getTxtValueRh()>data_air.getTxtValueRhMin())
-                    data_smartstart.setTxtValueRh(data_smartstart.getTxtValueRh()-1);
-                txtValueRh.setText(data_smartstart.getTxtValueRh()+"");
-                break;
-            case R.id.b_rh_add:
-                if (data_smartstart.getTxtValueRh()<data_air.getTxtValueRhMax())
-                    data_smartstart.setTxtValueRh(data_smartstart.getTxtValueRh()+1);
-                txtValueRh.setText(data_smartstart.getTxtValueRh()+"");
-                break;
+
             case R.id.b_timer_off_sub:
 //                if (data_smartstart.getTxtValueTimerOff()>0)
 //                    data_smartstart.setTxtValueTimerOff(data_smartstart.getTxtValueTimerOff()-60000);
@@ -295,16 +311,7 @@ public class ViewHolderSmartstart extends BaseViewHolder {
 //
 //                txtValueTimerOff.setText( DialogFragment_Music.formatTime( data_smartstart.getTxtValueTimerOff() )+"");
                 break;
-            case R.id.b_pa_sub:
-                if (data_smartstart.getTxtValuePa()>data_air.getTxtValuePaMin())
-                    data_smartstart.setTxtValuePa(data_smartstart.getTxtValuePa()-1);
-                txtValuePa.setText(data_smartstart.getTxtValuePa()+"");
-                break;
-            case R.id.b_pa_add:
-                if (data_smartstart.getTxtValuePa()<data_air.getTxtValuePaMax())
-                    data_smartstart.setTxtValuePa(data_smartstart.getTxtValuePa()+1);
-                txtValuePa.setText(data_smartstart.getTxtValuePa()+"");
-                break;
+
             case R.id.txt_value_timer_on_1:
             case R.id.txt_value_timer_on:
                 new DialogFragment_SelectTime().setOnSelectTimeListener(new DialogFragment_SelectTime.OnSelectTimeListener() {

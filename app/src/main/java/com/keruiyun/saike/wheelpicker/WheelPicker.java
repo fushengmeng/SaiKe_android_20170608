@@ -23,6 +23,8 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.widget.Scroller;
 
+import com.bilibili.magicasakura.utils.ThemeUtils;
+import com.bilibili.magicasakura.widgets.Tintable;
 import com.keruiyun.saike.R;
 import com.keruiyun.saike.util.LogCus;
 import com.music.soundpool.SoundPlayer;
@@ -34,7 +36,7 @@ import com.music.soundpool.SoundPlayer;
  * @author AigeStudio 2016-06-17 更新项目结构
  * @version 1.1.0 beta
  */
-public class WheelPicker extends View implements IDebug, IWheelPicker, Runnable {
+public class WheelPicker extends View implements Tintable,IDebug, IWheelPicker, Runnable {
 	/**
 	 * 滚动状态标识值
 	 */
@@ -204,7 +206,9 @@ public class WheelPicker extends View implements IDebug, IWheelPicker, Runnable 
 		hasAtmospheric = a.getBoolean(
 				R.styleable.WheelPicker_wheel_atmospheric, false);
 		a.recycle();
-
+		int theme = ThemeUtils.replaceColorById(getContext(), R.color.theme_color_primary);
+		mItemTextColor=theme;
+		mCurtainColor=theme;
 		// 可见Item改变后更新与之相关的参数
 		updateVisibleItemCount();
 
@@ -879,6 +883,14 @@ public class WheelPicker extends View implements IDebug, IWheelPicker, Runnable 
 	@Override
 	public boolean isPerspective() {
 		return isPerspective;
+	}
+
+	@Override
+	public void tint() {
+		int theme = ThemeUtils.replaceColorById(getContext(), R.color.theme_color_primary);
+		mItemTextColor=theme;
+		mCurtainColor=theme;
+		invalidate();
 	}
 
 	/**

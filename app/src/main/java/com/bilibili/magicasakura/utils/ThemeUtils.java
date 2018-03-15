@@ -54,6 +54,7 @@ import android.widget.WrapperListAdapter;
 
 import com.bilibili.magicasakura.widgets.Tintable;
 import com.keruiyun.saike.R;
+import com.keruiyun.saike.util.LogCus;
 
 
 import java.lang.reflect.Field;
@@ -416,6 +417,11 @@ public class ThemeUtils {
             refreshView(rootView, extraRefreshable);
         }
     }
+    public static void refreshUI(View view) {
+        TintManager.clearTintCache();
+        refreshView(view, null);
+
+    }
 
     private static Field mRecycler;
     private static Method mClearMethod;
@@ -425,6 +431,7 @@ public class ThemeUtils {
 
         view.destroyDrawingCache();
         if (view instanceof Tintable) {
+            LogCus.msg("tint:"+view.getClass().getName());
             ((Tintable) view).tint();
             if (view instanceof ViewGroup) {
                 for (int i = 0; i < ((ViewGroup) view).getChildCount(); i++) {
@@ -492,13 +499,13 @@ public class ThemeUtils {
 
     static
     @ColorInt
-    int replaceColorById(Context context, @ColorRes int colorId) {
+    public int replaceColorById(Context context, @ColorRes int colorId) {
         return mSwitchColor == null ? Color.TRANSPARENT : mSwitchColor.replaceColorById(context, colorId);
     }
 
     static
     @ColorInt
-    int replaceColor(Context context, @ColorInt int color) {
+    public int replaceColor(Context context, @ColorInt int color) {
         return mSwitchColor == null ? Color.TRANSPARENT : mSwitchColor.replaceColor(context, color);
     }
 

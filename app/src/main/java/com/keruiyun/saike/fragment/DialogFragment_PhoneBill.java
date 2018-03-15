@@ -3,6 +3,7 @@ package com.keruiyun.saike.fragment;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v4.content.ContextCompat;
@@ -28,6 +29,7 @@ import com.keruiyun.saike.uiview.ListScrollView;
 import com.keruiyun.saike.uiview.SaikeScollBar;
 import com.keruiyun.saike.util.LogCus;
 import com.music.musicplayer.utility.Constants;
+import com.util.AssetsFiles;
 
 import java.util.List;
 
@@ -145,6 +147,11 @@ public class DialogFragment_PhoneBill extends BaseDialogFragment {
     @Override
     public void initView(View view) {
         super.initView(view);
+        BitmapDrawable drawable = AssetsFiles.getImageFromAssetsDrawable(getContext(), "sk_djs1_03.png");
+        if (drawable!=null)
+            tintImageView.setBackground(drawable);
+
+
         if (!isVideo){
             txtTitle.setText(getResources().getString(R.string.title_specially_call));
             t_m_phoneCall = new T_M_PhoneCall(mContext);

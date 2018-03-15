@@ -20,7 +20,9 @@ import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.bilibili.magicasakura.utils.ThemeUtils;
 import com.bilibili.magicasakura.widgets.TintImageView;
+import com.bilibili.magicasakura.widgets.TintTextView;
 import com.keruiyun.saike.R;
 import com.keruiyun.saike.controls.MyListView;
 import com.keruiyun.saike.setting.BaseViewHolder;
@@ -408,7 +410,7 @@ public class DialogFragment_Setting extends BaseDialogFragment implements OnSett
                 viewHolder = new ViewHolder();
                 convertView = inflater.inflate(R.layout.item_setting, parent, false);
                 viewHolder.iconView = (TintImageView) convertView.findViewById(R.id.icon);
-                viewHolder.txtName = (TextView) convertView.findViewById(R.id.txt_name);
+                viewHolder.txtName = (TintTextView) convertView.findViewById(R.id.txt_name);
                 convertView.setTag(viewHolder);
             } else {
                 viewHolder = (ViewHolder) convertView.getTag();
@@ -418,7 +420,12 @@ public class DialogFragment_Setting extends BaseDialogFragment implements OnSett
             viewHolder.iconView.setImageResource(item.icon);
             viewHolder.iconView.setImageTintList(curPosition==position?R.color.theme_color_primary:R.color.white);
             if (isLogin){
-                viewHolder.txtName.setTextColor(curPosition==position?select:noselect);
+                if (curPosition==position){
+                    viewHolder.txtName.setTextColor(ThemeUtils.replaceColorById(mContext,R.color.theme_color_primary));
+                }else {
+                    viewHolder.txtName.setTextColor(ContextCompat.getColor(mContext,R.color.white));
+                }
+
             }else {
                 if (curPosition==position)
                     viewHolder.txtName.setTextColor(ContextCompat.getColor(mContext,R.color.white));
@@ -432,7 +439,7 @@ public class DialogFragment_Setting extends BaseDialogFragment implements OnSett
 
         private class ViewHolder {
             private TintImageView iconView;
-            private TextView txtName;
+            private TintTextView txtName;
         }
     }
 

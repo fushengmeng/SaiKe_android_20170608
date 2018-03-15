@@ -316,7 +316,7 @@ public class Fragment_Main extends BaseFragment implements
         ViewHolderIndexControl(int type,View view) {
             ButterKnife.bind(this, view);
             this.view=view;
-//            imgControl.setBackgroundDrawable(new DrawableUtil(mContext).getStateListDrawable(imgControl));
+//            refreshTint();
             imgControl.setBackgroundResource(R.drawable.bg_index_control);
             imgControl.setImageResource(arrIndexSrc[type]);
             imgControl.setImageTintList(R.color.white);
@@ -325,6 +325,7 @@ public class Fragment_Main extends BaseFragment implements
             initListener(type);
 
         }
+
         void initListener(final int type){
             view.setOnClickListener(new View.OnClickListener() {
                 @Override

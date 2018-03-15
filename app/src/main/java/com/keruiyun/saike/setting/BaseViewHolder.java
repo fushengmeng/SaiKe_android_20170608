@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.bilibili.magicasakura.utils.ThemeUtils;
 import com.keruiyun.saike.R;
 
 import butterknife.BindView;
@@ -48,10 +49,11 @@ public abstract class BaseViewHolder {
             view= LayoutInflater.from(context).inflate(loadContentView(),viewParent,false);
             ButterKnife.bind(this, view);
         }
+
         viewParent.addView(view);
         onSettingListener.onAuthVaild(isAuthValid());
         initView(context,viewParent);
-
+        ThemeUtils.refreshUI(view);
     }
 
     public void initView(Context context, ViewGroup viewParent){

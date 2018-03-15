@@ -7,6 +7,7 @@ import android.graphics.drawable.StateListDrawable;
 import android.util.TypedValue;
 import android.view.View;
 
+import com.bilibili.magicasakura.utils.ThemeUtils;
 import com.keruiyun.saike.R;
 
 /**
@@ -16,9 +17,11 @@ import com.keruiyun.saike.R;
 public class DrawableUtil {
     Activity mContext;
     View view;
+    int theme;
 
     public DrawableUtil(Activity mContext) {
         this.mContext = mContext;
+        theme= ThemeUtils.replaceColorById(mContext,R.color.theme_color_primary);
 
     }
 
@@ -75,14 +78,14 @@ public class DrawableUtil {
         else
             gradientDrawable.setCornerRadius(radius);
         // 获取颜色
-        TypedValue primaryValue=new TypedValue();
+//        TypedValue primaryValue=new TypedValue();
         TypedValue primaryDarkValue=new TypedValue();
-        mContext.getTheme().resolveAttribute(R.attr.custom_attr_color_primary,primaryValue,true);
+//        mContext.getTheme().resolveAttribute(R.attr.custom_attr_color_primary,primaryValue,true);
         mContext.getTheme().resolveAttribute(R.attr.custom_attr_color_primaryDark,primaryDarkValue,true);
 
         if (hasStorke){
             if(isPressed){
-                gradientDrawable.setStroke(1,primaryValue.data);
+                gradientDrawable.setStroke(1,theme);
             } else {
                 gradientDrawable.setStroke(1,primaryDarkValue.data);
             }
@@ -91,7 +94,7 @@ public class DrawableUtil {
 //        背景颜色
         if (hasSolid){
             if(isPressed){
-                gradientDrawable.setColor(primaryValue.data);
+                gradientDrawable.setColor(theme);
             } else {
                 gradientDrawable.setColor(primaryDarkValue.data);
 //                gradientDrawable.setColor(primaryValue.data);

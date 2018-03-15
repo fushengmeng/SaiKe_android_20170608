@@ -19,7 +19,10 @@ import android.widget.TextView;
 
 import com.bilibili.magicasakura.widgets.TintImageView;
 import com.keruiyun.saike.R;
+import com.keruiyun.saike.uiview.ListScrollView;
+import com.keruiyun.saike.uiview.ListViewBar;
 import com.keruiyun.saike.uiview.SaikeScollBar;
+import com.keruiyun.saike.util.LogCus;
 import com.music.musicplayer.bean.Mp3Info;
 import com.music.musicplayer.service.MusicService;
 import com.music.musicplayer.utility.Constants;
@@ -39,6 +42,12 @@ import butterknife.ButterKnife;
  */
 public class PlayQueueFragment extends BaseDialogFragment {
 
+    @BindView(R.id.listscrollview)
+    ListScrollView listScrollView;
+    @BindView(R.id.scollbar)
+    SaikeScollBar saikeScollBar;
+    @BindView(R.id.play_list)
+    ListViewBar listView;  //弹出的activity列表
 
     private PlaylistAdapter adapter;
     private List<Mp3Info> playlist = new ArrayList<>();
@@ -47,8 +56,8 @@ public class PlayQueueFragment extends BaseDialogFragment {
 
     private int mCurrentPosition = 0;
 
-    private ListView listView;  //弹出的activity列表
-    private SaikeScollBar saikeScollBar;  //弹出的activity列表
+
+
 
 
     @Override
@@ -123,13 +132,13 @@ public class PlayQueueFragment extends BaseDialogFragment {
 
             }
         });
-        listView = (ListView) view.findViewById(R.id.play_list);
-        saikeScollBar = (SaikeScollBar) view.findViewById(R.id.scollBar_playlist);
+
 
         playlist = MediaUtil.getMp3Infos(mContext);
         adapter = new PlaylistAdapter();
+        listView.setOnGridViewBarListener(saikeScollBar,listScrollView);
+        listScrollView.setOnScrolledY(listView);
         listView.setAdapter(adapter);
-
     }
 
     public void refrshList(){

@@ -29,7 +29,7 @@ public class OnTouchListenerAddSub implements View.OnTouchListener {
                 }else {
                     ((OnTouchSub) onTouchAddSub).onSub();
                 }
-                mHandler.sendEmptyMessageDelayed(1,1000);
+                mHandler.sendEmptyMessageDelayed(1,200);
             }
 
         }
@@ -43,11 +43,12 @@ public class OnTouchListenerAddSub implements View.OnTouchListener {
     public boolean onTouch(View v, MotionEvent event) {
 //        LogCus.msg("OnTouchListener:"+event.getAction());
         if (event.getAction()==MotionEvent.ACTION_DOWN){
-            mHandler.sendEmptyMessageDelayed(1,1000);
+            mHandler.sendEmptyMessage(1);
             SoundPlayer.getInstance().playerClick();
         }else if (event.getAction()==MotionEvent.ACTION_UP){
             mHandler.sendEmptyMessage(2);
             SoundPlayer.getInstance().playerClick();
+
         }
 
         return false;

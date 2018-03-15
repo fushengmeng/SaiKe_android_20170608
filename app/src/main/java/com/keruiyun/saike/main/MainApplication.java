@@ -675,7 +675,7 @@ public class MainApplication extends Application implements Runnable, WebRtcClie
 		return colorId != -1 ? getResources().getColor(colorId) : originColor;
 	}
 
-	private String getTheme(Context context) {
+	public static String getTheme(Context context) {
 		String color="black";
 		switch (ThemeHelper.getTheme(context)){
 			case ThemeHelper.THEME_BLACK:

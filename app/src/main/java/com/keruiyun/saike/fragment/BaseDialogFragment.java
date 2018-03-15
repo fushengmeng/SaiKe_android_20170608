@@ -68,7 +68,9 @@ public abstract class BaseDialogFragment extends DialogFragment implements OnDia
         FrameLayout frameLayout = (FrameLayout) inflater.inflate(R.layout.layout_base_dialog, container, false);
         albumArt=findById(frameLayout,R.id.albumArt);
         tintImageView= (TintImageView) frameLayout.findViewById(R.id.tintimg);
-        tintImageView.setBackgroundResource(loadTintImage());
+        int bgId=loadTintImage();
+        if (bgId!=0)
+            tintImageView.setBackgroundResource(bgId);
         if (isTintList())
             tintImageView.setBackgroundTintList(R.color.theme_color_primary);
 
