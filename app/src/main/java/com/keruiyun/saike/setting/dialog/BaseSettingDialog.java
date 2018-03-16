@@ -11,7 +11,9 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.bilibili.magicasakura.utils.ThemeUtils;
 import com.bilibili.magicasakura.widgets.TintTextView;
+import com.bilibili.magicasakura.widgets.TintTitleTextView;
 import com.keruiyun.saike.R;
 import com.keruiyun.saike.fragment.BaseDialogFragment;
 
@@ -25,7 +27,7 @@ import butterknife.Unbinder;
 
 public abstract class BaseSettingDialog extends BaseDialogFragment {
 
-    TextView txtTitle;
+    TintTitleTextView txtTitle;
 
     @Override
     public int loadTintImage() {
@@ -41,8 +43,8 @@ public abstract class BaseSettingDialog extends BaseDialogFragment {
     @Override
     public void initTopView(View topView) {
         super.initTopView(topView);
-        txtTitle= (TextView) topView.findViewById(R.id.txt_item);
-
+        txtTitle= (TintTitleTextView) topView.findViewById(R.id.txt_item);
+        ThemeUtils.refreshUI(topView);
 
     }
 

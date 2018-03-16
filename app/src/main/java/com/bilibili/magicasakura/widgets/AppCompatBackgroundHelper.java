@@ -211,9 +211,13 @@ public class AppCompatBackgroundHelper extends AppCompatBaseHelper {
         if (mBackgroundTintResId == 0 || !setSupportBackgroundTint(mBackgroundTintResId)) {
             Drawable drawable = mTintManager.getDrawable(mBackgroundResId);
             if (drawable == null) {
-                drawable = mBackgroundResId == 0 ? null : ContextCompat.getDrawable(mView.getContext(), mBackgroundResId);
+                drawable = mBackgroundResId == 0 ?  null : ContextCompat.getDrawable(mView.getContext(), mBackgroundResId);
             }
             setBackgroundDrawable(drawable);
+            if (backgroundTint!=null){
+                backgroundTint.onBackgroundTintListener(drawable);
+            }
+
         }
     }
 
@@ -221,5 +225,15 @@ public class AppCompatBackgroundHelper extends AppCompatBaseHelper {
         void setBackgroundTintList(int resId);
 
         void setBackgroundTintList(int resId, PorterDuff.Mode mode);
+    }
+
+    private BackgroundTintListener backgroundTint;
+
+    public void setBackgroundTintListener(BackgroundTintListener backgroundTint) {
+        this.backgroundTint = backgroundTint;
+    }
+
+    public interface BackgroundTintListener {
+        void onBackgroundTintListener( Drawable drawable);
     }
 }

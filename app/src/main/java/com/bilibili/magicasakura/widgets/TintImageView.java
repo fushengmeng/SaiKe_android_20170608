@@ -17,6 +17,7 @@
 package com.bilibili.magicasakura.widgets;
 
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
@@ -32,6 +33,7 @@ import com.bilibili.magicasakura.utils.TintManager;
  * @time 15/11/8
  */
 
+@SuppressLint("AppCompatCustomView")
 public class TintImageView extends ImageView implements Tintable, AppCompatBackgroundHelper.BackgroundExtensible
         , AppCompatImageHelper.ImageExtensible {
     private AppCompatBackgroundHelper mBackgroundHelper;
@@ -55,9 +57,16 @@ public class TintImageView extends ImageView implements Tintable, AppCompatBackg
         mBackgroundHelper = new AppCompatBackgroundHelper(this, tintManager);
         mBackgroundHelper.loadFromAttribute(attrs, defStyleAttr);
 
+
         mImageHelper = new AppCompatImageHelper(this, tintManager);
         mImageHelper.loadFromAttribute(attrs, defStyleAttr);
     }
+
+    public void setBackgroundTintListener(AppCompatBackgroundHelper.BackgroundTintListener backgroundTint) {
+        mBackgroundHelper.setBackgroundTintListener(backgroundTint);
+    }
+
+
 
     @Override
     protected void drawableStateChanged() {
@@ -139,11 +148,14 @@ public class TintImageView extends ImageView implements Tintable, AppCompatBackg
 
     @Override
     public void tint() {
+
         if (mBackgroundHelper != null) {
             mBackgroundHelper.tint();
         }
+
         if (mImageHelper != null) {
             mImageHelper.tint();
         }
+
     }
 }

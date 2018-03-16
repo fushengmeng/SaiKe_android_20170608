@@ -23,6 +23,7 @@ import com.keruiyun.saike.setting.util.OnTouchListenerAddSub;
 import com.keruiyun.saike.setting.util.OnTouchSub;
 import com.keruiyun.saike.timerserver.AlarmReceiver;
 import com.keruiyun.saike.uiview.SwitchButton;
+import com.keruiyun.saike.util.DrawableUtil;
 import com.keruiyun.saike.util.LogCus;
 import com.util.DateTime;
 
@@ -139,6 +140,18 @@ public class ViewHolderSmartstart extends BaseViewHolder {
         txtValuePa.setText(data_smartstart.getTxtValuePa()+"");
 
         setListener();
+
+        ImageView[] btn=new ImageView[]{
+                 bTempSub,bTempAdd
+                ,bRhSub,bRhAdd
+                ,bPaSub,bPaAdd
+        };
+        DrawableUtil drawableUtil = new DrawableUtil(context);
+        for (ImageView item:btn){
+            item.setBackground(drawableUtil.getDrawableSetting(item));
+        }
+
+
 
         bTempSub.setOnTouchListener(new OnTouchListenerAddSub(new OnTouchSub() {
             @Override

@@ -53,7 +53,7 @@ public class DialogFragment_Countdown extends BaseDialogFragment {
 
     @Override
     public boolean isTintList() {
-        return false;
+        return true;
     }
 
     @Override

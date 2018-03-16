@@ -164,12 +164,12 @@
                 android:id="@+id/b_temp_max_sub"
                 style="@style/Smartstart_Setting_imgbutton"
                 android:src="@drawable/sk_xtsz_qd_09"/>
-            <TextView
+            <com.bilibili.magicasakura.widgets.TintThemeTextView
                 android:id="@+id/txt_value_temp_max"
                 style="@style/Smartstart_Setting_Value"
                 android:text="00"
                 android:textColor="?attr/custom_attr_app_color_illuminant"/>
-            <TextView
+            <com.bilibili.magicasakura.widgets.TintThemeTextView
                 style="@style/Smartstart_Setting_Value_unit"
                 android:textColor="?attr/custom_attr_app_color_illuminant"
                 android:text="@string/unit_t"/>
@@ -192,12 +192,12 @@
                 android:id="@+id/b_pa_max_sub"
                 style="@style/Smartstart_Setting_imgbutton"
                 android:src="@drawable/sk_xtsz_qd_09"/>
-            <TextView
+            <com.bilibili.magicasakura.widgets.TintThemeTextView
                 android:id="@+id/txt_value_pa_max"
                 style="@style/Smartstart_Setting_Value"
                 android:text="00"
                 android:textColor="?attr/custom_attr_app_color_illuminant"/>
-            <TextView
+            <com.bilibili.magicasakura.widgets.TintThemeTextView
                 style="@style/Smartstart_Setting_Value_unit"
                 android:textColor="?attr/custom_attr_app_color_illuminant"
                 android:text="@string/unit_pa"/>
@@ -225,12 +225,12 @@
                 android:id="@+id/b_temp_min_sub"
                 style="@style/Smartstart_Setting_imgbutton"
                 android:src="@drawable/sk_xtsz_qd_09"/>
-            <TextView
+            <com.bilibili.magicasakura.widgets.TintThemeTextView
                 android:id="@+id/txt_value_temp_min"
                 style="@style/Smartstart_Setting_Value"
                 android:text="00"
                 android:textColor="?attr/custom_attr_app_color_illuminant"/>
-            <TextView
+            <com.bilibili.magicasakura.widgets.TintThemeTextView
                 style="@style/Smartstart_Setting_Value_unit"
                 android:textColor="?attr/custom_attr_app_color_illuminant"
                 android:text="@string/unit_t"/>
@@ -253,12 +253,12 @@
                 android:id="@+id/b_pa_min_sub"
                 style="@style/Smartstart_Setting_imgbutton"
                 android:src="@drawable/sk_xtsz_qd_09"/>
-            <TextView
+            <com.bilibili.magicasakura.widgets.TintThemeTextView
                 android:id="@+id/txt_value_pa_min"
                 style="@style/Smartstart_Setting_Value"
                 android:text="00"
                 android:textColor="?attr/custom_attr_app_color_illuminant"/>
-            <TextView
+            <com.bilibili.magicasakura.widgets.TintThemeTextView
                 style="@style/Smartstart_Setting_Value_unit"
                 android:textColor="?attr/custom_attr_app_color_illuminant"
                 android:text="@string/unit_pa"/>
@@ -286,12 +286,12 @@
                 android:id="@+id/b_rh_max_sub"
                 style="@style/Smartstart_Setting_imgbutton"
                 android:src="@drawable/sk_xtsz_qd_09"/>
-            <TextView
+            <com.bilibili.magicasakura.widgets.TintThemeTextView
                 android:id="@+id/txt_value_rh_max"
                 style="@style/Smartstart_Setting_Value"
                 android:text="00"
                 android:textColor="?attr/custom_attr_app_color_illuminant"/>
-            <TextView
+            <com.bilibili.magicasakura.widgets.TintThemeTextView
                 style="@style/Smartstart_Setting_Value_unit"
                 android:textColor="?attr/custom_attr_app_color_illuminant"
                 android:text="@string/unit_rh"/>
@@ -314,12 +314,12 @@
                 android:id="@+id/b_light_delay_closing_sub"
                 style="@style/Smartstart_Setting_imgbutton"
                 android:src="@drawable/sk_xtsz_qd_09"/>
-            <TextView
+            <com.bilibili.magicasakura.widgets.TintThemeTextView
                 android:id="@+id/txt_value_light_delay_closing"
                 style="@style/Smartstart_Setting_Value"
                 android:text="00"
                 android:textColor="?attr/custom_attr_app_color_illuminant"/>
-            <TextView
+            <com.bilibili.magicasakura.widgets.TintThemeTextView
                 style="@style/Smartstart_Setting_Value_unit"
                 android:textColor="?attr/custom_attr_app_color_illuminant"
                 android:text="@string/unit_second"/>
@@ -347,12 +347,12 @@
                 android:id="@+id/b_rh_min_sub"
                 style="@style/Smartstart_Setting_imgbutton"
                 android:src="@drawable/sk_xtsz_qd_09"/>
-            <TextView
+            <com.bilibili.magicasakura.widgets.TintThemeTextView
                 android:id="@+id/txt_value_rh_min"
                 style="@style/Smartstart_Setting_Value"
                 android:text="00"
                 android:textColor="?attr/custom_attr_app_color_illuminant"/>
-            <TextView
+            <com.bilibili.magicasakura.widgets.TintThemeTextView
                 style="@style/Smartstart_Setting_Value_unit"
                 android:textColor="?attr/custom_attr_app_color_illuminant"
                 android:text="@string/unit_rh"/>
@@ -375,12 +375,12 @@
                 android:id="@+id/b_delay_off_timer_sub"
                 style="@style/Smartstart_Setting_imgbutton"
                 android:src="@drawable/sk_xtsz_qd_09"/>
-            <TextView
+            <com.bilibili.magicasakura.widgets.TintThemeTextView
                 android:id="@+id/txt_value_delay_off_timer"
                 style="@style/Smartstart_Setting_Value"
                 android:text="00"
                 android:textColor="?attr/custom_attr_app_color_illuminant"/>
-            <TextView
+            <com.bilibili.magicasakura.widgets.TintThemeTextView
                 style="@style/Smartstart_Setting_Value_unit"
                 android:textColor="?attr/custom_attr_app_color_illuminant"
                 android:text="@string/unit_second"/>

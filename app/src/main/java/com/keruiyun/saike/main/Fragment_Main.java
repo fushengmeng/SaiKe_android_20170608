@@ -8,6 +8,7 @@ import android.content.IntentFilter;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
@@ -25,6 +26,8 @@ import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
+import com.bilibili.magicasakura.utils.ThemeUtils;
+import com.bilibili.magicasakura.widgets.AppCompatBackgroundHelper;
 import com.bilibili.magicasakura.widgets.TintImageView;
 import com.keruiyun.db.BeanPhone;
 import com.keruiyun.saike.R;
@@ -131,7 +134,7 @@ public class Fragment_Main extends BaseFragment implements
     public static int volume;
     public static boolean isConnectModBus=true;
     private boolean musicBack;
-    private boolean isGasAlarm,isAirAlarm,isOtherAlarm;
+    private boolean isGasAlarm,isGasAirAlarm,isOtherAlarm;
     Data_Air data_air;
 
     public static Fragment_Main getInstance(){
@@ -258,7 +261,7 @@ public class Fragment_Main extends BaseFragment implements
 
     @Override
     public void onDialogFragmentDismissed() {
-        setControlStatus(-1);
+//        setControlStatus(-1);
         dialogFragmentGas=null;
         musicDialogFragment=null;
 
@@ -312,19 +315,40 @@ public class Fragment_Main extends BaseFragment implements
         TintImageView imgControl;
         @BindView(R.id.txt_control)
         TextView txtControl;
+        boolean isSelect;
+        int type;
 
-        ViewHolderIndexControl(int type,View view) {
+        ViewHolderIndexControl(int type_,View view) {
             ButterKnife.bind(this, view);
             this.view=view;
-//            refreshTint();
-            imgControl.setBackgroundResource(R.drawable.bg_index_control);
+            this.type=type_;
+            refreshTint(false);
             imgControl.setImageResource(arrIndexSrc[type]);
             imgControl.setImageTintList(R.color.white);
+            imgControl.setBackgroundTintListener(new AppCompatBackgroundHelper.BackgroundTintListener() {
+                @Override
+                public void onBackgroundTintListener(Drawable drawable) {
+                    LogCus.msg("首页控制："+drawable);
+                    if (drawable==null) {
+                        refreshTint(isSelect);
+
+                    }
+                }
+            });
             String[] resources = getResources().getStringArray(R.array.arr_index_control);
             txtControl.setText(resources[type]);
             initListener(type);
 
         }
+        void refreshTint(boolean isSelect){
+            this.isSelect=isSelect;
+            DrawableUtil drawableUtil=new DrawableUtil(mContext).setRadius(5);
+            imgControl.setBackgroundDrawable(drawableUtil.getDrawable(imgControl,isSelect));
+            if (isSelect)
+                imgControl.setImageTintList(MainApplication.getInstance().colorThemeTxtRes);
+            else
+                imgControl.setImageTintList(R.color.white);
+        };
 
         void initListener(final int type){
             view.setOnClickListener(new View.OnClickListener() {
@@ -369,26 +393,26 @@ public class Fragment_Main extends BaseFragment implements
     }
 
     void setControlStatus(int type){
-        vhControl.imgControl.setSelected(false);
-        vhAirSystem.imgControl.setSelected(false);
-        vhCall.imgControl.setSelected(false);
-        vhMusic.imgControl.setSelected(false);
-        vhGas.imgControl.setSelected(false);
+        vhControl.refreshTint(false);
+        vhAirSystem.refreshTint(false);
+        vhCall.refreshTint(false);
+        vhMusic.refreshTint(false);
+        vhGas.refreshTint(false);
         switch (type){
             case 0:
-                vhControl.imgControl.setSelected(true);
+                vhControl.refreshTint(true);
                 break;
             case 1:
-                vhAirSystem.imgControl.setSelected(true);
+                vhAirSystem.refreshTint(true);
                 break;
             case 2:
-                vhCall.imgControl.setSelected(true);
+                vhCall.refreshTint(true);
                 break;
             case 3:
-                vhMusic.imgControl.setSelected(true);
+                vhMusic.refreshTint(true);
                 break;
             case 4:
-                vhGas.imgControl.setSelected(true);
+                vhGas.refreshTint(true);
                 break;
         }
     }
@@ -669,11 +693,32 @@ public class Fragment_Main extends BaseFragment implements
         }
     });
 
+    //故障报警
+    boolean isAirAlarm;
+    private void alarm(int data)
+    {
+//        LogCus.msg("空调报警："+isAirAlarm+":data:"+data);
+        if (1 == data)//故障
+        {
+            if (!isAirAlarm){
+                isAirAlarm=true;
+                mErrAirHandler.sendEmptyMessage(3);
+            }
+
+        }
+        else
+        {   isAirAlarm=false;
+            mErrAirHandler.sendEmptyMessage(-4);
+
+        }
+    }
+
     /*气体状态*/
     boolean isStartGasAlarm;
     private void gasStatus() {
-       boolean isGasAlarm=isAirAlarm|isOtherAlarm;
+       boolean isGasAlarm=isGasAirAlarm|isOtherAlarm;
 //        isGasAlarm=true;
+//        LogCus.msg("气体报警："+isGasAlarm+":isStartGasAlarm:"+isStartGasAlarm);
        if (isGasAlarm){
            vhGas.imgControl.setImageTintList(R.color.red);
            if (!isStartGasAlarm){
@@ -693,6 +738,7 @@ public class Fragment_Main extends BaseFragment implements
     private Handler mErrHandler = new Handler(new Handler.Callback() {
         @Override
         public boolean handleMessage(Message msg) {
+//            LogCus.msg("gas报警："+msg.what+":isStartGasAlarm:"+isStartGasAlarm);
             switch (msg.what) {
                 case 1://气体报警
                     vhGas.imgControl.setImageTintList(R.color.red);
@@ -706,17 +752,30 @@ public class Fragment_Main extends BaseFragment implements
                     vhAirSystem.imgControl.setImageTintList(R.color.white);
                     mErrHandler.removeCallbacksAndMessages(null);
                     break;
+                default:
+                    break;
+            }
+            return false;
+        }
+    });
+
+    private Handler mErrAirHandler = new Handler(new Handler.Callback() {
+        @Override
+        public boolean handleMessage(Message msg) {
+//            LogCus.msg("air报警："+msg.what+":isAirAlarm:"+isAirAlarm);
+            switch (msg.what) {
+
                 case 3://空调报警
                     vhAirSystem.imgControl.setImageTintList(R.color.red);
-                    mErrHandler.sendEmptyMessageDelayed(4,1000);
+                    mErrAirHandler.sendEmptyMessageDelayed(4,1000);
                     break;
                 case 4:
                     vhAirSystem.imgControl.setImageTintList(R.color.area_bg);
-                    mErrHandler.sendEmptyMessageDelayed(3,1000);
+                    mErrAirHandler.sendEmptyMessageDelayed(3,1000);
                     break;
                 case -4:
                     vhAirSystem.imgControl.setImageTintList(R.color.white);
-                    mErrHandler.removeCallbacksAndMessages(null);
+                    mErrAirHandler.removeCallbacksAndMessages(null);
                     break;
                 default:
                     break;
@@ -736,19 +795,7 @@ public class Fragment_Main extends BaseFragment implements
             imgIndicatorRun.setImageResource(R.drawable.sk_index_21);
         }
     }
-    //故障报警
-    private void alarm(int data)
-    {
-        if (1 == data)//故障
-        {
-            mErrHandler.sendEmptyMessage(3);
-        }
-        else
-        {
-            mErrHandler.sendEmptyMessage(-4);
 
-        }
-    }
 
     private void alarmFire(int data)
     {
@@ -891,36 +938,36 @@ public class Fragment_Main extends BaseFragment implements
                         case SerialSaunaThread.ADDR_AIR_ALARM:
                             if (dialogFragmentGas!=null)
                                 dialogFragmentGas.updateSerialData(addr,data);
-                            isAirAlarm=false;
+                            isGasAirAlarm=false;
                             // 氧气
                             int isO2High = data & 0x01;
-                            isAirAlarm=isAirAlarm||(isO2High==1);
+                            isGasAirAlarm=isGasAirAlarm||(isO2High==1);
                             int isO2Low = (data >> 1) & 0x01;
-                            isAirAlarm=isAirAlarm||(isO2Low==1);
+                            isGasAirAlarm=isGasAirAlarm||(isO2Low==1);
 
                             // 氮气
                             int isNitrogenHigh = (data >> 2) & 0x01;
-                            isAirAlarm=isAirAlarm||(isNitrogenHigh==1);
+                            isGasAirAlarm=isGasAirAlarm||(isNitrogenHigh==1);
                             int isNitrogenLow = (data >> 3) & 0x01;
-                            isAirAlarm=isAirAlarm||(isNitrogenLow==1);
+                            isGasAirAlarm=isGasAirAlarm||(isNitrogenLow==1);
 
                             // 笑气
                             int isLaughHigh = (data >> 4) & 0x01;
-                            isAirAlarm=isAirAlarm||(isLaughHigh==1);
+                            isGasAirAlarm=isGasAirAlarm||(isLaughHigh==1);
                             int isLaughLow = (data >> 5) & 0x01;
-                            isAirAlarm=isAirAlarm||(isLaughLow==1);
+                            isGasAirAlarm=isGasAirAlarm||(isLaughLow==1);
 
                             // 氩气
                             int isArgonHigh = (data >> 6) & 0x01;
-                            isAirAlarm=isAirAlarm||(isArgonHigh==1);
+                            isGasAirAlarm=isGasAirAlarm||(isArgonHigh==1);
                             int isArgonLow = (data >> 7) & 0x01;
-                            isAirAlarm=isAirAlarm||(isArgonLow==1);
+                            isGasAirAlarm=isGasAirAlarm||(isArgonLow==1);
 
                             // 压缩空气
                             int isCompressO2High = (data >> 8) & 0x01;
-                            isAirAlarm=isAirAlarm||(isCompressO2High==1);
+                            isGasAirAlarm=isGasAirAlarm||(isCompressO2High==1);
                             int isCompressO2Low = (data >> 9) & 0x01;
-                            isAirAlarm=isAirAlarm||(isCompressO2Low==1);
+                            isGasAirAlarm=isGasAirAlarm||(isCompressO2Low==1);
                             gasStatus();
                             break;
                         case SerialSaunaThread.ADDR_OTHER_ALARM:

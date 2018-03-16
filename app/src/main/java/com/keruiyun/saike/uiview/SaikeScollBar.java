@@ -14,11 +14,13 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.SeekBar;
 
+import com.bilibili.magicasakura.utils.ThemeUtils;
+import com.bilibili.magicasakura.widgets.Tintable;
 import com.keruiyun.saike.R;
 import com.keruiyun.saike.util.LogCus;
 
 
-public class SaikeScollBar extends View {
+public class SaikeScollBar extends View implements Tintable{
 
     private int mWidth=18,mTopHeight=20, mHeight=100,mCorners=4;
     private int colorBg,colorBloder,colorTheme;
@@ -67,7 +69,7 @@ public class SaikeScollBar extends View {
 
         colorBg=ContextCompat.getColor(getContext(), R.color.line);
         colorBloder=ContextCompat.getColor(getContext(), R.color.white);
-        colorTheme=ContextCompat.getColor(getContext(), R.color.theme_color_primary);
+        colorTheme=ThemeUtils.replaceColorById(getContext(),R.color.theme_color_primary);
     }
 
     @Override
@@ -300,6 +302,13 @@ public class SaikeScollBar extends View {
 
     public void setOnSeekBarChangeListener(OnSeekBarChangeListener listener) {
         mSeekBarChangeListener = listener;
+    }
+
+    @Override
+    public void tint() {
+        int theme= ThemeUtils.replaceColorById(getContext(),R.color.theme_color_primary);
+        colorTheme=theme;
+        invalidate();
     }
 
     public interface OnSeekBarChangeListener {

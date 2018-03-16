@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.keruiyun.saike.R;
+import com.keruiyun.saike.util.DrawableUtil;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -50,14 +51,19 @@ public class ViewHolderAbout extends BaseViewHolder {
         txtDevNumber.setText(androidId+"");
         txtSystemVersion.setText( Build.ID);
         txtAppVersion.setText(getAppVersionName());
+        DrawableUtil drawableUtil = new DrawableUtil(context).setRadius(2);
+        txtSystemVersionUpdate.setBackground(drawableUtil.getStateListDrawable(txtSystemVersionUpdate));
+        txtAppVersionUpdate.setBackground(drawableUtil.getStateListDrawable(txtAppVersionUpdate));
     }
 
-    @OnClick({R.id.txt_system_version, R.id.txt_system_version_update})
+    @OnClick({R.id.txt_system_version, R.id.txt_system_version_update,R.id.txt_app_version_update})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.txt_system_version:
                 break;
             case R.id.txt_system_version_update:
+                break;
+            case R.id.txt_app_version_update:
                 break;
         }
     }

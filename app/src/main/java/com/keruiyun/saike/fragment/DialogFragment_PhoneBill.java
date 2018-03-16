@@ -16,6 +16,7 @@ import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bilibili.magicasakura.utils.ThemeUtils;
 import com.bilibili.magicasakura.widgets.TintLinearLayout;
 import com.keruiyun.db.BeanPhone;
 import com.keruiyun.db.T_M_PhoneCall;
@@ -149,7 +150,7 @@ public class DialogFragment_PhoneBill extends BaseDialogFragment {
         super.initView(view);
         BitmapDrawable drawable = AssetsFiles.getImageFromAssetsDrawable(getContext(), "sk_djs1_03.png");
         if (drawable!=null)
-            tintImageView.setBackground(drawable);
+            tintImageView.setImageDrawable(drawable);
 
 
         if (!isVideo){
@@ -233,9 +234,12 @@ public class DialogFragment_PhoneBill extends BaseDialogFragment {
 
     private class PhoneAdapter extends BaseAdapter {
         LayoutInflater inflater;
+        int colorYes,colorNo;
 
         public PhoneAdapter() {
             inflater = LayoutInflater.from(mContext);
+            colorYes= ThemeUtils.replaceColorById(mContext,R.color.theme_color_primary);
+            colorNo = ContextCompat.getColor(mContext,R.color.white);
         }
 
         private void refreshDatas() {
@@ -278,10 +282,10 @@ public class DialogFragment_PhoneBill extends BaseDialogFragment {
             viewHolder.txtName.setText(item.getName() + "");
             viewHolder.txtIp.setText(item.getIp() + "");
 //            convertView.setBackgroundColor(ContextCompat.getColor(mContext,R.color.gold));
-            int color=curCheck==position?R.color.theme_color_primary:R.color.white;
+            int color=curCheck==position?colorYes:colorNo;
             viewHolder.layout.setSelected(curCheck==position);
-            viewHolder.txtName.setTextColor(ContextCompat.getColor(mContext,color));
-            viewHolder.txtIp.setTextColor(ContextCompat.getColor(mContext,color));
+            viewHolder.txtName.setTextColor(color);
+            viewHolder.txtIp.setTextColor(color);
 
             viewHolder.layout.setOnClickListener(new View.OnClickListener() {
                 @Override

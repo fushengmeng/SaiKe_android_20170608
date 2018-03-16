@@ -14,6 +14,7 @@ import android.graphics.Region;
 import android.graphics.Shader;
 import android.os.Build;
 import android.os.Handler;
+import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -26,6 +27,8 @@ import android.widget.Scroller;
 import com.bilibili.magicasakura.utils.ThemeUtils;
 import com.bilibili.magicasakura.widgets.Tintable;
 import com.keruiyun.saike.R;
+import com.keruiyun.saike.main.MainApplication;
+import com.keruiyun.saike.main.MyTouchListener;
 import com.keruiyun.saike.util.LogCus;
 import com.music.soundpool.SoundPlayer;
 
@@ -208,6 +211,7 @@ public class WheelPicker extends View implements Tintable,IDebug, IWheelPicker, 
 		a.recycle();
 		int theme = ThemeUtils.replaceColorById(getContext(), R.color.theme_color_primary);
 		mItemTextColor=theme;
+		mCurrentItemTextColor= ContextCompat.getColor(context, MainApplication.getInstance().colorThemeTxtRes);
 		mCurtainColor=theme;
 		// 可见Item改变后更新与之相关的参数
 		updateVisibleItemCount();
@@ -890,6 +894,7 @@ public class WheelPicker extends View implements Tintable,IDebug, IWheelPicker, 
 		int theme = ThemeUtils.replaceColorById(getContext(), R.color.theme_color_primary);
 		mItemTextColor=theme;
 		mCurtainColor=theme;
+		mCurrentItemTextColor= ContextCompat.getColor(getContext(), MainApplication.getInstance().colorThemeTxtRes);
 		invalidate();
 	}
 

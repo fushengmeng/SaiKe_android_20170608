@@ -423,6 +423,7 @@ public class ThemeUtils {
 
     }
 
+
     private static Field mRecycler;
     private static Method mClearMethod;
 
@@ -431,7 +432,6 @@ public class ThemeUtils {
 
         view.destroyDrawingCache();
         if (view instanceof Tintable) {
-            LogCus.msg("tint:"+view.getClass().getName());
             ((Tintable) view).tint();
             if (view instanceof ViewGroup) {
                 for (int i = 0; i < ((ViewGroup) view).getChildCount(); i++) {

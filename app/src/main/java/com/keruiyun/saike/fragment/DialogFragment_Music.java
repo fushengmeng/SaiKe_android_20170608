@@ -18,6 +18,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import com.bilibili.magicasakura.widgets.TintImageView;
 import com.bilibili.magicasakura.widgets.TintLinearLayout;
+import com.bilibili.magicasakura.widgets.TintSelectTextView;
 import com.keruiyun.saike.uiview.NoSeekBar;
 import com.keruiyun.saike.util.LogCus;
 import com.keruiyun.saike.util.PreferencesUtil;
@@ -63,19 +64,19 @@ public class DialogFragment_Music extends BaseDialogFragment {
     @BindView(R.id.music_local_icon)
     TintImageView musicLocalIcon;
     @BindView(R.id.music_local_txt)
-    TextView musicLocalTxt;
+    TintSelectTextView musicLocalTxt;
     @BindView(R.id.music_local)
     TintLinearLayout musicLocal;
     @BindView(R.id.music_remote_icon)
     TintImageView musicRemoteIcon;
     @BindView(R.id.music_remote_txt)
-    TextView musicRemoteTxt;
+    TintSelectTextView musicRemoteTxt;
     @BindView(R.id.music_remote)
     TintLinearLayout musicRemote;
     @BindView(R.id.music_bluetooth_icon)
     TintImageView musicBluetoothIcon;
     @BindView(R.id.music_bluetooth_txt)
-    TextView musicBluetoothTxt;
+    TintSelectTextView musicBluetoothTxt;
     @BindView(R.id.music_bluetooth)
     TintLinearLayout musicBluetooth;
     @BindView(R.id.layout_left)
@@ -289,6 +290,7 @@ public class DialogFragment_Music extends BaseDialogFragment {
         } else {
             viewHolderMusicTools.playingPlay.setImageResource(R.drawable.sk_leku_47);
         }
+        viewHolderMusicTools.playingPlay.setImageTintList(R.color.theme_color_primary);
         switch (MusicService.playMode){
             case 0:
                 viewHolderMusicTools.playingMode.setImageResource(R.drawable.sk_leku_36_1);
@@ -390,6 +392,7 @@ public class DialogFragment_Music extends BaseDialogFragment {
 
         musicBluetoothIcon.setImageTintList(R.color.white);
         musicBluetoothTxt.setSelected(false);
+
         switch (musicType) {
             case 0:
                 musicLocalIcon.setImageTintList(R.color.theme_color_primary);
@@ -462,11 +465,11 @@ public class DialogFragment_Music extends BaseDialogFragment {
         @BindView(R.id.play_seek)
         NoSeekBar playSeek;
         @BindView(R.id.playing_pre)
-        ImageView playingPre;
+        TintImageView playingPre;
         @BindView(R.id.playing_play)
-        ImageView playingPlay;
+        TintImageView playingPlay;
         @BindView(R.id.playing_next)
-        ImageView playingNext;
+        TintImageView playingNext;
         @BindView(R.id.playing_mode)
         ImageView playingMode;
         @BindView(R.id.playing_voice)
@@ -498,6 +501,7 @@ public class DialogFragment_Music extends BaseDialogFragment {
                 @Override
                 public void onClick(View v) {
                     sendBroadcast(Constants.ACTION_PRV);
+                    playingPre.setBackgroundTintList(R.color.theme_color_primary);
                 }
             });
             playingVoice.setOnClickListener(new View.OnClickListener() {
@@ -527,6 +531,7 @@ public class DialogFragment_Music extends BaseDialogFragment {
                         sendBroadcast(Constants.ACTION_PLAY);
                         playingPlay.setImageResource(R.drawable.sk_leku_46);
                     }
+                    playingPlay.setImageTintList(R.color.theme_color_primary);
 
                 }
             });
@@ -535,6 +540,7 @@ public class DialogFragment_Music extends BaseDialogFragment {
                 @Override
                 public void onClick(View v) {
                     sendBroadcast(Constants.ACTION_NEXT);
+                    playingNext.setBackgroundTintList(R.color.theme_color_primary);
                 }
             });
 

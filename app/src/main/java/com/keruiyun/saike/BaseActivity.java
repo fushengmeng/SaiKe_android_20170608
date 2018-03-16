@@ -12,6 +12,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
@@ -20,6 +21,7 @@ import com.bilibili.magicasakura.utils.ThemeHelper;
 import com.bilibili.magicasakura.utils.ThemeUtils;
 
 import com.keruiyun.saike.fragment.OnDialogFragmentListener;
+import com.keruiyun.saike.main.MainApplication;
 import com.keruiyun.saike.setting.ViewHolderAdvancedSetup;
 import com.keruiyun.saike.util.Consts;
 
@@ -43,10 +45,12 @@ public abstract class BaseActivity extends FragmentActivity implements ViewHolde
 	protected void onCreate(Bundle arg0) {
 		// TODO Auto-generated method stub
 		super.onCreate(arg0);
+		setColorThemeTxt(ThemeHelper.getTheme(this));
 		setContentView(loadContentView());
 		instance=this;
 		// TODO: add setContentView(...) invocation
 		ButterKnife.bind(this);
+
 		initView();
 		initMusic();
 
@@ -73,8 +77,21 @@ public abstract class BaseActivity extends FragmentActivity implements ViewHolde
 
 	}
 
+	private void setColorThemeTxt(int currentTheme){
+		switch (currentTheme){
+			case ThemeHelper.THEME_YELLOW:
+				MainApplication.getInstance().colorThemeTxtRes=R.color.black;
+				break;
+			default:
+				MainApplication.getInstance().colorThemeTxtRes=R.color.white;
+
+
+		}
+	}
+
 	@Override
 	public void onConfirm(int currentTheme) {
+		setColorThemeTxt(currentTheme);
 
 		if (ThemeHelper.getTheme(this) != currentTheme) {
 			ThemeHelper.setTheme(this, currentTheme);

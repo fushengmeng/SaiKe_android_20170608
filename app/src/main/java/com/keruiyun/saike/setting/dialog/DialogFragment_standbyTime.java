@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.bilibili.magicasakura.utils.ThemeUtils;
 import com.keruiyun.saike.R;
 import com.keruiyun.saike.controls.MyListView;
 import com.keruiyun.saike.setting.data.Data_Advanced;
@@ -55,7 +56,8 @@ public class DialogFragment_standbyTime extends BaseSettingDialog {
         public StringAdapter() {
             this.arrString = getResources().getStringArray(R.array.arr_standby_time);
             inflater = LayoutInflater.from(mContext);
-            colorYes= ContextCompat.getColor(mContext,R.color.theme_color_primary);
+//            colorYes= ContextCompat.getColor(mContext,R.color.theme_color_primary);
+            colorYes= ThemeUtils.replaceColorById(mContext,R.color.theme_color_primary);
             colorNo= ContextCompat.getColor(mContext,android.R.color.transparent);
         }
 

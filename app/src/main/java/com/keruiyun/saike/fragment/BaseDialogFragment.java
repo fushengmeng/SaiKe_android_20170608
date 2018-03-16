@@ -20,6 +20,7 @@ import android.widget.ListAdapter;
 import android.widget.RelativeLayout;
 import android.widget.WrapperListAdapter;
 
+import com.bilibili.magicasakura.utils.ThemeUtils;
 import com.bilibili.magicasakura.utils.TintManager;
 import com.bilibili.magicasakura.widgets.TintImageView;
 import com.bilibili.magicasakura.widgets.Tintable;
@@ -70,10 +71,10 @@ public abstract class BaseDialogFragment extends DialogFragment implements OnDia
         tintImageView= (TintImageView) frameLayout.findViewById(R.id.tintimg);
         int bgId=loadTintImage();
         if (bgId!=0)
-            tintImageView.setBackgroundResource(bgId);
+            tintImageView.setImageResource(bgId);
         if (isTintList())
-            tintImageView.setBackgroundTintList(R.color.theme_color_primary);
-
+            tintImageView.setImageTintList(R.color.theme_color_primary);
+        ThemeUtils.refreshUI(tintImageView);
 
         int bottomLayout=loadContentBottomView();
         if (bottomLayout!=0){
@@ -91,7 +92,7 @@ public abstract class BaseDialogFragment extends DialogFragment implements OnDia
 
         containerMain = (FrameLayout) frameLayout.findViewById(R.id.layout_container);
         view = inflater.inflate(loadContentView(), containerMain,true);
-
+        ThemeUtils.refreshUI(view);
        /* view.post(new Runnable() {
             @Override
             public void run() {

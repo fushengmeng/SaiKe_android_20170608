@@ -9,19 +9,18 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="43dp"
-        android:background="?attr/custom_attr_color_primary"
         android:orientation="horizontal">
 
-        <TextView
+        <com.bilibili.magicasakura.widgets.TintTitleTextView
             android:id="@+id/playlist_addto"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="@string/music_list"
-            android:layout_marginLeft="@dimen/margin_l"
+            android:paddingLeft="@dimen/margin_l"
             android:textSize="12sp" />
 
-        <TextView
+        <com.bilibili.magicasakura.widgets.TintTitleTextView
             android:id="@+id/play_list_number"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -29,13 +28,13 @@
             android:gravity="center"
             android:textSize="15sp" />
 
-        <TextView
+        <com.bilibili.magicasakura.widgets.TintTitleTextView
             android:id="@+id/playlist_clear_all"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:src="@drawable/sk_leku_14"
             android:paddingLeft="@dimen/margin_l"
-            android:layout_marginRight="@dimen/margin_l"
+            android:paddingRight="@dimen/margin_l"
             android:text="@string/clear"
             android:gravity="right|center_vertical"
             android:textSize="12sp"/>

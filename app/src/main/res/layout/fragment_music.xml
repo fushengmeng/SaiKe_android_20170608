@@ -43,7 +43,7 @@
                     android:src="@drawable/sk_leku_05"
 
                     android:layout_marginTop="@dimen/margin"/>
-                <TextView
+                <com.bilibili.magicasakura.widgets.TintSelectTextView
                     android:id="@+id/music_local_txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -67,7 +67,7 @@
                     android:layout_height="wrap_content"
                     android:src="@drawable/sk_leku_12"
                     android:layout_marginTop="@dimen/margin"/>
-                <TextView
+                <com.bilibili.magicasakura.widgets.TintSelectTextView
                     android:id="@+id/music_remote_txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -91,7 +91,7 @@
                     android:layout_height="wrap_content"
                     android:src="@drawable/sk_leku_24"
                     android:layout_marginTop="@dimen/margin" />
-                <TextView
+                <com.bilibili.magicasakura.widgets.TintSelectTextView
                     android:id="@+id/music_bluetooth_txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

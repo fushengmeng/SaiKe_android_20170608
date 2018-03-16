@@ -63,7 +63,7 @@ public class DialogFragment_SettingSystemTime extends BaseDialogFragment {
 
     @Override
     public boolean isTintList() {
-        return false;
+        return true;
     }
 
     @Override

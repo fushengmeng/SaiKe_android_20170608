@@ -14,6 +14,8 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 
+import com.bilibili.magicasakura.utils.ThemeUtils;
+import com.bilibili.magicasakura.widgets.Tintable;
 import com.music.musicplayer.bean.LrcEntry;
 import com.music.musicplayer.utility.LrcUtil;
 import com.keruiyun.saike.R;
@@ -27,7 +29,7 @@ import java.util.List;
  * 歌词
  * Created by wcy on 2015/11/9.
  */
-public final class LrcView extends View {
+public final class LrcView extends View implements Tintable{
     private List<LrcEntry> mLrcEntryList = new ArrayList<>();
     private TextPaint mPaint = new TextPaint();
     private float mTextSize;
@@ -63,6 +65,7 @@ public final class LrcView extends View {
         mAnimationDuration = mAnimationDuration < 0 ? 1000 : mAnimationDuration;
         mNormalColor = ta.getColor(R.styleable.LrcView_lrcNormalTextColor, 0xFFFFFFFF);
         mCurrentColor = ta.getColor(R.styleable.LrcView_lrcCurrentTextColor, 0xFFFF4081);
+        mCurrentColor= ThemeUtils.replaceColorById(getContext(),R.color.theme_color_primary);
         mLabel = ta.getString(R.styleable.LrcView_lrcLabel);
         mLabel = TextUtils.isEmpty(mLabel) ? "暂无歌词" : mLabel;
         mLrcPadding = ta.getDimension(R.styleable.LrcView_lrcPadding, 0);
@@ -356,5 +359,11 @@ public final class LrcView extends View {
         if (mAnimator != null && mAnimator.isRunning()) {
             mAnimator.end();
         }
+    }
+
+    @Override
+    public void tint() {
+        mCurrentColor= ThemeUtils.replaceColorById(getContext(),R.color.theme_color_primary);
+        invalidate();
     }
 }

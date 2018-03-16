@@ -20,6 +20,7 @@ import com.keruiyun.saike.setting.data.Data_Air;
 import com.keruiyun.saike.setting.util.OnTouchAdd;
 import com.keruiyun.saike.setting.util.OnTouchListenerAddSub;
 import com.keruiyun.saike.setting.util.OnTouchSub;
+import com.keruiyun.saike.util.DrawableUtil;
 import com.keruiyun.saike.util.LogCus;
 import com.util.ToastUtil;
 
@@ -156,6 +157,20 @@ public class ViewHolderAirSystem extends BaseViewHolder {
 
         txtValueDelayOffTimer.setText(data_air.getTxtValueDelayOffTimer() / 1000 + "");
 
+        ImageView[] btn=new ImageView[]{
+                  bTempMinSub,bTempMinAdd
+                , bTempMaxSub,bTempMaxAdd
+                , bRhMinSub,bRhMinAdd
+                , bRhMaxSub,bRhMaxAdd
+                , bPaMinSub,bPaMinAdd
+                , bPaMaxSub,bPaMaxAdd
+                , bLightDelayClosingSub,bLightDelayClosingAdd
+                , bDelayOffTimerSub,bDelayOffTimerAdd
+        };
+        DrawableUtil drawableUtil = new DrawableUtil(context);
+        for (ImageView item:btn){
+            item.setBackground(drawableUtil.getDrawableSetting(item));
+        }
 
         rgAir.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override

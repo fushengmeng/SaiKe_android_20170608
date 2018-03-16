@@ -100,11 +100,14 @@ public class DialogFragment_Call extends BaseDialogFragment {
     @Override
     public void initView(View view) {
         super.initView(view);
+        DrawableUtil drawableUtil=new DrawableUtil(mContext).setRadius(3);
+        layoutInput.setBackground(drawableUtil.getDrawable(layoutInput));
         callNumBuf = new StringBuffer();
         if (number!=null)
             callNumBuf.append(number);
         LogCus.msg("专呼电话："+callNumBuf.toString());
-        txtInput.setText(callNumBuf.toString()+"");
+        txtInput.setText(callNumBuf);
+
 //        View[] views = new View[]{one, two, three, four, five, six, seven, eight, nine, xing, zero, jing, call};
 //
 //        for (View item : views) {

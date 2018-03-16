@@ -20,6 +20,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
+import android.support.v4.content.ContextCompat;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.widget.Toast;
@@ -66,7 +67,7 @@ public class MainApplication extends Application implements Runnable, WebRtcClie
 	public String _peerIP;
 	public BaseActivity _activity;
 	public short enabled, year, month, day, hour, minute, second;
-
+	public int colorThemeTxtRes;
 
 	
 	Handler myHandler = new Handler(){
@@ -336,6 +337,7 @@ public class MainApplication extends Application implements Runnable, WebRtcClie
 
 		mInstance = this;
 		context=getBaseContext();
+		colorThemeTxtRes= R.color.white;
 		ThemeUtils.setSwitchColor(this);
 		ToastUtil.init(context);
 		SoundPlayer.getInstance().init(context);

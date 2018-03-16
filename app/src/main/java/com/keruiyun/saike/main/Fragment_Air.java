@@ -11,6 +11,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.SystemClock;
 import android.provider.Settings;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -251,6 +252,16 @@ public class Fragment_Air extends BaseFragment {
 
         _adapter = new PeerListAdapter(this.getActivity());
         _listView.setAdapter(_adapter);
+    }
+
+    public void refreshRightBg(){
+        for (int i=0;i<airRight.length;i++){
+            airRight[i].refreshBg();
+        }
+
+        for (int i=0;i<airBottom.length;i++){
+            airBottom[i].refreshBg();
+        }
     }
 
 
@@ -984,18 +995,16 @@ public class Fragment_Air extends BaseFragment {
         View view;
         int type;
         Resources resources;
-        int colorYes, colorNo;
+        boolean isSelect;
 
         ViewHolderAirBottom(final int type, View view) {
             ButterKnife.bind(this, view);
             resources = getResources();
             this.type = type;
             this.view = view;
-            colorYes = TypedValueUtil.getColorValue(getActivity(), R.attr.custom_attr_color_txt_primary);
-            colorNo = TypedValueUtil.getColorValue(getActivity(), R.attr.custom_attr_color_txt_primaryDark);
-            view.setBackgroundDrawable(new DrawableUtil(getActivity()).getStateListDrawableOval(view));
+
+            refreshBg();
             imgAirLaunch.setImageResource(airBottomSrcNo[type]);
-            txtAirLaunch.setTextColor(colorNo);
             txtAirLaunch.setText(resources.getStringArray(R.array.arr_air_bottom)[type]);
             view.setOnClickListener(new OnClickListener() {
                 @Override
@@ -1014,11 +1023,16 @@ public class Fragment_Air extends BaseFragment {
                 }
             });
         }
-
+        void refreshBg(){
+            view.setBackground(new DrawableUtil(getActivity()).getStateListDrawableOval(view));
+            setIsSelect(isSelect);
+        }
         void setIsSelect(boolean isSelect) {
+            this.isSelect=isSelect;
             view.setSelected(isSelect);
+            int colorTxt=ContextCompat.getColor(mContext,MainApplication.getInstance().colorThemeTxtRes);
+            txtAirLaunch.setTextColor(colorTxt);
             imgAirLaunch.setImageResource(isSelect ? airBottomSrcYes[type] : airBottomSrcNo[type]);
-            txtAirLaunch.setTextColor(isSelect ? colorYes : colorNo);
         }
     }
 
@@ -1035,20 +1049,20 @@ public class Fragment_Air extends BaseFragment {
         View view;
         int type;
         Resources resources;
-        int colorYes, colorNo;
+
         private long[] mHits = new long[2];
+        boolean isSelect;
 
         ViewHolderAirRight(final int type, final View view) {
             ButterKnife.bind(this, view);
             resources = getResources();
             this.type = type;
             this.view = view;
-            colorYes = TypedValueUtil.getColorValue(getActivity(), R.attr.custom_attr_color_txt_primary);
-            colorNo = TypedValueUtil.getColorValue(getActivity(), R.attr.custom_attr_color_txt_primaryDark);
-            view.setBackgroundDrawable(new DrawableUtil(getActivity()).getStateListDrawable(view));
+
+            refreshBg();
             imgAirRunparams.setImageResource(airRightSrcYes[type]);
             setIsSelect(type == 0);
-            txtAirRunparams.setTextColor(colorNo);
+
             txtAirRunparams.setText(resources.getStringArray(R.array.arr_air_right)[type]);
             view.setOnClickListener(new OnClickListener() {
                 @Override
@@ -1116,11 +1130,18 @@ public class Fragment_Air extends BaseFragment {
 
         }
 
-        void setIsSelect(boolean isSelect) {
+        void refreshBg(){
+            view.setBackground(new DrawableUtil(getActivity()).getStateListDrawable(view));
+            setIsSelect(isSelect);
 
+        }
+
+        void setIsSelect(boolean isSelect) {
             view.setSelected(isSelect);
-            imgAirRunparams.setImageTintList(isSelect ? R.color.white : R.color.img_no_select);
-            txtAirRunparams.setTextColor(isSelect ? colorYes : colorNo);
+            this.isSelect=isSelect;
+            imgAirRunparams.setImageTintList(isSelect ? MainApplication.getInstance().colorThemeTxtRes : R.color.img_no_select);
+            int colorTxt=ContextCompat.getColor(mContext,MainApplication.getInstance().colorThemeTxtRes);
+            txtAirRunparams.setTextColor(colorTxt);
         }
 
     }

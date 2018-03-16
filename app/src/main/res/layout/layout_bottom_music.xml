@@ -86,27 +86,30 @@
                 android:progress="0"
                 android:secondaryProgress="0"/>
         </LinearLayout>
-        <ImageView
+        <com.bilibili.magicasakura.widgets.TintImageView
             android:id="@+id/playing_pre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/sk_leku_49"
             android:padding="@dimen/margin"
+            app:imageTint="@color/theme_color_primary"
             android:layout_marginRight="@dimen/margin"/>
 
-        <ImageView
+        <com.bilibili.magicasakura.widgets.TintImageView
             android:id="@+id/playing_play"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="@dimen/margin"
             android:layout_marginRight="@dimen/margin"
-            android:src="@drawable/sk_leku_46" />
+            android:src="@drawable/sk_leku_46"
+            app:imageTint="@color/theme_color_primary"/>
 
-        <ImageView
+        <com.bilibili.magicasakura.widgets.TintImageView
             android:id="@+id/playing_next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/sk_leku_52"
+            app:imageTint="@color/theme_color_primary"
             android:padding="@dimen/margin"
             android:layout_marginRight="@dimen/margin"/>
 

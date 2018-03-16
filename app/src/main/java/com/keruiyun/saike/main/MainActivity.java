@@ -57,10 +57,11 @@ public class MainActivity extends BaseActivity implements OnFragmentListener
 		switch (position){
 			case 0://首页
 				mPageVp.setCurrentItem(0,true);
-				fragment_main.setControlStatus(-1);
 				break;
 			case 1://空调系统
 				mPageVp.setCurrentItem(1,true);
+				fragment_air.refreshRightBg();
+//				fragment_main.setControlStatus(1);
 				break;
 			case -1://系统home
 				backFinish();
